@@ -1,11 +1,11 @@
 import { FileArrowUpIcon, WarningCircleIcon } from "@phosphor-icons/react";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, memo } from "react";
 
 interface DropzoneProps {
 	onFileLoaded: (content: string, filename: string) => void;
 }
 
-export function Dropzone({ onFileLoaded }: DropzoneProps) {
+export const Dropzone = memo(function Dropzone({ onFileLoaded }: DropzoneProps) {
 	const [isDragging, setIsDragging] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 
@@ -71,9 +71,9 @@ export function Dropzone({ onFileLoaded }: DropzoneProps) {
 				onDrop={handleDrop}
 				className={`
           relative border-2 border-dashed rounded-xl p-12 text-center transition-all duration-200
-          ${
+           ${
 						isDragging
-							? "border-orange-500 bg-orange-500/10 scale-[1.02]"
+							? "border-warm-accent bg-warm-accent/10 scale-[1.02]"
 							: "border-slate-300 hover:border-slate-400 bg-slate-100/50 dark:border-slate-700 dark:hover:border-slate-600 dark:bg-black/20"
 					}
         `}
@@ -87,10 +87,10 @@ export function Dropzone({ onFileLoaded }: DropzoneProps) {
 
 				<div className="flex flex-col items-center gap-4">
 					<div
-						className={`p-4 rounded-full ${isDragging ? "bg-orange-500/20" : "bg-slate-200 dark:bg-slate-800"}`}
+						className={`p-4 rounded-full ${isDragging ? "bg-warm-accent/20" : "bg-slate-200 dark:bg-slate-800"}`}
 					>
 						<FileArrowUpIcon
-							className={`w-8 h-8 ${isDragging ? "text-orange-500" : "text-slate-500 dark:text-slate-400"}`}
+							className={`w-8 h-8 ${isDragging ? "text-warm-accent" : "text-slate-500 dark:text-slate-400"}`}
 						/>
 					</div>
 
@@ -102,11 +102,13 @@ export function Dropzone({ onFileLoaded }: DropzoneProps) {
 			</div>
 
 			{error && (
-				<div className="mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center gap-3 text-red-500 dark:text-red-400">
+				<div className="mt-4 p-4 bg-warm-error-bg border border-warm-error-border/30 rounded-lg flex items-center gap-3 text-warm-error">
 					<WarningCircleIcon className="w-5 h-5" />
 					<span>{error}</span>
 				</div>
 			)}
 		</div>
 	);
-}
+});
+
+

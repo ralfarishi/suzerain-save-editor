@@ -1,0 +1,103 @@
+import { FieldValues } from "../utils/save-manager";
+
+export interface StoryPreset {
+	id: string;
+	name: string;
+	description: string;
+	category: "Sordland" | "Rizia" | "Economy" | "Politics";
+	values: FieldValues;
+}
+
+export const storyPresets: StoryPreset[] = [
+	{
+		id: "sordland-golden-economy",
+		name: "Golden Economy",
+		description: "Maximum budget and a booming regional economy across the board. Eradicates trade war conditions.",
+		category: "Economy",
+		values: {
+			"gov-budget-hudstat": 100,
+			"gov-budget-max-hudstat": 100,
+			"gov-budget": 100,
+			"personal-wealth": 100,
+			"personal-wealth-hudstat": 100,
+			"trade-amount": 100,
+			"economic-reliance": 100,
+			"superpower-trade-war": false,
+			"black-tuesday": false,
+			"markets-crash": false,
+			"global-trade-war": false,
+			"economy-agnland": 50,
+			"economy-bergia": 50,
+			"economy-lorren": 50,
+			"economy-gruni": 50,
+			"tourism-booming": "BaseGame.Situation_Economy_Tourism_Booming",
+			"trade-increased": "BaseGame.Situation_Economy_IncreasedTrade",
+			"high-employment": "BaseGame.Situation_Economy_HighEmployment",
+			"gasom-booming": "BaseGame.Gasom_Booming",
+		},
+	},
+	{
+		id: "sordland-radical-reformer",
+		name: "Radical Reformer",
+		description: "Secures immense goodwill from the Assembly and key factions to guarantee democratic reforms.",
+		category: "Politics",
+		values: {
+			"usp-against": false,
+			"usp-obstructionist": false,
+			"albin-convinced-reform": true,
+			"gloria-convinced-reform": true,
+			"isabel-convinced-reform": true,
+			"assembly-vote-reform": 225,
+			"court-vote-reform": 8,
+			"public-opinion": 100,
+			"bludish-opinion": 100,
+			"country-unrest": -50,
+		},
+	},
+	{
+		id: "sordland-ultimate-dictator",
+		name: "Iron Dictator",
+		description: "Total control approach. Secures the votes, purges the general staff, and aligns the media state.",
+		category: "Politics",
+		values: {
+			"assembly-vote-reform": 225,
+			"court-vote-reform": 8,
+			"purge-general": true,
+			"capital-punishment": true,
+			"media-controlled": "BaseGame.Reform_PresiPower_Weak_SordishRadioTVCouncil_Controlled",
+			"remove-bank-independence": true,
+			"public-opinion": -50,
+			"country-unrest": 100,
+			"lucian-opinion": 100,
+		},
+	},
+	{
+		id: "rizia-golden-kingdom",
+		name: "Rizia: Golden Kingdom",
+		description: "Maximum budget, energy, and authority. Everything needed to secure the 'Peaceful Reunification' and 'Economic Wonder'.",
+		category: "Rizia",
+		values: {
+			"RiziaDLC.Resources_Budget": 100,
+			"RiziaDLC.Resources_Authority": 100,
+			"RiziaDLC.Resources_Energy": 100,
+			"RiziaDLC.Relations_Hugo": 100,
+			"RiziaDLC.Relations_Sal": 100,
+			"RiziaDLC.Relations_Lucita": 100,
+			"RiziaDLC.PublicOpinion": 100,
+		},
+	},
+	{
+		id: "rizia-war-path",
+		name: "Rizia: The Warmaster",
+		description: "Sets up high military manpower, ships, and energy for a successful conquest of Pales.",
+		category: "Rizia",
+		values: {
+			"RiziaDLC.Resources_Manpower": 1000,
+			"RiziaDLC.Resources_Ships": 50,
+			"RiziaDLC.Resources_Energy": 100,
+			"RiziaDLC.War_Won": true,
+			"RiziaDLC.Relations_Lucita": 100,
+			"RiziaDLC.Pales_Reclaimed": true,
+		},
+	},
+];

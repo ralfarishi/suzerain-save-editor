@@ -1,25 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
 
+:root {
+	--accent-color: #0f766e;
+	--accent-hover-color: #115e59;
+	--error-color: #be123c;
+	--error-bg: #fff1f2;
+	--error-border: #fda4af;
+}
+:root.dark {
+	--accent-color: #14b8a6;
+	--accent-hover-color: #0d9488;
+	--error-color: #fda4af;
+	--error-bg: rgba(76, 5, 25, 0.3);
+	--error-border: rgba(159, 18, 57, 0.4);
+}
+
 @theme {
-	--color-warm-bg-light: #fdf6e3;
-	--color-warm-surface-light: #fffdf5;
-	--color-warm-border-light: #d6cfc2;
-	--color-warm-text-light: #5c4033;
-	--color-warm-bg-dark: #2c241b;
-	--color-warm-surface-dark: #3d3226;
-	--color-warm-border-dark: #5e4e3e;
-	--color-warm-text-dark: #e6d5c3;
-	--color-warm-accent: #d35400;
-	--color-warm-accent-hover: #e67e22;
+	--color-warm-bg-light: #f7f7f5;
+	--color-warm-surface-light: #ffffff;
+	--color-warm-border-light: #e4e4e7;
+	--color-warm-text-light: #18181b;
+	--color-warm-bg-dark: #090a0f;
+	--color-warm-surface-dark: #121420;
+	--color-warm-border-dark: #222533;
+	--color-warm-text-dark: #e4e4e7;
+	--color-warm-accent: var(--accent-color);
+	--color-warm-accent-hover: var(--accent-hover-color);
+	--color-warm-error: var(--error-color);
+	--color-warm-error-bg: var(--error-bg);
+	--color-warm-error-border: var(--error-border);
+	--color-brass: #b8860b;
+	--color-brass-light: #daa520;
+
+	/* Custom Transitions (Tailwind v4 Theme Animations) */
+	--animate-tab-fade: tab-fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	--animate-expand: expand-height 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	--animate-fade-in: fade-in 0.3s ease-out forwards;
+	--animate-zoom-in-95: zoom-in-95 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	--animate-slide-in-right: slide-in-from-right 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	--animate-tooltip: tooltip-zoom-in 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+	@keyframes tab-fade-in {
+		from {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes expand-height {
+		from {
+			max-height: 0;
+			opacity: 0;
+		}
+		to {
+			max-height: 1000px;
+			opacity: 1;
+		}
+	}
+	@keyframes fade-in {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+	@keyframes zoom-in-95 {
+		from { opacity: 0; transform: scale(0.95); }
+		to { opacity: 1; transform: scale(1); }
+	}
+	@keyframes slide-in-from-right {
+		from { transform: translateX(20px); opacity: 0; }
+		to { transform: translateX(0); opacity: 1; }
+	}
+	@keyframes tooltip-zoom-in {
+		from { opacity: 0; transform: translateX(-50%) translateY(4px) scale(0.95); }
+		to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+	}
+}
+
+@utility bg-noise {
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3%3E");
+	background-repeat: repeat;
+}
+
+@utility shadow-tactile {
+	box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@utility shadow-tactile-press {
+	box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+@utility contain-paint {
+	content-visibility: auto;
+	contain-intrinsic-size: 1px 150px;
+}
+
+@utility accordion-grid {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms ease-in-out;
+}
+
+@utility accordion-grid-open {
+	grid-template-rows: 1fr;
 }
 
 body {
 	@apply m-0 transition-colors duration-300 ease-in-out;
-	font-family:
-		-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-		"Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -43,4 +135,17 @@ code {
 button {
 	cursor: pointer;
 }
+
+@utility hover-tactile {
+	transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+	&:hover {
+		transform: translateY(-2px);
+	}
+	&:active {
+		transform: scale(0.98);
+	}
+}
+
+
+
 

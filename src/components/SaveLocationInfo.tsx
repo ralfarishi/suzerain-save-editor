@@ -9,8 +9,8 @@ export default function SaveLocationInfo({ isOpen, onClose }: SaveLocationInfoPr
 	if (!isOpen) return null;
 
 	return (
-		<div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
-			<div className="bg-white dark:bg-warm-bg-dark rounded-xl shadow-2xl max-w-2xl w-full border border-slate-200 dark:border-white/10 overflow-hidden animate-in zoom-in-95 duration-200">
+		<div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
+			<div className="bg-white dark:bg-warm-bg-dark rounded-xl shadow-2xl max-w-2xl w-full border border-slate-200 dark:border-white/10 overflow-hidden animate-zoom-in-95">
 				<div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-white/5 bg-slate-50/50 dark:bg-black/20">
 					<h3 className="text-xl font-bold text-slate-900 dark:text-warm-text-dark">
 						Locating Your Save File
@@ -26,7 +26,7 @@ export default function SaveLocationInfo({ isOpen, onClose }: SaveLocationInfoPr
 				<div className="p-6 space-y-6">
 					<p className="text-slate-600 dark:text-slate-400">
 						The save file is usually named{" "}
-						<code className="px-2 py-1 rounded bg-slate-100 dark:bg-black/30 text-orange-600 dark:text-orange-400 font-mono text-sm">
+						<code className="px-2 py-1 rounded bg-slate-100 dark:bg-black/30 text-warm-accent font-mono text-sm">
 							Active_date_time.json
 						</code>
 						. Here is where you can find it on your system:
@@ -53,12 +53,12 @@ export default function SaveLocationInfo({ isOpen, onClose }: SaveLocationInfoPr
 							</code>
 						</div>
 
-						<div className="p-4 rounded-lg bg-orange-50 dark:bg-orange-900/10 border border-orange-100 dark:border-orange-900/20">
-							<div className="flex items-center gap-2 mb-2 font-semibold text-orange-900 dark:text-orange-300">
+						<div className="p-4 rounded-lg bg-brass/5 dark:bg-brass-light/5 border border-brass/20 dark:border-brass-light/30">
+							<div className="flex items-center gap-2 mb-2 font-semibold text-brass dark:text-brass-light">
 								<LinuxLogoIcon className="w-5 h-5" />
 								<span>Linux</span>
 							</div>
-							<code className="block p-3 rounded bg-white dark:bg-black/20 text-sm font-mono text-slate-700 dark:text-slate-300 break-all border border-orange-100 dark:border-orange-900/20 select-all">
+							<code className="block p-3 rounded bg-white dark:bg-black/20 text-sm font-mono text-slate-700 dark:text-slate-300 break-all border border-brass/20 dark:border-brass-light/30 select-all">
 								~/.config/unity3d/Torpor Games/Suzerain/
 							</code>
 						</div>

@@ -1,7 +1,7 @@
 import { MoonIcon, SunDimIcon } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 
-export function ThemeSwitcher() {
+export const ThemeSwitcher = memo(function ThemeSwitcher() {
 	const [theme, setTheme] = useState<"light" | "dark">("dark");
 
 	useEffect(() => {
@@ -26,4 +26,5 @@ export function ThemeSwitcher() {
 			{theme === "light" ? <MoonIcon className="w-5 h-5" /> : <SunDimIcon className="w-5 h-5" />}
 		</button>
 	);
-}
+});
+

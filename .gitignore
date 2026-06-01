@@ -5,6 +5,9 @@ dist-ssr
 *.local
 .env
 .output
-.agent
+
 .agents
 .vscode
+
+save-example.json
+skills-lock.json

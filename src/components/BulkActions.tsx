@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, memo } from "react";
 import { TabData } from "../data/data";
 import { FieldValues, SaveData } from "../utils/save-manager";
 import {
@@ -15,7 +15,7 @@ interface BulkActionsProps {
 	onShowToast: (type: "success" | "error", message: string) => void;
 }
 
-export function BulkActions({ activeTab, values, onUpdateValues, onShowToast }: BulkActionsProps) {
+export const BulkActions = memo(function BulkActions({ activeTab, values, onUpdateValues, onShowToast }: BulkActionsProps) {
 	// Memoize field arrays to prevent recalculation on every render
 	const numberFields = useMemo(
 		() => activeTab.sections.flatMap((s) => s.fields).filter((f) => f.type === "number"),
@@ -206,4 +206,5 @@ export function BulkActions({ activeTab, values, onUpdateValues, onShowToast }: 
 			)}
 		</div>
 	);
-}
+});
+

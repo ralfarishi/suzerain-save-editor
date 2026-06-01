@@ -1,6 +1,20 @@
 import { appData, GameField } from "../data/data";
 import { convertToDatetimeLocal, convertDatetimeLocalToInitialDate } from "./date-helpers";
 
+export function parseLastModified(lastModified: string | undefined): string {
+	if (!lastModified) return "";
+	const match = /^(\d{2})-(\d{2})-(\d{4})_(\d{2})-(\d{2})/.exec(lastModified);
+	if (!match) return "";
+	const [_, day, month, year, hour, minute] = match;
+	return `${year}-${month}-${day}T${hour}:${minute}`;
+}
+
+export function getCurrentDatetimeLocal(): string {
+	const now = new Date();
+	const pad = (n: number) => n.toString().padStart(2, "0");
+	return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+}
+
 export interface SaveData {
 	variables: string;
 	[key: string]: any;
@@ -40,6 +54,18 @@ export function parseSaveFile(jsonContent: string): {
 	originalData: SaveData;
 } {
 	const data: SaveData = JSON.parse(jsonContent);
+
+	// Strict file verification validation
+	if (
+		!data ||
+		typeof data !== "object" ||
+		data.saveFileType === undefined ||
+		typeof data.variables !== "string" ||
+		!data.variables.includes("Variable={")
+	) {
+		throw new Error("Invalid Suzerain save file: incorrect file structure.");
+	}
+
 	const variablesString = data.variables;
 	const values: FieldValues = {};
 	const fields = getAllFields();
@@ -70,12 +96,19 @@ export function parseSaveFile(jsonContent: string): {
 				variablesString
 			);
 
-			if (boolMatch) {
-				values[field.id] = boolMatch[1] === "true";
+			const isChecked = boolMatch ? boolMatch[1] === "true" : false;
+			values[field.id] = isChecked;
+
+			let dateVal = "";
+			if (dateMatch && dateMatch[1]) {
+				dateVal = convertToDatetimeLocal(dateMatch[1]);
 			}
-			if (dateMatch) {
-				values[field.dateId] = convertToDatetimeLocal(dateMatch[1]);
+
+			// Fallback: If checked/unlocked, but date is empty, supply a fallback
+			if (isChecked && !dateVal) {
+				dateVal = parseLastModified(data.lastModified) || getCurrentDatetimeLocal();
 			}
+			values[field.dateId] = dateVal;
 		} else if (field.type === "radio-group") {
 			for (const option of field.options) {
 				// Allow optional spaces around '=' to match number field pattern
