@@ -42,121 +42,125 @@ export function MagicWandSidebar({ onApplyPreset, onShowToast }: MagicWandSideba
 	return (
 		<>
 			{/* Magic Wand FAB */}
-			<button
+			<button type="button"
+				aria-label="Preset Archives"
 				onClick={() => setIsOpen(true)}
-				className="fixed right-6 bottom-6 p-4 bg-warm-accent hover:bg-warm-accent-hover text-white dark:text-zinc-950 dark:font-bold rounded-full shadow-lg shadow-warm-accent/30 hover:scale-110 transition-all z-40 group focus:outline-none cursor-pointer"
-				title="Story Presets"
+				className="fixed right-6 bottom-6 p-4 bg-brass hover:bg-brass-light text-white dark:text-zinc-950 dark:font-bold rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] border-2 border-brass-light active:shadow-none active:translate-y-1 transition-all z-40 group cursor-pointer"
+				title="Preset Archives"
 				id="magic-wand-fab"
 			>
-				<SparkleIcon weight="fill" className="w-7 h-7 text-inherit" />
+				<SparkleIcon weight="fill" className="w-6 h-6 text-inherit" />
 				<span className="absolute -top-1 -right-1 flex h-4 w-4">
-					<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-accent/80 opacity-75"></span>
-					<span className="relative inline-flex rounded-full h-4 w-4 bg-warm-accent border-2 border-white dark:border-warm-surface-dark"></span>
+					<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brass-light opacity-75"></span>
+					<span className="relative inline-flex rounded-full h-4 w-4 bg-brass border-2 border-white dark:border-warm-surface-dark"></span>
 				</span>
 			</button>
 
 			{/* Backdrop */}
 			{isOpen && (
 				<div
-					className="fixed inset-0 bg-black/50 z-50 backdrop-blur-sm"
+					className="fixed inset-0 bg-black/40 z-50 backdrop-blur-sm transition-opacity duration-200"
+					role="presentation"
 					onClick={handleClose}
 				/>
 			)}
 
 			{/* Sidebar Drawer */}
 			<div
-				className={`fixed top-0 right-0 h-full w-full max-w-md bg-warm-surface-light dark:bg-warm-surface-dark shadow-2xl z-50 transform transition-transform duration-300 ease-in-out border-l border-warm-border-light dark:border-warm-border-dark ${
+				className={`fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-warm-surface-dark shadow-[-10px_0_30px_rgba(0,0,0,0.2)] z-60 transform transition-transform duration-200 ease-out border-l-4 border-brass flex flex-col ${
 					isOpen ? "translate-x-0" : "translate-x-full"
 				}`}
 			>
-				<div className="flex flex-col h-full">
-					{/* Header */}
-					<div className="flex items-center justify-between p-6 border-b border-warm-border-light dark:border-warm-border-dark">
-						<div className="flex items-center gap-3">
-							<div className="p-2 bg-warm-accent/10 dark:bg-warm-accent/20 rounded-lg">
-								<SparkleIcon weight="duotone" className="w-6 h-6 text-warm-accent" />
-							</div>
-							<h2 className="text-xl font-bold">Story Presets</h2>
-						</div>
-						<button
-							onClick={handleClose}
-							className="p-2 text-slate-500 hover:text-red-500 hover:bg-slate-100 dark:hover:bg-white/10 rounded-full transition-colors cursor-pointer"
-						>
-							<XCircleIcon className="w-6 h-6" />
-						</button>
+				{/* Header */}
+				<div className="flex items-center justify-between p-6 border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 shrink-0">
+					<div className="flex items-center gap-3">
+						<SparkleIcon weight="duotone" className="w-5 h-5 text-slate-400" />
+						<h2 className="font-serif font-bold text-lg uppercase tracking-wider text-slate-900 dark:text-white">Preset Archives</h2>
 					</div>
-
-					{/* Inline Confirm Banner */}
-					<div
-						className={`accordion-grid ${
-							pendingPresetId
-								? "accordion-grid-open opacity-100 mt-4 mx-4"
-								: "opacity-0 pointer-events-none mx-4 mt-0"
-						}`}
+					<button type="button"
+						aria-label="Close"
+						onClick={handleClose}
+						className="p-1 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded transition-colors cursor-pointer"
 					>
-						<div className="overflow-hidden">
-							{bannerPreset && (
-								<div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-300 dark:border-amber-700/50 rounded-xl">
-									<div className="flex items-start gap-2 mb-3">
-										<WarningIcon weight="fill" className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-										<div>
-											<p className="text-sm font-semibold text-amber-800 dark:text-amber-200">
-												Apply "{bannerPreset.name}"?
-											</p>
-											<p className="text-xs text-amber-700 dark:text-amber-300 mt-0.5">
-												This will override multiple field values. This cannot be undone unless you reset the tab.
-											</p>
-										</div>
-									</div>
-									<div className="flex gap-2">
-										<button
-											onClick={handleConfirmApply}
-											className="flex-1 py-2 text-sm font-semibold text-white dark:text-zinc-950 dark:font-bold bg-warm-accent hover:bg-warm-accent-hover rounded-lg transition-colors cursor-pointer"
-										>
-											Confirm
-										</button>
-										<button
-											onClick={handleCancelApply}
-											className="flex-1 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 rounded-lg transition-colors cursor-pointer"
-										>
-											Cancel
-										</button>
+						<XCircleIcon className="w-6 h-6" />
+					</button>
+				</div>
+
+				{/* Inline Confirm Banner */}
+				<div
+					className={`accordion-grid shrink-0 ${
+						pendingPresetId
+							? "accordion-grid-open opacity-100 mt-4 mx-4"
+							: "opacity-0 pointer-events-none mx-4 mt-0"
+					}`}
+				>
+					<div className="overflow-hidden">
+						{bannerPreset && (
+							<div className="p-4 bg-amber-50 dark:bg-amber-950/20 border-2 border-amber-300 dark:border-amber-700/50 shadow-inner">
+								<div className="flex items-start gap-2 mb-3">
+									<WarningIcon weight="fill" className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+									<div>
+										<p className="text-sm font-bold text-slate-900 dark:text-amber-200 uppercase tracking-wider">
+											Apply "{bannerPreset.name}"?
+										</p>
+										<p className="text-xs text-amber-800 dark:text-amber-400 mt-1 leading-relaxed">
+											This will override multiple field values. This cannot be undone unless you reset the tab.
+										</p>
 									</div>
 								</div>
-							)}
-						</div>
+								<div className="flex gap-2">
+									<button type="button"
+										onClick={handleConfirmApply}
+										className="flex-1 py-2 text-xs font-bold uppercase tracking-wider text-white dark:text-zinc-950 bg-brass hover:bg-brass-light border-2 border-brass-light shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)] active:shadow-none transition-all cursor-pointer hover-tactile"
+									>
+										Confirm
+									</button>
+									<button type="button"
+										onClick={handleCancelApply}
+										className="flex-1 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 border-2 border-slate-300 dark:border-white/10 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.05)] active:shadow-none transition-all cursor-pointer hover-tactile"
+									>
+										Cancel
+									</button>
+								</div>
+							</div>
+						)}
 					</div>
+				</div>
 
-					{/* Preset List */}
-					<div className="flex-1 overflow-y-auto p-6 space-y-4">
-						<p className="text-sm text-slate-600 dark:text-slate-400">
-							Instantly shape your save. Click a preset to review before applying.
-						</p>
+				{/* Preset List */}
+				<div className="flex-1 overflow-y-auto p-6 space-y-4 bg-noise">
+					<p className="text-sm text-slate-600 dark:text-slate-400 italic font-serif mb-6">
+						Select a classified timeline configuration to override current state parameters.
+					</p>
 
-						{storyPresets.map((preset) => (
-							<div
-								key={preset.id}
-								className={`group border rounded-xl p-5 transition-all cursor-pointer ${
-									pendingPresetId === preset.id
-										? "border-warm-accent bg-warm-accent/5 dark:bg-warm-accent/10"
-										: "border-warm-border-light dark:border-warm-border-dark bg-slate-50 dark:bg-white/5 hover:border-warm-accent/70 dark:hover:border-warm-accent"
-								}`}
-								onClick={() => handleSelectPreset(preset.id)}
-							>
-								<div className="flex justify-between items-start mb-2">
-									<h3 className="font-bold text-slate-900 dark:text-white group-hover:text-warm-accent transition-colors">
+					{storyPresets.map((preset) => (
+						<div
+							key={preset.id}
+							role="button"
+							tabIndex={0}
+							className={`group border-2 p-4 transition-all cursor-pointer shadow-sm flex items-start gap-4 ${
+								pendingPresetId === preset.id
+									? "border-brass bg-amber-50 dark:bg-amber-950/20"
+									: "border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-brass dark:hover:border-brass-light"
+							}`}
+							onClick={() => handleSelectPreset(preset.id)}
+							onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleSelectPreset(preset.id); }}
+						>
+							<div className="p-2 rounded bg-slate-50 dark:bg-white/5 group-hover:bg-amber-50 dark:group-hover:bg-amber-950/30 transition-colors shrink-0">
+								<SparkleIcon weight="fill" className="w-5 h-5 text-amber-600" />
+							</div>
+							<div>
+								<div className="flex justify-between items-start mb-1">
+									<h3 className="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-sm group-hover:text-brass transition-colors">
 										{preset.name}
 									</h3>
-									<span className="text-xs font-semibold px-2 py-1 bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-slate-300 rounded">
-										{preset.category}
-									</span>
 								</div>
-								<p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
+								<p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
 									{preset.description}
 								</p>
 							</div>
-						))}
-					</div>
+						</div>
+					))}
 				</div>
 			</div>
 		</>

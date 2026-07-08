@@ -16,16 +16,17 @@ interface BulkActionsProps {
 }
 
 export const BulkActions = memo(function BulkActions({ activeTab, values, onUpdateValues, onShowToast }: BulkActionsProps) {
-	// Memoize field arrays to prevent recalculation on every render
-	const numberFields = useMemo(
-		() => activeTab.sections.flatMap((s) => s.fields).filter((f) => f.type === "number"),
-		[activeTab]
-	);
-
-	const checkboxFields = useMemo(
-		() => activeTab.sections.flatMap((s) => s.fields).filter((f) => f.type === "checkbox"),
-		[activeTab]
-	);
+	const { numberFields, checkboxFields } = useMemo(() => {
+		const nums: import("../data/data").GameField[] = [];
+		const checks: import("../data/data").GameField[] = [];
+		for (const section of activeTab.sections) {
+			for (const field of section.fields) {
+				if (field.type === "number") nums.push(field);
+				else if (field.type === "checkbox") checks.push(field);
+			}
+		}
+		return { numberFields: nums, checkboxFields: checks };
+	}, [activeTab]);
 
 	// Memoize state calculations
 	const allMaxed = useMemo(
@@ -138,64 +139,64 @@ export const BulkActions = memo(function BulkActions({ activeTab, values, onUpda
 	if (!showNumberActions && !showCheckboxActions) return null;
 
 	return (
-		<div className="flex flex-wrap gap-3 mb-6 p-4 bg-warm-surface-light dark:bg-warm-surface-dark rounded-lg border border-warm-border-light dark:border-warm-border-dark shadow-sm">
+		<div className="flex flex-wrap gap-3 p-4 mb-8 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,0.05)]">
 			{showNumberActions && (
 				<>
-					<button
+					<button type="button"
 						onClick={handleMaxAll}
 						disabled={allMaxed}
-						className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all
+						className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all cursor-pointer border
               ${
 								allMaxed
-									? "bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-600"
-									: "text-green-700 bg-green-100 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-400 dark:hover:bg-green-900/50 cursor-pointer shadow-sm hover:shadow"
+									? "text-slate-400 bg-slate-100 border-slate-200 dark:bg-white/5 dark:text-slate-500 dark:border-white/5 cursor-not-allowed"
+									: "text-green-800 bg-green-100 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-400 dark:hover:bg-green-900/50 border-green-300 dark:border-green-800"
 							}
             `}
 					>
 						<ArrowLineUpIcon className="w-4 h-4" />
-						Max All
+						Maximize All
 					</button>
-					<button
+					<button type="button"
 						onClick={handleMinAll}
 						disabled={allMined}
-						className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all
+						className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all cursor-pointer border
               ${
 								allMined
-									? "bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-600"
-									: "text-red-700 bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-900/50 cursor-pointer shadow-sm hover:shadow"
+									? "text-slate-400 bg-slate-100 border-slate-200 dark:bg-white/5 dark:text-slate-500 dark:border-white/5 cursor-not-allowed"
+									: "text-red-800 bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-900/50 border-red-300 dark:border-red-800"
 							}
             `}
 					>
 						<ArrowLineDownIcon className="w-4 h-4" />
-						Min All
+						Minimize All
 					</button>
 				</>
 			)}
 
 			{showCheckboxActions && (
 				<>
-					<button
+					<button type="button"
 						onClick={handleCheckAll}
 						disabled={allChecked}
-						className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all
+						className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all cursor-pointer border
               ${
 								allChecked
-									? "bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-600"
-									: "text-blue-700 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 cursor-pointer shadow-sm hover:shadow"
+									? "text-slate-400 bg-slate-100 border-slate-200 dark:bg-white/5 dark:text-slate-500 dark:border-white/5 cursor-not-allowed"
+									: "text-blue-800 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 border-blue-300 dark:border-blue-800"
 							}
             `}
 					>
 						<CheckCircleIcon className="w-4 h-4" />
 						Check All
 					</button>
-					<button
+					<button type="button"
 						onClick={handleUncheckAll}
 						disabled={allUnchecked}
-						className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all
+						className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all cursor-pointer border
               ${
 								allUnchecked
-									? "bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-600"
-									: "text-red-700 bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-900/50 cursor-pointer shadow-sm hover:shadow"
+									? "text-slate-400 bg-slate-100 border-slate-200 dark:bg-white/5 dark:text-slate-500 dark:border-white/5 cursor-not-allowed"
+									: "text-amber-800 bg-amber-100 hover:bg-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:hover:bg-amber-900/50 border-amber-300 dark:border-amber-800"
 							}
             `}
 					>

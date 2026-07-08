@@ -64,47 +64,61 @@ export const Dropzone = memo(function Dropzone({ onFileLoaded }: DropzoneProps) 
 	);
 
 	return (
-		<div className="w-full max-w-2xl mx-auto mt-10">
+		<div className="w-full h-full">
 			<div
 				onDragOver={handleDragOver}
 				onDragLeave={handleDragLeave}
 				onDrop={handleDrop}
 				className={`
-          relative border-2 border-dashed rounded-xl p-12 text-center transition-all duration-200
+          relative border-2 border-dashed rounded-xl p-12 text-center transition-all duration-200 cursor-pointer overflow-hidden
            ${
 						isDragging
-							? "border-warm-accent bg-warm-accent/10 scale-[1.02]"
-							: "border-slate-300 hover:border-slate-400 bg-slate-100/50 dark:border-slate-700 dark:hover:border-slate-600 dark:bg-black/20"
+							? "border-brass bg-amber-50 dark:bg-amber-950/20 scale-[1.02]"
+							: "border-slate-400 dark:border-slate-500 bg-slate-50/50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 shadow-inner"
 					}
         `}
 			>
+				{error && (
+					<div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none select-none animate-stamp-down">
+						<div className="border-4 border-red-600/70 text-red-600/70 font-serif font-black uppercase text-3xl md:text-4xl px-8 py-3 rounded-xl -rotate-12 border-double tracking-widest bg-white/90 dark:bg-warm-surface-dark/95 shadow-lg backdrop-blur-sm">
+							[ CORRUPTED INTEL ]
+						</div>
+					</div>
+				)}
 				<input
 					type="file"
 					accept=".json"
+					aria-label="Upload Save File"
 					onChange={handleFileInput}
-					className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+					className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
 				/>
 
-				<div className="flex flex-col items-center gap-4">
+				<div className={`flex flex-col items-center gap-4 relative z-0 transition-opacity ${error ? "opacity-30" : "opacity-100"}`}>
 					<div
-						className={`p-4 rounded-full ${isDragging ? "bg-warm-accent/20" : "bg-slate-200 dark:bg-slate-800"}`}
+						className={`w-16 h-16 rounded-full border-2 shadow flex items-center justify-center mb-2 transition-colors ${
+							isDragging 
+								? "border-brass bg-amber-100 dark:bg-amber-900/30" 
+								: "bg-white dark:bg-warm-surface-dark border-slate-200 dark:border-white/10"
+						}`}
 					>
 						<FileArrowUpIcon
-							className={`w-8 h-8 ${isDragging ? "text-warm-accent" : "text-slate-500 dark:text-slate-400"}`}
+							className={`w-8 h-8 ${isDragging ? "text-brass" : "text-slate-500 dark:text-slate-400"}`}
 						/>
 					</div>
 
 					<div>
-						<h3 className="text-xl font-semibold mb-2 opacity-90">Drop your save file here</h3>
-						<p className="text-sm opacity-60">or click to browse (supports .json)</p>
+						<h3 className="font-serif font-bold text-xl text-slate-900 dark:text-white mb-2">Deposit Classified Save File Here</h3>
+						<p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm mx-auto leading-relaxed">
+							Drag & drop your Suzerain save file (.json) to initiate the decryption protocol, or click to browse.
+						</p>
 					</div>
 				</div>
 			</div>
 
 			{error && (
-				<div className="mt-4 p-4 bg-warm-error-bg border border-warm-error-border/30 rounded-lg flex items-center gap-3 text-warm-error">
-					<WarningCircleIcon className="w-5 h-5" />
-					<span>{error}</span>
+				<div className="mt-6 p-4 bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 flex items-center gap-3 text-red-700 dark:text-red-400 font-mono text-sm shadow-inner animate-fade-in">
+					<WarningCircleIcon className="w-5 h-5 shrink-0" weight="fill" />
+					<span>ERROR LOG: {error}. Please provide a valid Sordish registry file.</span>
 				</div>
 			)}
 		</div>

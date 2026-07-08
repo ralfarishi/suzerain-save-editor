@@ -1,5 +1,7 @@
 # Suzerain Save Editor & Achievements Hub
 
+[![React Doctor](https://www.react.doctor/share/badge?p=suzerain-v2&s=100&w=0&f=0)](https://www.react.doctor/share?p=suzerain-v2&s=100&w=0&f=0)
+
 The ultimate Suzerain save editor. Modify budget, public opinion, collectibles, and political decisions with ease. Secure, fast, and feature-rich for Sordland and Rizia campaigns.
 
 ## Features

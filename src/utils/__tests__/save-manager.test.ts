@@ -28,8 +28,10 @@ describe("save-manager", () => {
 		it("retrieves a field definition by its ID", () => {
 			const field = getFieldById("gov-budget");
 			expect(field).toBeDefined();
-			expect(field?.key).toBe("BaseGame.GovernmentBudget");
 			expect(field?.type).toBe("number");
+			if (field?.type === "number") {
+				expect(field.key).toBe("BaseGame.GovernmentBudget");
+			}
 		});
 
 		it("returns undefined for non-existent field ID", () => {

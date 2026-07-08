@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { GameField, Section } from "../data/data";
 import { FieldValues } from "../utils/save-manager";
-import { FormField } from "./FormField";
+import { FormField } from "./fields";
 
 interface EditorFormProps {
 	section: Section;
