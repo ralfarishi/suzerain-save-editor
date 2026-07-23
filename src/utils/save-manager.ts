@@ -22,31 +22,39 @@ export interface SaveData {
 
 export type FieldValues = Record<string, string | number | boolean>;
 
-// Create a Map for O(1) field lookups instead of O(n) array searches
+// Create a Map for O(1) field lookups by both ID and Key
 let fieldsMap: Map<string, GameField> | null = null;
+let allFieldsList: GameField[] | null = null;
 
 function getFieldsMap(): Map<string, GameField> {
 	if (!fieldsMap) {
 		fieldsMap = new Map();
+		const fieldsList: GameField[] = [];
 		for (const tab of appData) {
 			for (const section of tab.sections) {
 				for (const field of section.fields) {
 					fieldsMap.set(field.id, field);
+					if (field.key) {
+						fieldsMap.set(field.key, field);
+					}
+					fieldsList.push(field);
 				}
 			}
 		}
+		allFieldsList = fieldsList;
 	}
 	return fieldsMap;
 }
 
-// Helper to get a single field by ID (O(1) lookup)
-export function getFieldById(id: string): GameField | undefined {
-	return getFieldsMap().get(id);
+// Helper to get a single field by ID or Key (O(1) lookup)
+export function getFieldById(idOrKey: string): GameField | undefined {
+	return getFieldsMap().get(idOrKey);
 }
 
-// Helper to flatten fields (kept for backward compatibility)
+// Helper to flatten fields (deduplicated)
 export function getAllFields(): GameField[] {
-	return Array.from(getFieldsMap().values());
+	getFieldsMap();
+	return allFieldsList || [];
 }
 
 export function parseSaveFile(jsonContent: string): {

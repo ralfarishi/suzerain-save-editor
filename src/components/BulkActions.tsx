@@ -7,6 +7,8 @@ import {
 	CheckCircleIcon,
 	XCircleIcon,
 } from "@phosphor-icons/react";
+import { NumberField, CheckboxField } from "../data/types";
+
 interface BulkActionsProps {
 	activeTab: TabData;
 	values: FieldValues;
@@ -17,8 +19,8 @@ interface BulkActionsProps {
 
 export const BulkActions = memo(function BulkActions({ activeTab, values, onUpdateValues, onShowToast }: BulkActionsProps) {
 	const { numberFields, checkboxFields } = useMemo(() => {
-		const nums: import("../data/data").GameField[] = [];
-		const checks: import("../data/data").GameField[] = [];
+		const nums: NumberField[] = [];
+		const checks: CheckboxField[] = [];
 		for (const section of activeTab.sections) {
 			for (const field of section.fields) {
 				if (field.type === "number") nums.push(field);

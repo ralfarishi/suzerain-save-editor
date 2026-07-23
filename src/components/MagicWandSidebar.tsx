@@ -45,7 +45,7 @@ export function MagicWandSidebar({ onApplyPreset, onShowToast }: MagicWandSideba
 			<button type="button"
 				aria-label="Preset Archives"
 				onClick={() => setIsOpen(true)}
-				className="fixed right-6 bottom-6 p-4 bg-brass hover:bg-brass-light text-white dark:text-zinc-950 dark:font-bold rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] border-2 border-brass-light active:shadow-none active:translate-y-1 transition-all z-40 group cursor-pointer"
+				className="fixed right-5 bottom-20 md:bottom-6 p-3.5 sm:p-4 bg-brass hover:bg-brass-light text-slate-900 font-bold rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] border-2 border-brass-light active:shadow-none active:translate-y-1 transition-all z-50 group cursor-pointer"
 				title="Preset Archives"
 				id="magic-wand-fab"
 			>
@@ -59,7 +59,7 @@ export function MagicWandSidebar({ onApplyPreset, onShowToast }: MagicWandSideba
 			{/* Backdrop */}
 			{isOpen && (
 				<div
-					className="fixed inset-0 bg-black/40 z-50 backdrop-blur-sm transition-opacity duration-200"
+					className="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm transition-opacity duration-200 touch-none overscroll-none"
 					role="presentation"
 					onClick={handleClose}
 				/>
@@ -96,7 +96,7 @@ export function MagicWandSidebar({ onApplyPreset, onShowToast }: MagicWandSideba
 				>
 					<div className="overflow-hidden">
 						{bannerPreset && (
-							<div className="p-4 bg-amber-50 dark:bg-amber-950/20 border-2 border-amber-300 dark:border-amber-700/50 shadow-inner">
+							<div className="p-4 bg-amber-50 dark:bg-amber-950/20 border-2 border-amber-300 dark:border-amber-700/50 shadow-inner rounded-lg">
 								<div className="flex items-start gap-2 mb-3">
 									<WarningIcon weight="fill" className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
 									<div>
@@ -104,16 +104,27 @@ export function MagicWandSidebar({ onApplyPreset, onShowToast }: MagicWandSideba
 											Apply "{bannerPreset.name}"?
 										</p>
 										<p className="text-xs text-amber-800 dark:text-amber-400 mt-1 leading-relaxed">
-											This will override multiple field values. This cannot be undone unless you reset the tab.
+											This will override {Object.keys(bannerPreset.values).length} field parameters.
 										</p>
+										{/* Key Changes Preview */}
+										<div className="mt-2 pt-2 border-t border-amber-200 dark:border-amber-800/40 flex flex-wrap gap-1 max-h-24 overflow-y-auto">
+											{Object.entries(bannerPreset.values).map(([k, v]) => (
+												<span
+													key={k}
+													className="px-1.5 py-0.5 text-[10px] font-mono bg-amber-100 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 border border-amber-300 dark:border-amber-700/60 rounded"
+												>
+													<strong className="font-bold">{k}:</strong> {String(v)}
+												</span>
+											))}
+										</div>
 									</div>
 								</div>
-								<div className="flex gap-2">
+								<div className="flex gap-2 mt-3">
 									<button type="button"
 										onClick={handleConfirmApply}
 										className="flex-1 py-2 text-xs font-bold uppercase tracking-wider text-white dark:text-zinc-950 bg-brass hover:bg-brass-light border-2 border-brass-light shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)] active:shadow-none transition-all cursor-pointer hover-tactile"
 									>
-										Confirm
+										Confirm Apply
 									</button>
 									<button type="button"
 										onClick={handleCancelApply}
@@ -138,7 +149,7 @@ export function MagicWandSidebar({ onApplyPreset, onShowToast }: MagicWandSideba
 							key={preset.id}
 							role="button"
 							tabIndex={0}
-							className={`group border-2 p-4 transition-all cursor-pointer shadow-sm flex items-start gap-4 ${
+							className={`group border-2 p-4 transition-all cursor-pointer shadow-sm flex flex-col gap-2 rounded-lg ${
 								pendingPresetId === preset.id
 									? "border-brass bg-amber-50 dark:bg-amber-950/20"
 									: "border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-brass dark:hover:border-brass-light"
@@ -146,18 +157,23 @@ export function MagicWandSidebar({ onApplyPreset, onShowToast }: MagicWandSideba
 							onClick={() => handleSelectPreset(preset.id)}
 							onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleSelectPreset(preset.id); }}
 						>
-							<div className="p-2 rounded bg-slate-50 dark:bg-white/5 group-hover:bg-amber-50 dark:group-hover:bg-amber-950/30 transition-colors shrink-0">
-								<SparkleIcon weight="fill" className="w-5 h-5 text-amber-600" />
-							</div>
-							<div>
-								<div className="flex justify-between items-start mb-1">
-									<h3 className="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-sm group-hover:text-brass transition-colors">
-										{preset.name}
-									</h3>
+							<div className="flex items-start gap-4">
+								<div className="p-2 rounded bg-slate-50 dark:bg-white/5 group-hover:bg-amber-50 dark:group-hover:bg-amber-950/30 transition-colors shrink-0">
+									<SparkleIcon weight="fill" className="w-5 h-5 text-amber-600" />
 								</div>
-								<p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-									{preset.description}
-								</p>
+								<div className="flex-1">
+									<div className="flex justify-between items-start mb-1">
+										<h3 className="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-sm group-hover:text-brass transition-colors">
+											{preset.name}
+										</h3>
+										<span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 rounded-full border border-slate-200 dark:border-white/10">
+											{Object.keys(preset.values).length} parameters
+										</span>
+									</div>
+									<p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+										{preset.description}
+									</p>
+								</div>
 							</div>
 						</div>
 					))}

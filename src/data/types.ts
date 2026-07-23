@@ -22,6 +22,7 @@ export interface RadioOption {
 	key: string;
 	id: string;
 	label: string;
+	description?: string;
 }
 
 export interface RadioGroupField extends BaseField {

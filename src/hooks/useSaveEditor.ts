@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { appData } from "../data/data";
 import {
 	parseSaveFile,
@@ -22,15 +22,33 @@ export function useSaveEditor() {
 	const [showHelp, setShowHelp] = useState(false);
 	const [stamped, setStamped] = useState(false);
 
-	useEffect(() => {
-		if (toast) {
-			const timer = setTimeout(() => setToast(null), 3000);
-			return () => clearTimeout(timer);
-		}
-	}, [toast]);
+	const toastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-	const handleShowToast = useCallback((type: "success" | "error", message: string) => {
+	const handleCloseToast = useCallback(() => {
+		if (toastTimeoutRef.current) {
+			clearTimeout(toastTimeoutRef.current);
+			toastTimeoutRef.current = null;
+		}
+		setToast(null);
+	}, []);
+
+	const handleShowToast = useCallback((type: "success" | "error", message: string, duration = 4000) => {
+		if (toastTimeoutRef.current) {
+			clearTimeout(toastTimeoutRef.current);
+		}
 		setToast({ type, message });
+		toastTimeoutRef.current = setTimeout(() => {
+			setToast(null);
+			toastTimeoutRef.current = null;
+		}, duration);
+	}, []);
+
+	useEffect(() => {
+		return () => {
+			if (toastTimeoutRef.current) {
+				clearTimeout(toastTimeoutRef.current);
+			}
+		};
 	}, []);
 
 	const validateField = useCallback(
@@ -76,24 +94,20 @@ export function useSaveEditor() {
 				setErrors(newErrors);
 
 				if (Object.keys(newErrors).length > 0) {
-					setToast({
-						type: "error",
-						message: `Loaded with ${Object.keys(newErrors).length} validation errors.`,
-					});
+					handleShowToast("error", `Loaded with ${Object.keys(newErrors).length} validation errors.`);
 				} else {
-					setToast({ type: "success", message: "Save file loaded successfully" });
+					handleShowToast("success", "Save file loaded successfully");
 				}
 			} catch (error) {
-				setToast({
-					type: "error",
-					message:
-						error instanceof Error
-							? error.message
-							: "Failed to parse save file. Please ensure it is a valid Suzerain save.",
-				});
+				handleShowToast(
+					"error",
+					error instanceof Error
+						? error.message
+						: "Failed to parse save file. Please ensure it is a valid Suzerain save.",
+				);
 			}
 		},
-		[validateField],
+		[validateField, handleShowToast],
 	);
 
 	const handleValueChange = useCallback(
@@ -128,16 +142,27 @@ export function useSaveEditor() {
 	const handleBulkUpdate = useCallback(
 		(newValues: Partial<FieldValues>) => {
 			setValues((prev) => {
-				const merged = { ...prev, ...newValues } as FieldValues;
+				const merged = { ...prev };
+				Object.entries(newValues).forEach(([keyOrId, val]) => {
+					if (val === undefined) return;
+					const field = getFieldById(keyOrId);
+					if (field) {
+						merged[field.id] = val;
+					} else {
+						merged[keyOrId] = val;
+					}
+				});
 
 				setErrors((prevErrors) => {
 					const newErrors = { ...prevErrors };
-					Object.keys(newValues).forEach((id) => {
-						const error = validateField(id, newValues[id]);
+					Object.entries(newValues).forEach(([keyOrId, val]) => {
+						const field = getFieldById(keyOrId);
+						const targetId = field ? field.id : keyOrId;
+						const error = validateField(targetId, val);
 						if (error) {
-							newErrors[id] = error;
+							newErrors[targetId] = error;
 						} else {
-							delete newErrors[id];
+							delete newErrors[targetId];
 						}
 					});
 					return newErrors;
@@ -162,14 +187,14 @@ export function useSaveEditor() {
 			});
 		});
 		handleBulkUpdate(newValues);
-		setToast({ type: "success", message: "Tab values reset to original." });
-	}, [activeTabId, values, initialValues, handleBulkUpdate]);
+		handleShowToast("success", "Tab values reset to original.");
+	}, [activeTabId, values, initialValues, handleBulkUpdate, handleShowToast]);
 
 	const handleDownload = useCallback(() => {
 		if (!originalData) return;
 
 		if (Object.keys(errors).length > 0) {
-			setToast({ type: "error", message: "Please fix validation errors before downloading." });
+			handleShowToast("error", "Please fix validation errors before downloading.");
 			return;
 		}
 
@@ -188,14 +213,14 @@ export function useSaveEditor() {
 				document.body.removeChild(a);
 				URL.revokeObjectURL(url);
 
-				setToast({ type: "success", message: "Save file generated successfully." });
+				handleShowToast("success", "Save file generated successfully.");
 				setTimeout(() => setStamped(false), 500);
 			} catch (error) {
-				setToast({ type: "error", message: "Failed to generate save file." });
+				handleShowToast("error", "Failed to generate save file.");
 				setStamped(false);
 			}
 		}, 800);
-	}, [originalData, values, errors]);
+	}, [originalData, values, errors, handleShowToast]);
 
 	const handleReset = useCallback(() => {
 		setFileLoaded(false);
@@ -239,6 +264,7 @@ export function useSaveEditor() {
 		setShowHelp,
 		stamped,
 		handleShowToast,
+		handleCloseToast,
 		handleFileLoaded,
 		handleValueChange,
 		handleBulkUpdate,
