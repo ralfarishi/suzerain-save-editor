@@ -5,6 +5,7 @@ import {
   TrophyIcon,
   RepeatIcon,
   QuestionMarkIcon,
+  WarningCircleIcon,
 } from "@phosphor-icons/react";
 
 interface PlannerResultProps {
@@ -13,7 +14,7 @@ interface PlannerResultProps {
 }
 
 export function PlannerResult({ result, totalSelected }: PlannerResultProps) {
-  const { groups, uncoverable, totalRuns } = result;
+  const { groups, uncoverable, totalRuns, crossRunConflicts } = result;
 
   const [activeRunTab, setActiveRunTab] = useState<number | "all">("all");
   const [forceExpandState, setForceExpandState] = useState<boolean | undefined>(
@@ -86,6 +87,49 @@ export function PlannerResult({ result, totalSelected }: PlannerResultProps) {
           </div>
         </div>
       </div>
+
+      {/* Cross-run conflict warning — shown when two selected achievements are
+          exclusive in a single playthrough but split across different runs */}
+      {crossRunConflicts.length > 0 && (
+        <div className="border-2 border-red-400/60 dark:border-red-500/40 bg-red-50/70 dark:bg-red-950/20 p-5">
+          <div className="flex items-start gap-3 mb-4">
+            <WarningCircleIcon
+              weight="fill"
+              className="w-5 h-5 text-red-500 shrink-0 mt-0.5"
+            />
+            <div>
+              <p className="text-xs font-black uppercase tracking-widest text-red-700 dark:text-red-400 mb-1">
+                Cross-Run Conflict{crossRunConflicts.length !== 1 ? "s" : ""} Detected ({crossRunConflicts.length})
+              </p>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                These achievement pairs cannot be obtained in the same playthrough.
+                Both are achievable — you will need separate playthroughs of the same campaign.
+              </p>
+            </div>
+          </div>
+          <div className="space-y-3">
+            {crossRunConflicts.map((conflict, idx) => (
+              <div
+                key={idx}
+                className="bg-white dark:bg-black/20 border border-red-200 dark:border-red-900/50 p-3"
+              >
+                <div className="flex flex-wrap items-center gap-1.5 text-xs font-mono mb-2">
+                  <span className="px-2 py-0.5 bg-red-100 dark:bg-red-900/40 text-red-800 dark:text-red-300 font-bold">
+                    {conflict.achievementA}
+                  </span>
+                  <span className="text-slate-400 shrink-0 font-sans">vs</span>
+                  <span className="px-2 py-0.5 bg-red-100 dark:bg-red-900/40 text-red-800 dark:text-red-300 font-bold">
+                    {conflict.achievementB}
+                  </span>
+                </div>
+                <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                  {conflict.reason}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Run Groups */}
       {groups.length > 0 && (

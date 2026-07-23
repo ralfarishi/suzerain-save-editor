@@ -10,6 +10,21 @@ export interface ConflictPair {
   reason: string;
 }
 
+/**
+ * A conflict between two achievements that belong to DIFFERENT runs.
+ * Both can still be obtained — but they require separate playthroughs
+ * of the same campaign segment.
+ */
+export interface CrossRunConflict {
+  runAId: string;
+  runBId: string;
+  runATitle: string;
+  runBTitle: string;
+  achievementA: string;
+  achievementB: string;
+  reason: string;
+}
+
 export interface RunGroup {
   run: Run;
   /** Selected achievements this run can cover */
@@ -25,6 +40,8 @@ export interface RecommendationResult {
   /** Achievements with no run assignment at all (RNG / unmapped) */
   uncoverable: string[];
   totalRuns: number;
+  /** Pairs of achievements exclusive across run boundaries (same game, different playthroughs) */
+  crossRunConflicts: CrossRunConflict[];
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -84,6 +101,57 @@ function findMinimumCover(
 
   if (bestMask === -1) return candidateRuns; // fallback: all runs
   return candidateRuns.filter((_, i) => bestMask & (1 << i));
+}
+
+/**
+ * Detects conflicts between achievements that belong to different chosen runs.
+ * These are achievements that are exclusive in a single playthrough, so a player
+ * must replay the relevant campaign segment — but both CAN be obtained eventually.
+ */
+function detectCrossRunConflicts(
+  chosenRuns: Run[],
+  selectedSet: Set<string>
+): CrossRunConflict[] {
+  const conflicts: CrossRunConflict[] = [];
+  const seen = new Set<string>();
+
+  for (let i = 0; i < chosenRuns.length; i++) {
+    const runA = chosenRuns[i];
+    if (!runA.crossRunExclusivePairs || runA.crossRunExclusivePairs.length === 0) continue;
+
+    const runASet = new Set(runA.achievements);
+
+    for (let j = 0; j < chosenRuns.length; j++) {
+      if (i === j) continue;
+      const runB = chosenRuns[j];
+      const runBSet = new Set(runB.achievements);
+
+      for (const [achA, achB] of runA.crossRunExclusivePairs) {
+        // Only flag if the user actually selected BOTH conflicting achievements
+        if (!selectedSet.has(achA) || !selectedSet.has(achB)) continue;
+        // Confirm ownership: achA in runA, achB in runB
+        if (!runASet.has(achA) || !runBSet.has(achB)) continue;
+
+        // Deduplicate symmetric pairs (A-B and B-A produce the same conflict)
+        const key = [achA, achB].sort().join("|");
+        if (seen.has(key)) continue;
+        seen.add(key);
+
+        conflicts.push({
+          runAId: runA.id,
+          runBId: runB.id,
+          runATitle: runA.title,
+          runBTitle: runB.title,
+          achievementA: achA,
+          achievementB: achB,
+          reason:
+            `Requires separate playthroughs — both are obtainable, but not in the same run.`,
+        });
+      }
+    }
+  }
+
+  return conflicts;
 }
 
 function detectIntraRunConflicts(
@@ -188,25 +256,27 @@ export function computeRecommendation(
     }
   }
 
+  const selectedSet = new Set(selectedNames);
+
   // 5. Build run groups
   const groups: RunGroup[] = chosenRuns.map((run) => {
+    const runSet = new Set(run.achievements);
+    // Only include achievements whose primary owner is this run (deduplication fix:
+    // shared achievements like progression chapters now appear in exactly one card).
     const targetAchievements = coverable.filter(
-      (a) => assignedTo.get(a) === run || new Set(run.achievements).has(a)
-    ).filter((a) => new Set(run.achievements).has(a));
+      (a) => assignedTo.get(a) === run && runSet.has(a)
+    );
 
-    // De-duplicate (an achievement may appear in multiple chosen runs)
-    const uniqueTargets = [...new Set(targetAchievements)];
-
-    const intraRunConflicts = detectIntraRunConflicts(run, uniqueTargets);
+    const intraRunConflicts = detectIntraRunConflicts(run, targetAchievements);
     const bonusAchievements = getBonusAchievements(
       run,
-      uniqueTargets,
+      targetAchievements,
       selectedNames
     );
 
     return {
       run,
-      targetAchievements: uniqueTargets,
+      targetAchievements,
       bonusAchievements,
       intraRunConflicts,
     };
@@ -215,10 +285,14 @@ export function computeRecommendation(
   // Sort: most target achievements first
   groups.sort((a, b) => b.targetAchievements.length - a.targetAchievements.length);
 
+  // 6. Detect cross-run conflicts (achievements exclusive in one playthrough but spread across runs)
+  const crossRunConflicts = detectCrossRunConflicts(chosenRuns, selectedSet);
+
   return {
     groups,
     uncoverable,
     totalRuns: chosenRuns.length,
+    crossRunConflicts,
   };
 }
 

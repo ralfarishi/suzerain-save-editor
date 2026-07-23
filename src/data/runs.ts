@@ -35,6 +35,13 @@ export interface Run {
    * e.g., all Sordland endings, all ideology archetypes, all Rizia legacy titles.
    */
   exclusiveGroups: string[][];
+  /**
+   * Pairs of achievements exclusive with achievements in ANOTHER run.
+   * Format: [achievementInThisRun, achievementInAnotherRun]
+   * Surfaced as a cross-run conflict warning in the planner when the user
+   * selects both. Both achievements ARE obtainable — just not in the same playthrough.
+   */
+  crossRunExclusivePairs?: [string, string][];
   sourceVersion: string;
   isVerifiedLatest: boolean;
 }
@@ -309,6 +316,10 @@ export const runs: Run[] = [
       SORDLAND_ENDINGS,
       ["Authoritarian", "Sollist", "Centrist", "Malenyevist", "Capitalist"],
     ],
+    crossRunExclusivePairs: [
+      // SSP vs ACP — binary agency choice, one per playthrough
+      ["Sssh!", "Drain the Swamp"],
+    ],
     sourceVersion: "3.1.0.1.153",
     isVerifiedLatest: true,
   },
@@ -394,6 +405,10 @@ export const runs: Run[] = [
     exclusiveGroups: [
       SORDLAND_ENDINGS,
       ["Democrat", "Centrist", "Malenyevist", "Capitalist"],
+    ],
+    crossRunExclusivePairs: [
+      // ACP vs SSP — binary agency choice, one per playthrough
+      ["Drain the Swamp", "Sssh!"],
     ],
     sourceVersion: "3.1.0.1.153",
     isVerifiedLatest: true,
@@ -495,6 +510,12 @@ export const runs: Run[] = [
       RIZIA_ENDINGS,
       RIZIA_TITLES,
     ],
+    crossRunExclusivePairs: [
+      // Theocracy requires no decriminalization of homosexuality — blocks Out And Proud (C2)
+      // Verified: Sal Ignacius refuses cooperation if you decriminalize homosexuality
+      ["Wruhec's Second Coming", "Out And Proud"],
+      ["By Nur's Will, I Decree!", "Out And Proud"],
+    ],
     sourceVersion: "3.1.0.1.153",
     isVerifiedLatest: true,
   },
@@ -593,6 +614,12 @@ export const runs: Run[] = [
     exclusiveGroups: [
       RIZIA_ENDINGS,
       RIZIA_TITLES,
+    ],
+    crossRunExclusivePairs: [
+      // Out And Proud requires decriminalizing homosexuality — blocks theocracy (C1)
+      // Verified: decriminalization is mandatory before Turn 8 to unlock the romance achievement
+      ["Out And Proud", "Wruhec's Second Coming"],
+      ["Out And Proud", "By Nur's Will, I Decree!"],
     ],
     sourceVersion: "3.1.0.1.153",
     isVerifiedLatest: true,
