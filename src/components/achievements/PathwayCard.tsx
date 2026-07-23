@@ -1,34 +1,96 @@
-import { Pathway } from "../../data/pathways";
+import { Pathway, PathwayTag } from "../../data/pathways";
 import { steamAchievements } from "../../data/steam_achievements";
 import { WarningIcon, ListNumbersIcon, CaretDownIcon, TrophyIcon, CheckCircleIcon, XCircleIcon, ArrowSquareOutIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 
-export function PathwayCard({ pathway }: { pathway: Pathway }) {
+const TAG_STAMP_STYLES: Record<PathwayTag, { bg: string; border: string; text: string; symbol?: string }> = {
+	Sordland: {
+		bg: "bg-blue-100 dark:bg-blue-950/60",
+		border: "border-blue-300 dark:border-blue-500/40",
+		text: "text-blue-900 dark:text-blue-300",
+		symbol: "§",
+	},
+	Rizia: {
+		bg: "bg-purple-100 dark:bg-purple-950/60",
+		border: "border-purple-300 dark:border-purple-500/40",
+		text: "text-purple-900 dark:text-purple-300",
+		symbol: "✦",
+	},
+	Reformist: {
+		bg: "bg-emerald-100 dark:bg-emerald-950/60",
+		border: "border-emerald-300 dark:border-emerald-500/40",
+		text: "text-emerald-900 dark:text-emerald-300",
+	},
+	Authoritarian: {
+		bg: "bg-red-100 dark:bg-red-950/60",
+		border: "border-red-300 dark:border-red-500/40",
+		text: "text-red-900 dark:text-red-300",
+	},
+	Diplomatic: {
+		bg: "bg-sky-100 dark:bg-sky-950/60",
+		border: "border-sky-300 dark:border-sky-500/40",
+		text: "text-sky-900 dark:text-sky-300",
+	},
+	Economy: {
+		bg: "bg-amber-100 dark:bg-amber-950/60",
+		border: "border-amber-300 dark:border-amber-500/40",
+		text: "text-amber-900 dark:text-amber-300",
+	},
+	Special: {
+		bg: "bg-amber-200/70 dark:bg-brass/30",
+		border: "border-amber-400 dark:border-brass",
+		text: "text-amber-950 dark:text-brass-light",
+		symbol: "★",
+	},
+};
+
+export function PathwayCard({ pathway, highlighted }: { pathway: Pathway; highlighted?: boolean }) {
 	const [expanded, setExpanded] = useState(false);
 
 	return (
-		<div className="p-6 border-2 border-slate-300 dark:border-white/15 bg-amber-50/50 dark:bg-black/20 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden bg-noise">
+		<div
+			id={pathway.id}
+			className={`p-6 border-2 bg-amber-50/50 dark:bg-black/20 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden bg-noise scroll-mt-24 transition-all duration-700 ${
+				highlighted
+					? "border-brass shadow-[0_0_0_3px_rgba(184,134,11,0.4),4px_4px_0px_0px_rgba(0,0,0,0.08)] animate-pulse-subtle"
+					: "border-slate-300 dark:border-white/15"
+			}`}
+		>
 			<div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.03] dark:opacity-5 pointer-events-none text-9xl font-serif font-black rotate-[-20deg] select-none">
 				CLASSIFIED
 			</div>
 			
 			<div className="relative z-10">
-				<div className="flex gap-2 mb-4 flex-wrap">
-					{pathway.tags.map((tag) => (
-						<span
-							key={tag}
-							className="border-2 border-slate-800 dark:border-slate-300 text-slate-800 dark:text-slate-300 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest font-mono"
-						>
-							[ {tag} ]
-						</span>
-					))}
+				{/* Classification Stamps */}
+				<div className="flex items-center gap-2.5 mb-5 flex-wrap">
+					{pathway.tags.map((tag) => {
+						const style = TAG_STAMP_STYLES[tag] || {
+							bg: "bg-slate-200 dark:bg-slate-800/40",
+							border: "border-slate-300 dark:border-slate-500/40",
+							text: "text-slate-800 dark:text-slate-300",
+						};
+
+						return (
+							<span
+								key={tag}
+								className={`inline-flex items-center gap-1.5 px-3 py-1 text-[10px] font-serif font-black uppercase tracking-widest border rounded-md shadow-sm ${style.bg} ${style.border} ${style.text}`}
+							>
+								{style.symbol && <span className="text-xs leading-none">{style.symbol}</span>}
+								<span>{tag}</span>
+							</span>
+						);
+					})}
+
+					{/* Declassified Certification Seal */}
 					{pathway.isVerifiedLatest ? (
-						<span className="border-2 border-green-800 dark:border-green-500 text-green-800 dark:text-green-500 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest font-mono">
-							[ VERIFIED v{pathway.sourceVersion} ]
+						<span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-100 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-500/40 text-emerald-900 dark:text-emerald-300 text-[10px] font-serif font-black uppercase tracking-widest rounded-md shadow-sm">
+							<CheckCircleIcon weight="fill" className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+							<span>VERIFIED DOSSIER • V{pathway.sourceVersion}</span>
 						</span>
 					) : (
-						<span className="border-2 border-amber-800 dark:border-amber-500 text-amber-800 dark:text-amber-500 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest font-mono">
-							[ OUTDATED v{pathway.sourceVersion} ]
+						<span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-500/40 text-amber-900 dark:text-amber-300 text-[10px] font-serif font-black uppercase tracking-widest rounded-md shadow-sm">
+							<WarningIcon weight="fill" className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+							<span>LEGACY DOSSIER • V{pathway.sourceVersion}</span>
 						</span>
 					)}
 				</div>

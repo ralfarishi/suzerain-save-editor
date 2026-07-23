@@ -1,16 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useCallback } from "react";
-import { ArrowLeftIcon, GridFourIcon, ListDashesIcon, ShieldCheckIcon } from "@phosphor-icons/react";
-import { ThemeSwitcher } from "../components/ThemeSwitcher";
+import { ArrowLeftIcon, GridFourIcon, ListDashesIcon, ShieldCheckIcon, MagicWandIcon } from "@phosphor-icons/react";
+import { ThemeSwitcher, ThemeNavButton } from "../components/ThemeSwitcher";
 import { PathwaysList } from "../components/achievements/PathwaysList";
 import { AchievementGallery } from "../components/achievements/AchievementGallery";
 
 export const Route = createFileRoute("/achievements")({
+	validateSearch: (search: Record<string, unknown>) => ({
+		pathway: typeof search.pathway === "string" ? search.pathway : undefined,
+	}),
 	component: AchievementsHub,
 });
 
 function AchievementsHub() {
-	const [activeTab, setActiveTab] = useState<"guides" | "gallery">("guides");
+	const { pathway } = Route.useSearch();
+	// When deep-linked from the planner, ensure the guides tab is active
+	const [activeTab, setActiveTab] = useState<"guides" | "gallery">(pathway ? "guides" : "guides");
 
 
 	const handleNavigateToGuides = useCallback(() => {
@@ -29,6 +34,13 @@ function AchievementsHub() {
 					</div>
 					<div className="flex items-center gap-6">
 						<Link
+							to="/planner"
+							className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 hover:text-warm-accent transition-colors"
+						>
+							<MagicWandIcon className="w-4 h-4" />
+							Planner
+						</Link>
+						<Link
 							to="/"
 							className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-warm-accent transition-colors"
 						>
@@ -40,48 +52,77 @@ function AchievementsHub() {
 				</div>
 			</header>
 
-			{/* Mobile Nav Console - 'The Chancellor's Desk' Aesthetic */}
-			<nav className="md:hidden fixed bottom-0 left-0 right-0 z-60 bg-warm-bg-light dark:bg-warm-bg-dark border-t-4 border-warm-border-light dark:border-warm-border-dark shadow-[0_-10px_30px_-5px_rgba(0,0,0,0.3)]">
-				<div className="absolute inset-0 bg-noise opacity-[0.03] dark:opacity-[0.05] pointer-events-none"></div>
+			{/* Mobile Nav Switchboard Bar */}
+			<nav className="md:hidden fixed bottom-0 left-0 right-0 z-60 bg-slate-900 dark:bg-black border-t-4 border-brass shadow-[0_-10px_30px_rgba(0,0,0,0.5)] bg-noise">
+				<div className="h-1 bg-brass w-full" />
 				
-				<div className="relative max-w-lg mx-auto px-4 py-3 flex items-end justify-between gap-4">
-					<div className="flex gap-2 p-1 bg-warm-surface-light dark:bg-black/20 rounded-xl border border-warm-border-light dark:border-white/5 shadow-tactile">
-						<Link
-							to="/"
-							className="flex items-center justify-center w-11 h-11 bg-white dark:bg-warm-surface-dark rounded-lg text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-warm-border-dark active:shadow-tactile-press active:translate-y-0.5 transition-all group"
-							title="Back to Editor"
-						>
-							<ArrowLeftIcon weight="bold" className="w-5 h-5 group-active:scale-90 transition-transform" />
-						</Link>
-						<ThemeSwitcher />
-					</div>
+				<div className="max-w-lg mx-auto grid grid-cols-5 gap-1.5 p-2">
+					{/* 1. Back to Editor */}
+					<Link
+						to="/"
+						className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-200 transition-all group"
+						title="Back to Editor"
+					>
+						<ArrowLeftIcon weight="bold" className="w-5 h-5 text-slate-300 mb-0.5 group-active:scale-90" />
+						<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
+							Editor
+						</span>
+					</Link>
 
-					<div className="flex items-center bg-warm-surface-light dark:bg-black/20 p-1 rounded-xl border border-warm-border-light dark:border-white/5 shadow-inner">
-						<button type="button"
-							aria-label="Pathways & Guides"
-							onClick={() => setActiveTab("guides")}
-							className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all ${
-								activeTab === "guides" 
-									? "bg-brass text-slate-900 shadow-sm" 
-									: "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
-							}`}
-						>
-							<ListDashesIcon weight={activeTab === "guides" ? "bold" : "regular"} className="w-5 h-5" />
-						</button>
-						<button type="button"
-							aria-label="Raw Achievements"
-							onClick={() => setActiveTab("gallery")}
-							className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all ${
-								activeTab === "gallery" 
-									? "bg-brass text-slate-900 shadow-sm" 
-									: "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
-							}`}
-						>
-							<GridFourIcon weight={activeTab === "gallery" ? "bold" : "regular"} className="w-5 h-5" />
-						</button>
-					</div>
+					{/* 2. Theme Switcher */}
+					<ThemeNavButton />
+
+					{/* 3. Achievement Planner */}
+					<Link
+						to="/planner"
+						className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-200 transition-all group"
+						title="Achievement Planner"
+					>
+						<MagicWandIcon weight="duotone" className="w-5 h-5 text-brass mb-0.5 group-active:scale-90" />
+						<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
+							Planner
+						</span>
+					</Link>
+
+					{/* 4. Operational Pathways Tab */}
+					<button
+						type="button"
+						onClick={() => setActiveTab("guides")}
+						className={`
+							flex flex-col items-center justify-center py-2 px-1 rounded-xl border transition-all cursor-pointer
+							${
+								activeTab === "guides"
+									? "bg-brass text-slate-900 border-brass-light shadow-[0_3px_0_0_#684b06]"
+									: "bg-slate-800/80 text-slate-300 border-white/10 hover:border-brass/40"
+							}
+						`}
+					>
+						<ListDashesIcon weight={activeTab === "guides" ? "bold" : "regular"} className="w-5 h-5 mb-0.5" />
+						<span className="text-[9px] font-mono font-bold uppercase tracking-wider">
+							Pathways
+						</span>
+					</button>
+
+					{/* 4. Raw Achievements Gallery Tab */}
+					<button
+						type="button"
+						onClick={() => setActiveTab("gallery")}
+						className={`
+							flex flex-col items-center justify-center py-2 px-1 rounded-xl border transition-all cursor-pointer
+							${
+								activeTab === "gallery"
+									? "bg-brass text-slate-900 border-brass-light shadow-[0_3px_0_0_#684b06]"
+									: "bg-slate-800/80 text-slate-300 border-white/10 hover:border-brass/40"
+							}
+						`}
+					>
+						<GridFourIcon weight={activeTab === "gallery" ? "bold" : "regular"} className="w-5 h-5 mb-0.5" />
+						<span className="text-[9px] font-mono font-bold uppercase tracking-wider">
+							Gallery
+						</span>
+					</button>
 				</div>
-				<div className="h-4 bg-transparent"></div>
+				<div className="h-2 bg-transparent" />
 			</nav>
 
 			{/* Main Content */}
@@ -136,7 +177,7 @@ function AchievementsHub() {
 				{/* Content Area */}
 				<div className="animate-in fade-in duration-500">
 					{activeTab === "guides" ? (
-						<PathwaysList />
+						<PathwaysList highlightId={pathway} />
 					) : (
 						<AchievementGallery onNavigateToGuides={handleNavigateToGuides} />
 					)}
