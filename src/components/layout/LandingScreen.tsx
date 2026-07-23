@@ -9,19 +9,20 @@ interface LandingScreenProps {
 export function LandingScreen({ onFileLoaded, onShowHelp }: LandingScreenProps) {
 	return (
 		<div className="animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-2xl mx-auto">
-			<div className="text-center mb-12">
-				<h2 className="text-4xl font-bold font-serif uppercase tracking-widest mb-4 text-slate-900 dark:text-white">
-					State Archive Decryption
+			<div className="text-center mb-10">
+				<h2 className="text-3xl sm:text-4xl font-bold font-serif uppercase tracking-widest mb-3 text-slate-900 dark:text-white">
+					Suzerain Save Editor
 				</h2>
-				<p className="text-sm font-serif opacity-70 mb-8 italic">
-					A secure interface for amending state records and classified presidential decisions.
+				<p className="text-sm font-serif text-slate-600 dark:text-slate-300 max-w-lg mx-auto mb-6 leading-relaxed">
+					Upload your Suzerain save file (<code className="px-1.5 py-0.5 bg-black/10 dark:bg-black/40 font-mono text-xs text-brass rounded">.json</code>) to edit budget, public opinion, decrees, and achievement pathways.
 				</p>
 
-				<button type="button"
+				<button
+					type="button"
 					onClick={onShowHelp}
-					className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-brass transition-colors cursor-pointer"
+					className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-brass dark:hover:text-brass transition-colors cursor-pointer"
 				>
-					<QuestionIcon className="w-4 h-4" />
+					<QuestionIcon className="w-4 h-4 text-brass" />
 					Where can I find my save file?
 				</button>
 			</div>

@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from "react";
-import { GameField } from "../../data/data";
+import { useState, useRef } from "react";
+import { NumberField as NumberFieldType } from "../../data/types";
 import { UndoButton } from "./UndoButton";
 import { WarningCircleIcon } from "@phosphor-icons/react";
+import { ViewDensity } from "../FormToolbar";
 
 interface NumberFieldProps {
-	field: GameField;
+	field: NumberFieldType;
 	value: number | null | undefined;
 	error: string | undefined;
 	onChange: (id: string, value: number) => void;
@@ -12,6 +13,7 @@ interface NumberFieldProps {
 	cardBaseClass: string;
 	isModified: boolean;
 	handleUndo: (e: React.MouseEvent) => void;
+	density?: ViewDensity;
 }
 
 export function NumberField({
@@ -22,22 +24,19 @@ export function NumberField({
 	cardBaseClass,
 	isModified,
 	handleUndo,
+	density = "comfortable",
 }: NumberFieldProps) {
 	const [prevPropValue, setPrevPropValue] = useState(value);
 	const [localValue, setLocalValue] = useState<string>(value !== null && value !== undefined ? String(value) : "");
 	const debounceTimer = useRef<NodeJS.Timeout | null>(null);
 
-	// Instead of useEffect, derive state directly during render if the prop changed
+	const isCompact = density === "compact";
+
+	// Derive state directly during render if the prop changed
 	if (value !== prevPropValue) {
 		setPrevPropValue(value);
 		setLocalValue(value !== null && value !== undefined ? String(value) : "");
 	}
-
-	useEffect(() => {
-		return () => {
-			if (debounceTimer.current) clearTimeout(debounceTimer.current);
-		};
-	}, []);
 
 	const handleChange = (valStr: string) => {
 		setLocalValue(valStr);
@@ -60,13 +59,13 @@ export function NumberField({
 	};
 
 	return (
-		<div className={`${cardBaseClass} col-span-full`}>
-			<div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-				<div className="flex-1 max-w-sm">
-					<div className="flex items-center justify-between mb-2">
+		<div className={`${cardBaseClass} col-span-1`}>
+			<div className={`flex ${isCompact ? "flex-col gap-1.5" : "flex-col md:flex-row md:items-center justify-between gap-3"}`}>
+				<div className="flex-1 min-w-0">
+					<div className="flex items-center justify-between gap-2 mb-1">
 						<label
 							htmlFor={field.id}
-							className="block text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1"
+							className={`block ${isCompact ? "text-[11px]" : "text-xs"} font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 cursor-pointer select-none truncate`}
 						>
 							{field.label}
 						</label>
@@ -74,8 +73,8 @@ export function NumberField({
 					</div>
 				</div>
 
-				<div className="flex-1 flex items-center gap-4">
-					<div className="flex-1 space-y-1">
+				<div className="flex items-center gap-3">
+					<div className="flex-1 space-y-0.5">
 						<input
 							type="range"
 							id={`${field.id}-range`}
@@ -87,10 +86,12 @@ export function NumberField({
 							onBlur={handleBlur}
 							className="w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brass dark:accent-brass-light"
 						/>
-						<div className="flex justify-between px-1 text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 select-none">
-							<span>{field.min ?? 0}</span>
-							<span>{field.max ?? 100}</span>
-						</div>
+						{!isCompact && (
+							<div className="flex justify-between px-1 text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 select-none">
+								<span>{field.min ?? 0}</span>
+								<span>{field.max ?? 100}</span>
+							</div>
+						)}
 					</div>
 					<input
 						type="number"
@@ -100,7 +101,7 @@ export function NumberField({
 						max={field.max}
 						onChange={(e) => handleChange(e.target.value)}
 						onBlur={handleBlur}
-						className={`w-24 px-3 py-2 border-2 shadow-inner font-mono text-center rounded-lg transition-colors outline-none
+						className={`${isCompact ? "w-16 px-2 py-1 text-xs" : "w-20 px-2 py-1.5 text-sm"} border-2 shadow-inner font-mono text-center rounded-lg transition-colors outline-none
                             ${
 								error
 									? "border-warm-error bg-white dark:bg-warm-surface-dark text-warm-error focus:ring-2 focus:ring-warm-error/20"
@@ -112,8 +113,8 @@ export function NumberField({
 			</div>
 
 			{error && (
-				<div className="mt-3 flex items-center gap-2 text-warm-error text-xs font-bold animate-in slide-in-from-top-1">
-					<WarningCircleIcon weight="fill" className="w-4 h-4" />
+				<div className="mt-2 flex items-center gap-1.5 text-warm-error text-xs font-bold animate-in slide-in-from-top-1">
+					<WarningCircleIcon weight="fill" className="w-3.5 h-3.5" />
 					<span>{error}</span>
 				</div>
 			)}

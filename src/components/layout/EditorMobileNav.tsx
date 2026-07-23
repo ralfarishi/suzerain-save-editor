@@ -1,101 +1,252 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ThemeSwitcher } from "../ThemeSwitcher";
-import { ArrowCounterClockwiseIcon, FileArrowDownIcon, TrophyIcon } from "@phosphor-icons/react";
+import { ThemeNavButton } from "../ThemeSwitcher";
+import {
+	ArrowCounterClockwiseIcon,
+	FileArrowDownIcon,
+	TrophyIcon,
+	RowsIcon,
+	FileArrowUpIcon,
+	QuestionIcon,
+	MagicWandIcon,
+} from "@phosphor-icons/react";
+import { TabData } from "../../data/types";
+import { MobileSectionDrawer } from "./MobileSectionDrawer";
 
 interface EditorMobileNavProps {
 	fileLoaded: boolean;
 	hasErrors: boolean;
 	onReset: () => void;
 	onDownload: () => void;
+	activeTabId?: string;
+	onTabChange?: (tabId: string) => void;
+	tabs?: TabData[];
+	errorCounts?: Record<string, number>;
+	filename?: string;
+	onShowHelp?: () => void;
+	onUploadClick?: () => void;
 }
 
-export function EditorMobileNav({ fileLoaded, hasErrors, onReset, onDownload }: EditorMobileNavProps) {
+export function EditorMobileNav({
+	fileLoaded,
+	hasErrors,
+	onReset,
+	onDownload,
+	activeTabId,
+	onTabChange,
+	tabs = [],
+	errorCounts = {},
+	filename = "",
+	onShowHelp,
+	onUploadClick,
+}: EditorMobileNavProps) {
+	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+	const handleSelectTab = (tabId: string) => {
+		if (onTabChange) {
+			onTabChange(tabId);
+		}
+	};
+
 	return (
 		<>
-			<nav className="md:hidden fixed bottom-0 left-0 right-0 z-60 bg-slate-900 dark:bg-black border-t-4 border-brass shadow-[0_-10px_30px_-5px_rgba(0,0,0,0.3)] bg-noise">
-				<div className="relative max-w-lg mx-auto px-4 py-3 flex items-end justify-between gap-4">
-					<div className="flex gap-2 p-1 bg-black/40 rounded-xl border border-white/10 shadow-inner">
+			{/* Top Mobile Header Banner */}
+			<div className="md:hidden sticky top-0 z-40 bg-slate-900 dark:bg-black border-b-4 border-brass px-4 py-2.5 bg-noise shadow-md flex items-center justify-between">
+				<div className="flex items-center gap-2.5">
+					<div className="w-6 h-6 rounded-full border-2 border-brass flex items-center justify-center shrink-0">
+						<span className="text-brass font-serif font-bold text-xs leading-none">§</span>
+					</div>
+					<h1 className="text-xs font-serif font-black uppercase tracking-widest text-white">
+						Suzerain <span className="text-brass">Registry</span>
+					</h1>
+				</div>
+
+				{/* Active File / Status Badge */}
+				<div className="flex items-center gap-1.5 px-2.5 py-1 bg-black/60 rounded-md border border-white/10 text-[10px] font-mono text-slate-300">
+					<span
+						className={`w-2 h-2 rounded-full ${
+							fileLoaded
+								? "bg-green-500 animate-pulse shadow-[0_0_6px_rgba(34,197,94,0.8)]"
+								: "bg-slate-500 opacity-50"
+						}`}
+					/>
+					<span className="truncate max-w-[120px] uppercase font-bold tracking-wider">
+						{fileLoaded ? filename || "Active Save" : "No File Loaded"}
+					</span>
+				</div>
+			</div>
+
+			{/* Bottom Tactical Switchboard Command Console */}
+			<nav className="md:hidden fixed bottom-0 left-0 right-0 z-60 bg-slate-900 dark:bg-black border-t-4 border-brass shadow-[0_-10px_30px_rgba(0,0,0,0.5)] bg-noise">
+				{/* Top Accent Brass Line */}
+				<div className="h-1 bg-brass w-full" />
+
+				{fileLoaded ? (
+					/* ========================================================================= */
+					/* ACTIVE SAVE STATE NAVBAR: 5 Switchboard Tactical Actions                  */
+					/* ========================================================================= */
+					<div className="max-w-lg mx-auto grid grid-cols-6 gap-1 p-2">
+						{/* 1. Sections Jumper Drawer */}
+						<button
+							type="button"
+							onClick={() => setIsDrawerOpen(true)}
+							className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-200 transition-all cursor-pointer group"
+							title="Jump to Category Section"
+						>
+							<RowsIcon weight="bold" className="w-5 h-5 text-brass mb-0.5 group-active:scale-90" />
+							<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
+								Sections
+							</span>
+						</button>
+
+						{/* 2. Walkthroughs & Guides */}
 						<Link
 							to="/achievements"
-							className="flex items-center justify-center w-11 h-11 bg-slate-800 rounded-lg text-slate-400 border border-white/10 active:scale-95 transition-all group"
-							title="Walkthroughs"
+							className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-200 transition-all group"
+							title="Walkthroughs & Guides"
 						>
-							<TrophyIcon
-								weight="duotone"
-								className="w-5 h-5 group-active:scale-90 transition-transform"
-							/>
+							<TrophyIcon weight="duotone" className="w-5 h-5 text-amber-400 mb-0.5 group-active:scale-90" />
+							<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
+								Guides
+							</span>
 						</Link>
 
-						<ThemeSwitcher />
-
-						{fileLoaded && (
-							<button type="button"
-								aria-label="Reset"
-								onClick={onReset}
-								className="flex items-center justify-center w-11 h-11 bg-slate-800 rounded-lg text-slate-400 border border-white/10 active:scale-95 transition-all group cursor-pointer"
-								title="Reset"
-							>
-								<ArrowCounterClockwiseIcon
-									weight="bold"
-									className="w-5 h-5 group-active:rotate-[-45deg] transition-transform"
-								/>
-							</button>
-						)}
-					</div>
-
-					<div className="hidden min-[380px]:flex flex-col items-center mb-1">
-						<div className="w-12 h-1 bg-brass rounded-full mb-1.5 opacity-60"></div>
-						<span className="text-[10px] font-black tracking-[0.2em] uppercase opacity-40 text-white italic">
-							{fileLoaded ? "Active File" : "Stationary"}
-						</span>
-					</div>
-
-					<button type="button"
-						onClick={fileLoaded ? onDownload : () => {}}
-						disabled={fileLoaded && hasErrors}
-						className={`
-							relative h-14 min-w-[80px] px-6 rounded-xl transition-all flex items-center justify-center gap-3 border-t overflow-hidden group cursor-pointer
-							${
-								!fileLoaded
-									? "bg-slate-800 text-slate-500 border-slate-700 shadow-[0_4px_0_0_rgba(0,0,0,0.2)]"
-									: hasErrors
-										? "bg-slate-800 text-slate-500 border-slate-700 opacity-60 shadow-none cursor-not-allowed"
-										: "bg-brass hover:bg-brass-light text-slate-900 font-bold border-brass-light/30 shadow-[0_4px_0_0_#8B6508] active:shadow-none active:translate-y-1"
-							}
-						`}
-					>
-						<div className="absolute inset-0 bg-noise opacity-10 pointer-events-none"></div>
-
-						{fileLoaded ? (
-							<>
-								<FileArrowDownIcon
-									weight="bold"
-									className="w-6 h-6 animate-in zoom-in duration-300"
-								/>
-								<span className="text-xs font-black uppercase tracking-widest">Seal & Commit</span>
-							</>
-						) : (
-							<span className="text-xs font-black tracking-tighter uppercase italic px-2">
-								RAYNE
+						{/* 3. Achievement Planner */}
+						<Link
+							to="/planner"
+							className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-200 transition-all group"
+							title="Achievement Planner"
+						>
+							<MagicWandIcon weight="duotone" className="w-5 h-5 text-brass mb-0.5 group-active:scale-90" />
+							<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
+								Planner
 							</span>
-						)}
+						</Link>
 
-						{hasErrors && fileLoaded && (
-							<div className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)] animate-pulse"></div>
-						)}
-						{!hasErrors && fileLoaded && (
-							<div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.8)] animate-pulse"></div>
-						)}
-					</button>
-				</div>
-				<div className="h-4 bg-transparent"></div>
+						{/* 4. Theme Switcher */}
+						<ThemeNavButton />
+
+						{/* 5. Reset Save Values */}
+						<button
+							type="button"
+							aria-label="Reset Save"
+							onClick={onReset}
+							className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-300 transition-all cursor-pointer group"
+							title="Reset Tab Values to Initial State"
+						>
+							<ArrowCounterClockwiseIcon
+								weight="bold"
+								className="w-5 h-5 text-slate-400 mb-0.5 group-active:rotate-[-45deg] transition-transform"
+							/>
+							<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
+								Reset
+							</span>
+						</button>
+
+						{/* 6. Primary Action: Commit & Seal */}
+						<button
+							type="button"
+							onClick={onDownload}
+							disabled={hasErrors}
+							className={`
+								relative flex flex-col items-center justify-center py-2 px-1 rounded-xl border text-slate-900 font-bold transition-all cursor-pointer group overflow-hidden
+								${
+									hasErrors
+										? "bg-slate-800 text-slate-500 border-slate-700 opacity-60 cursor-not-allowed"
+										: "bg-brass border-brass-light shadow-[0_3px_0_0_#684b06] active:shadow-none active:translate-y-0.5"
+								}
+							`}
+							title="Seal & Commit Modified Save File"
+						>
+							<div className="flex items-center gap-1">
+								<FileArrowDownIcon weight="bold" className="w-5 h-5 mb-0.5 text-slate-950" />
+								<span
+									className={`w-1.5 h-1.5 rounded-full ${
+										hasErrors
+											? "bg-red-500 shadow-[0_0_4px_rgba(239,68,68,0.8)]"
+											: "bg-green-950 shadow-[0_0_4px_rgba(34,197,94,0.8)] animate-pulse"
+									}`}
+								/>
+							</div>
+							<span className="text-[9px] font-serif font-black uppercase tracking-wider text-slate-950">
+								Save
+							</span>
+						</button>
+					</div>
+				) : (
+					/* ========================================================================= */
+					/* NO FILE LOADED (STATIONARY STATE): 4 Meaningful Landing Actions           */
+					/* ========================================================================= */
+					<div className="max-w-lg mx-auto grid grid-cols-5 gap-1.5 p-2">
+						{/* 1. Upload Save File */}
+						<button
+							type="button"
+							onClick={onUploadClick || (() => window.scrollTo({ top: 0, behavior: "smooth" }))}
+							className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-brass/20 border-2 border-brass/60 text-brass hover:bg-brass/30 active:scale-95 transition-all cursor-pointer group"
+							title="Upload Save File"
+						>
+							<FileArrowUpIcon weight="bold" className="w-5 h-5 mb-0.5 text-brass group-active:scale-90" />
+							<span className="text-[9px] font-mono font-black uppercase tracking-wider text-brass">
+								Upload
+							</span>
+						</button>
+
+						{/* 2. Save Location Help */}
+						<button
+							type="button"
+							onClick={onShowHelp}
+							className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-300 transition-all cursor-pointer group"
+							title="Where to find save file?"
+						>
+							<QuestionIcon weight="bold" className="w-5 h-5 text-slate-400 mb-0.5 group-active:scale-90" />
+							<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
+								Help
+							</span>
+						</button>
+
+						{/* 3. Walkthroughs & Guides */}
+						<Link
+							to="/achievements"
+							className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-300 transition-all group"
+							title="Walkthroughs & Guides"
+						>
+							<TrophyIcon weight="duotone" className="w-5 h-5 text-amber-400 mb-0.5 group-active:scale-90" />
+							<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
+								Guides
+							</span>
+						</Link>
+
+						{/* 4. Achievement Planner */}
+						<Link
+							to="/planner"
+							className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-300 transition-all group"
+							title="Achievement Planner"
+						>
+							<MagicWandIcon weight="duotone" className="w-5 h-5 text-brass mb-0.5 group-active:scale-90" />
+							<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
+								Planner
+							</span>
+						</Link>
+
+						{/* 5. Theme Switcher */}
+						<ThemeNavButton />
+					</div>
+				)}
+
+				<div className="h-2 bg-transparent" />
 			</nav>
 
-			<div className="md:hidden flex items-center justify-center py-4 px-6 border-b-4 border-brass bg-slate-900 dark:bg-black bg-noise">
-				<h1 className="text-sm font-bold opacity-80 uppercase tracking-[0.2em] text-white">
-					Suzerain <span className="font-light text-brass">Registry</span>
-				</h1>
-			</div>
+			{/* Slide-Up Category Section Drawer */}
+			{fileLoaded && (
+				<MobileSectionDrawer
+					isOpen={isDrawerOpen}
+					onClose={() => setIsDrawerOpen(false)}
+					tabs={tabs}
+					activeTabId={activeTabId || ""}
+					onSelectTab={handleSelectTab}
+					errorCounts={errorCounts}
+				/>
+			)}
 		</>
 	);
 }

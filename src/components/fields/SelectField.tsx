@@ -1,9 +1,9 @@
-import { GameField } from "../../data/data";
+import { RadioGroupField } from "../../data/types";
 import { UndoButton } from "./UndoButton";
 import { CaretDownIcon } from "@phosphor-icons/react";
 
 interface SelectFieldProps {
-	field: GameField;
+	field: RadioGroupField;
 	value: string | number | boolean | null | undefined;
 	onChange: (id: string, value: string | number | boolean) => void;
 	cardBaseClass: string;

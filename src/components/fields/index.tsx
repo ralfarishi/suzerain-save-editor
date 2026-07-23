@@ -3,8 +3,8 @@ import { GameField } from "../../data/data";
 import { NumberField } from "./NumberField";
 import { CheckboxField } from "./CheckboxField";
 import { RadioField } from "./RadioField";
-import { SelectField } from "./SelectField";
 import { BooleanDateField } from "./BooleanDateField";
+import { ViewDensity } from "../FormToolbar";
 
 interface FormFieldProps {
 	field: GameField;
@@ -14,6 +14,7 @@ interface FormFieldProps {
 	dateValue?: string;
 	initialValue?: string | number | boolean | null | undefined;
 	initialDateValue?: string;
+	density?: ViewDensity;
 }
 
 export const FormField = memo(function FormField({
@@ -24,6 +25,7 @@ export const FormField = memo(function FormField({
 	dateValue,
 	initialValue,
 	initialDateValue,
+	density = "comfortable",
 }: FormFieldProps) {
 	const hasError = !!error;
 
@@ -47,8 +49,10 @@ export const FormField = memo(function FormField({
 		}
 	};
 
+	const paddingClass = density === "compact" ? "p-2.5" : "p-4";
+
 	// Common classes for visual states
-	const cardBaseClass = `p-4 rounded-lg border hover-tactile transition-all duration-200 ${
+	const cardBaseClass = `${paddingClass} rounded-lg border hover-tactile transition-all duration-200 ${
 		hasError
 			? "border-warm-error-border bg-warm-error-bg/30 text-warm-error"
 			: isModified
@@ -68,6 +72,7 @@ export const FormField = memo(function FormField({
 					cardBaseClass={cardBaseClass}
 					isModified={isModified}
 					handleUndo={handleUndo}
+					density={density}
 				/>
 			);
 		case "checkbox":
@@ -79,9 +84,10 @@ export const FormField = memo(function FormField({
 					cardBaseClass={cardBaseClass}
 					isModified={isModified}
 					handleUndo={handleUndo}
+					density={density}
 				/>
 			);
-		case "radio":
+		case "radio-group":
 			return (
 				<RadioField
 					field={field}
@@ -90,17 +96,7 @@ export const FormField = memo(function FormField({
 					cardBaseClass={cardBaseClass}
 					isModified={isModified}
 					handleUndo={handleUndo}
-				/>
-			);
-		case "select":
-			return (
-				<SelectField
-					field={field}
-					value={value}
-					onChange={onChange}
-					cardBaseClass={cardBaseClass}
-					isModified={isModified}
-					handleUndo={handleUndo}
+					density={density}
 				/>
 			);
 		case "boolean-date":
@@ -113,6 +109,7 @@ export const FormField = memo(function FormField({
 					cardBaseClass={cardBaseClass}
 					isModified={isModified}
 					handleUndo={handleUndo}
+					density={density}
 				/>
 			);
 		default:

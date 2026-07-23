@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ThemeSwitcher } from "../ThemeSwitcher";
-import { ArrowCounterClockwiseIcon, FileArrowDownIcon, GithubLogoIcon } from "@phosphor-icons/react";
+import { ArrowCounterClockwiseIcon, FileArrowDownIcon, GithubLogoIcon, MagicWandIcon } from "@phosphor-icons/react";
 
 interface EditorHeaderProps {
 	fileLoaded: boolean;
@@ -35,6 +35,13 @@ export function EditorHeader({
 						className="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-brass transition-colors"
 					>
 						Walkthroughs
+					</Link>
+					<Link
+						to="/planner"
+						className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-brass transition-colors"
+					>
+						<MagicWandIcon className="w-3.5 h-3.5" />
+						Planner
 					</Link>
 					<a
 						href="https://github.com/ralfarishi/suzerain-save-editor"
@@ -79,7 +86,7 @@ export function EditorHeader({
 									`}
 								>
 									<FileArrowDownIcon weight="bold" className="w-5 h-5" />
-									Seal & Commit
+									Save & Download
 								</button>
 								{!hasErrors && (
 									<div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-red-600 shadow-sm border-2 border-slate-900 animate-pulse"></div>

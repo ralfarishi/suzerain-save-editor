@@ -31,6 +31,7 @@ export function SaveEditor() {
 		setShowHelp,
 		stamped,
 		handleShowToast,
+		handleCloseToast,
 		handleFileLoaded,
 		handleValueChange,
 		handleBulkUpdate,
@@ -57,6 +58,12 @@ export function SaveEditor() {
 				hasErrors={hasErrors}
 				onReset={handleReset}
 				onDownload={handleDownload}
+				activeTabId={activeTabId}
+				onTabChange={setActiveTabId}
+				tabs={appData}
+				errorCounts={errorCounts}
+				filename={filename}
+				onShowHelp={() => setShowHelp(true)}
 			/>
 
 			{/* Main Content */}
@@ -89,41 +96,15 @@ export function SaveEditor() {
 										>
 											<div className="overflow-hidden">
 												<div className="pt-2 pb-6">
-													{hasControls && (
-														<div className="flex justify-between items-center mb-6">
-															<BulkActions
-																activeTab={tab}
-																values={values}
-																originalData={originalData}
-																onUpdateValues={handleBulkUpdate}
-																onShowToast={handleShowToast}
-															/>
-
-															{/* Reset Tab Button */}
-															{["money-opinion", "rizia", "rizia-military-unit"].includes(tab.id) && (
-																<button type="button"
-																	onClick={handleResetTab}
-																	className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-md transition-colors dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 cursor-pointer"
-																>
-																	<ArrowCounterClockwiseIcon className="w-4 h-4" />
-																	Reset Tab
-																</button>
-															)}
-														</div>
-													)}
-
-													<div className="space-y-12">
-														{tab.sections.map((section) => (
-															<EditorForm
-																key={section.title}
-																section={section}
-																values={values}
-																initialValues={initialValues}
-																errors={errors}
-																onChange={handleValueChange}
-															/>
-														))}
-													</div>
+													<EditorForm
+														sections={tab.sections}
+														values={values}
+														initialValues={initialValues}
+														errors={errors}
+														onChange={handleValueChange}
+														onUpdateValues={handleBulkUpdate}
+														onResetTab={handleResetTab}
+													/>
 												</div>
 											</div>
 										</div>
@@ -142,7 +123,7 @@ export function SaveEditor() {
 
 			<EditorFooter />
 			
-			<ToastNotification toast={toast} />
+			<ToastNotification toast={toast} onClose={handleCloseToast} />
 
 			{/* Help Modal - Lazy Loaded */}
 			<Suspense fallback={null}>
@@ -153,7 +134,7 @@ export function SaveEditor() {
 			{stamped && (
 				<div className="fixed inset-0 flex items-center justify-center z-[100] pointer-events-none select-none animate-in fade-in duration-100 backdrop-blur-[2px]">
 					<div className="border-8 border-red-600/80 text-red-600/80 font-serif font-black uppercase text-4xl md:text-7xl px-8 py-4 rounded-3xl -rotate-12 border-double tracking-widest shadow-2xl animate-stamp-down bg-white/10">
-						[ SEAL OF COMMITTAL ]
+						[ SAVED & DOWNLOADED ]
 					</div>
 				</div>
 			)}
