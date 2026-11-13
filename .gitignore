@@ -6,12 +6,23 @@ dist-ssr
 .env
 .output
 
-.agents
+# .agents
 .vscode
+.vercel
 
-save-example.json
+# Scratch & Python caches
+scratch/
+__pycache__/
+*.py[cod]
+
+# Local planning & audit docs
+*_PLAN.md
+FSM_AND_CODE_QUALITY_AUDIT.md
+PROJECT.md
+
+# save-example.json
 skills-lock.json
 doctor.config.json
 
-suzerain-achievement-guide-per-turn.md
-suzerain-achievement-report.md
+# Raw game dialogue dumps & matrices (extracted data is compiled in src/data/)
+Suzerain Dialogues Database/
