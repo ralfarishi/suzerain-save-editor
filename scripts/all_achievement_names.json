@@ -1,0 +1,1768 @@
+{
+  "all": [
+    {
+      "id": "Prologue_Finish",
+      "name": "Prologue: Rise to Power"
+    },
+    {
+      "id": "Chapter1_Finish",
+      "name": "Chapter I: President Rayne"
+    },
+    {
+      "id": "Chapter2_Finish",
+      "name": "Chapter II: A New Sordland"
+    },
+    {
+      "id": "Game_MediaDeal",
+      "name": "An Offer You Cannot Refuse"
+    },
+    {
+      "id": "Chapter3_Finish",
+      "name": "Chapter III: Victim of Changes"
+    },
+    {
+      "id": "Chapter4_Finish",
+      "name": "Chapter IV: Checkmate"
+    },
+    {
+      "id": "Game_SuccessfulRitual",
+      "name": "First Step To Golconda"
+    },
+    {
+      "id": "Game_Bribe",
+      "name": "\\u201cDonations\\u201d"
+    },
+    {
+      "id": "Game_AgnoliaAlliance",
+      "name": "\\"
+    },
+    {
+      "id": "Game_PassedAssembly",
+      "name": "Grand National Assembly"
+    },
+    {
+      "id": "Game_NewConstitution",
+      "name": "The Constitution of '56"
+    },
+    {
+      "id": "Game_EconomicDepression",
+      "name": "Sordish Depression"
+    },
+    {
+      "id": "Game_ACP",
+      "name": "Drain the Swamp"
+    },
+    {
+      "id": "Game_Railway",
+      "name": "Grand L-1 Opening"
+    },
+    {
+      "id": "Game_Lawmaker",
+      "name": "Lawmaker"
+    },
+    {
+      "id": "Game_EconomicRecovery",
+      "name": "Sordish Economic Recovery"
+    },
+    {
+      "id": "Game_WelfareState",
+      "name": "Welfare State"
+    },
+    {
+      "id": "Game_JoinedATO",
+      "name": "United Against Communism"
+    },
+    {
+      "id": "Game_BludishRights",
+      "name": "We Are All Citizens Of Sordland"
+    },
+    {
+      "id": "Game_MonicaLove",
+      "name": "I Still Love You"
+    },
+    {
+      "id": "Game_Centrist",
+      "name": "Centrist"
+    },
+    {
+      "id": "Game_Highway",
+      "name": "Grand H-3 Opening"
+    },
+    {
+      "id": "Game_CollectionItem_PoemBook",
+      "name": "Collectible: Circas's Poem Book"
+    },
+    {
+      "id": "Epilogue_ElectionWon",
+      "name": "A Morgna her coren!"
+    },
+    {
+      "id": "Game_PFJPAlliance",
+      "name": "Freedom and Justice"
+    },
+    {
+      "id": "Game_GiraltRibery",
+      "name": "Giralt of Ribery"
+    },
+    {
+      "id": "RiziaPrologue_Finish",
+      "name": "Rizia Prologue: Ascension to the Throne"
+    },
+    {
+      "id": "Game_MilitaristState",
+      "name": "Militarist State"
+    },
+    {
+      "id": "Game_FCAnrica",
+      "name": "FC Anrica"
+    },
+    {
+      "id": "Game_CollectionItem_CeremonialScissors",
+      "name": "Collectible: Ceremonial Scissors"
+    },
+    {
+      "id": "Game_LespiaAlliance",
+      "name": "\\"
+    },
+    {
+      "id": "Game_CollectionItem_ArmadineRadio",
+      "name": "Collectible: Armadine Radio"
+    },
+    {
+      "id": "Epilogue_LostRumburgWar",
+      "name": "Hail the Queen"
+    },
+    {
+      "id": "Game_ViolentUnrest",
+      "name": "Down with Rayne!"
+    },
+    {
+      "id": "Game_MasterOfCrisis",
+      "name": "Master of Crisis"
+    },
+    {
+      "id": "Game_ManOfPeople",
+      "name": "Man of the People"
+    },
+    {
+      "id": "Game_DeclaredEmergency",
+      "name": "Article 100"
+    },
+    {
+      "id": "Game_BearTrap",
+      "name": "Operation Bear Trap"
+    },
+    {
+      "id": "Game_CollectionItem_WhiskeyBottle",
+      "name": "Collectible: Whiskey Bottle"
+    },
+    {
+      "id": "Game_SSP",
+      "name": "Sssh!"
+    },
+    {
+      "id": "Game_BFFUnrest",
+      "name": "Yollak Bluderat!"
+    },
+    {
+      "id": "RiziaChapter1_Finish",
+      "name": "Chapter I: King Romus"
+    },
+    {
+      "id": "Game_FamilyMan",
+      "name": "Family Man"
+    },
+    {
+      "id": "Game_CollectionItem_GoatStatue",
+      "name": "Collectible: Sordish Goat Statue"
+    },
+    {
+      "id": "Game_JoinedCSP",
+      "name": "United Against Capitalism"
+    },
+    {
+      "id": "Game_ValgslandAlliance",
+      "name": "\\"
+    },
+    {
+      "id": "RiziaChapter2_Finish",
+      "name": "Chapter II: Between-Seas"
+    },
+    {
+      "id": "Epilogue_Couped",
+      "name": "Coup d'\\u00e9tat"
+    },
+    {
+      "id": "RiziaChapter3_Finish",
+      "name": "Chapter III: Leviathan"
+    },
+    {
+      "id": "RiziaChapter4_Finish",
+      "name": "Chapter IV: Sila Orica"
+    },
+    {
+      "id": "Game_Isolated",
+      "name": "No Friends But Sords"
+    },
+    {
+      "id": "Game_Murder",
+      "name": "By Any Means Necessary"
+    },
+    {
+      "id": "Game_CollectionItem_CigarBox",
+      "name": "Collectible: Cigar Box"
+    },
+    {
+      "id": "Game_Obstructionist",
+      "name": "Obstructionist"
+    },
+    {
+      "id": "Game_Underhall",
+      "name": "Underhall Once Again #1"
+    },
+    {
+      "id": "Game_CollectionItem_Dagger",
+      "name": "Collectible: King Egmund's Dagger"
+    },
+    {
+      "id": "Rizia_CollectionItem_WeddingRing",
+      "name": "Collectible: Lena's Wedding Ring"
+    },
+    {
+      "id": "Game_Malenyevist",
+      "name": "Malenyevist"
+    },
+    {
+      "id": "Rizia_Authority",
+      "name": "Domineering"
+    },
+    {
+      "id": "Epilogue_WonRumburgWar",
+      "name": "Vectern sis da!"
+    },
+    {
+      "id": "Game_WealthSurplus",
+      "name": "Rags to Riches"
+    },
+    {
+      "id": "Game_Democrat",
+      "name": "Democrat"
+    },
+    {
+      "id": "Game_Vodka",
+      "name": "Valgslandian Vodka"
+    },
+    {
+      "id": "Game_DeclareWarRumburg",
+      "name": "Sordish War Machine"
+    },
+    {
+      "id": "Game_FCAnricaRises",
+      "name": "Goated"
+    },
+    {
+      "id": "Game_CollectionItem_Headphones",
+      "name": "Collectible: Headphones"
+    },
+    {
+      "id": "Game_NewRedYouth",
+      "name": "Revolutionary Generation"
+    },
+    {
+      "id": "Game_CollectionItem_CarKey",
+      "name": "Collectible: Car Key"
+    },
+    {
+      "id": "Game_CollectionItem_AnricaTrophy",
+      "name": "Collectible: FC Anrica Trophy"
+    },
+    {
+      "id": "Rizia_Epilogue_ContinuedReign",
+      "name": "My Rule Continues"
+    },
+    {
+      "id": "Rizia_CaseClosed",
+      "name": "Case Closed"
+    },
+    {
+      "id": "Game_CollectionItem_USPBrooch",
+      "name": "Collectible: USP Brooch"
+    },
+    {
+      "id": "Game_Capitalist",
+      "name": "Capitalist"
+    },
+    {
+      "id": "Game_NewYoungSords",
+      "name": "New Generation of Sords"
+    },
+    {
+      "id": "Game_BudgetSurplus",
+      "name": "Frugal"
+    },
+    {
+      "id": "Game_CollectionItem_AschrafCandle",
+      "name": "Collectible: Aschraf Candle"
+    },
+    {
+      "id": "Epilogue_Retirement",
+      "name": "Early Retirement"
+    },
+    {
+      "id": "Game_PoliceState",
+      "name": "Police State"
+    },
+    {
+      "id": "Game_1Vote",
+      "name": "Every Vote Matters"
+    },
+    {
+      "id": "Rizia_CollectionItem_DastScepter",
+      "name": "Collectible: St. Dast's Scepter"
+    },
+    {
+      "id": "Game_NFPAlliance",
+      "name": "Purple Blood"
+    },
+    {
+      "id": "Rizia_CollectionItem_KorontiReportPostcard",
+      "name": "Collectible: Valenqiris Postcard"
+    },
+    {
+      "id": "Game_CollectionItem_Gun",
+      "name": "Collectible: Gun"
+    },
+    {
+      "id": "Game_HawkerPlan",
+      "name": "Hawker's Plan"
+    },
+    {
+      "id": "Rizia_HighTea",
+      "name": "Game of Spoons"
+    },
+    {
+      "id": "Rizia_CollectionItem_WruhecistMedallion",
+      "name": "Collectible: Wruhecist Medallion"
+    },
+    {
+      "id": "Game_CollectionItem_WineBottle",
+      "name": "Collectible: Wine Bottle"
+    },
+    {
+      "id": "Epilogue_Impeached",
+      "name": "Impeached"
+    },
+    {
+      "id": "Epilogue_ElectionForcedOut",
+      "name": "Forced Out"
+    },
+    {
+      "id": "Game_IslandInvasion",
+      "name": "Rightful Claim"
+    },
+    {
+      "id": "Game_EndOfAnEra",
+      "name": "End of an Era"
+    },
+    {
+      "id": "Rizia_LeaveGrace",
+      "name": "Fall from GRACE"
+    },
+    {
+      "id": "Game_AnotherAlphonso",
+      "name": "Another Alphonso"
+    },
+    {
+      "id": "Game_CollectionItem_KesaroLighter",
+      "name": "Collectible: Kesaro's Lighter"
+    },
+    {
+      "id": "Game_CollectionItem_Pocketwatch",
+      "name": "Collectible: Serge's Pocket Watch"
+    },
+    {
+      "id": "Rizia_Intermerkopum",
+      "name": "Intermerkopum Alliance"
+    },
+    {
+      "id": "Game_Pluralist",
+      "name": "Pluralist"
+    },
+    {
+      "id": "Game_Chessmaster",
+      "name": "Chessmaster"
+    },
+    {
+      "id": "Game_Divorced",
+      "name": "This Can't Go On Like This, Anton"
+    },
+    {
+      "id": "Rizia_CollectionItem_MechanicalBird",
+      "name": "Collectible: Morellan Tin Bird"
+    },
+    {
+      "id": "Rizia_GreatUnification",
+      "name": "Great Unification"
+    },
+    {
+      "id": "Rizia_NoCrisis",
+      "name": "True Master of Crisis"
+    },
+    {
+      "id": "Game_CarbDiet",
+      "name": "Carb Diet"
+    },
+    {
+      "id": "Rizia_Manpower",
+      "name": "People's Army"
+    },
+    {
+      "id": "Rizia_CollectionItem_ChessPiece",
+      "name": "Collectible: Azaro Chess Piece"
+    },
+    {
+      "id": "Epilogue_ElectionRetirement",
+      "name": "Just Another Sordish President"
+    },
+    {
+      "id": "Rizia_CollectionItem_GasCorpPlaque",
+      "name": "Collectible: ROG Plaque"
+    },
+    {
+      "id": "Game_3Funerals",
+      "name": "Just Another Funeral"
+    },
+    {
+      "id": "Game_SordlandForAll",
+      "name": "A Sordland For All"
+    },
+    {
+      "id": "Rizia_ZilleReturn",
+      "name": "Trustworthy Friends"
+    },
+    {
+      "id": "Game_Sollist",
+      "name": "Sollist"
+    },
+    {
+      "id": "Game_RumburgPeace",
+      "name": "Reconciliation"
+    },
+    {
+      "id": "Rizia_NationalizedRRG",
+      "name": "Mine All Mine"
+    },
+    {
+      "id": "Rizia_CollectionItem_IntermerkopumPlaque",
+      "name": "Collectible: Intermerkopum Rings"
+    },
+    {
+      "id": "Epilogue_WorldWar",
+      "name": "World At War"
+    },
+    {
+      "id": "Epilogue_Exiled",
+      "name": "Path To Exile"
+    },
+    {
+      "id": "Riza_PeacefulUnification",
+      "name": "Glovurius axa Rizia axa Pales"
+    },
+    {
+      "id": "Rizia_CollectionItem_WehzekDoorstop",
+      "name": "Collectible: Wehzek Doorstop"
+    },
+    {
+      "id": "Game_Crocodile",
+      "name": "Crocodile Tears"
+    },
+    {
+      "id": "Game_LoudRayne",
+      "name": "Speaking Louder Makes You Right"
+    },
+    {
+      "id": "Rizia_PowerProjection",
+      "name": "The Force in South Merkopa"
+    },
+    {
+      "id": "Rizia_Reform",
+      "name": "Rizian Charter of Fundamental Law"
+    },
+    {
+      "id": "Game_Authoritarian",
+      "name": "Authoritarian"
+    },
+    {
+      "id": "Game_UnfairElection15",
+      "name": "Merkopa's Most Unfair Election System"
+    },
+    {
+      "id": "Game_MakeSordlandGreatAgain",
+      "name": "Make Sordland Great Again"
+    },
+    {
+      "id": "Rizia_CollectionItem_MandragoraExtract",
+      "name": "Collectible: Mandragora Extract"
+    },
+    {
+      "id": "Game_CollectionItem_UnderhallTrophy",
+      "name": "Collectible: Underhall Trophy"
+    },
+    {
+      "id": "Rizia_SayMyName",
+      "name": "Say My Name"
+    },
+    {
+      "id": "Rizia_ValeroSaved",
+      "name": "Not Losing You Again"
+    },
+    {
+      "id": "Rizia_Duel",
+      "name": "Romus the Generous"
+    },
+    {
+      "id": "Rizia_Sordland",
+      "name": "Sords, Our Friends"
+    },
+    {
+      "id": "Rizia_NewHeir",
+      "name": "The Prince"
+    },
+    {
+      "id": "Rizia_Great",
+      "name": "Make Yourself Great Again"
+    },
+    {
+      "id": "Rizia_DerdianMissiles",
+      "name": "Power of the Heavens"
+    },
+    {
+      "id": "Game_ThanksSerge",
+      "name": "Thank You Serge"
+    },
+    {
+      "id": "Rizia_Conqueror",
+      "name": "Romus The Conqueror"
+    },
+    {
+      "id": "Epilogue_Assassinated",
+      "name": "Assassinated"
+    },
+    {
+      "id": "Game_FeelMyEnergy",
+      "name": "Feel My Energy"
+    },
+    {
+      "id": "Rizia_Bruno",
+      "name": "A King's Best Friend"
+    },
+    {
+      "id": "Rizia_LetItRayne",
+      "name": "Let it Rayne"
+    },
+    {
+      "id": "Rizia_CollectionItem_FabergeEgg",
+      "name": "Collectible: Hattersley Egg"
+    },
+    {
+      "id": "Rizia_Revolt",
+      "name": "The Second Revolt"
+    },
+    {
+      "id": "Game_Alone",
+      "name": "Yes I'm Alone But Then Again I Always Was"
+    },
+    {
+      "id": "Rizia_ArmsExporter",
+      "name": "Arms Exporter"
+    },
+    {
+      "id": "Rizia_CollectionItem_MiniYacht",
+      "name": "Collectible: RRN Rizania Model"
+    },
+    {
+      "id": "Rizia_HighProduction",
+      "name": "Through Machinery and Industry"
+    },
+    {
+      "id": "Rizia_CollectionItem_DogToy",
+      "name": "Collectible: Bruno's Dog Toy"
+    },
+    {
+      "id": "Rizia_Sanctuary",
+      "name": "Sanctuary! Sanctuary!"
+    },
+    {
+      "id": "Rizia_Growth",
+      "name": "Economic Wonder of South Merkopa"
+    },
+    {
+      "id": "Game_AMorgna",
+      "name": "Catchphrase"
+    },
+    {
+      "id": "Rizia_PalesAlliance",
+      "name": "Peace to the Duke"
+    },
+    {
+      "id": "Rizia_Lawgiver",
+      "name": "I hereby declare..."
+    },
+    {
+      "id": "Rizia_CollectionItem_LucitaDagger",
+      "name": "Collectible: Lucita's Dagger"
+    },
+    {
+      "id": "Rizia_CollectionItem_PalesCrown",
+      "name": "Collectible: Crown of Pales"
+    },
+    {
+      "id": "Rizia_PipelineSabotage",
+      "name": "Pipe Nightmares"
+    },
+    {
+      "id": "Game_NeoSollist",
+      "name": "Soll's Legacy"
+    },
+    {
+      "id": "Game_BFFDam",
+      "name": "Revenge of Izzam"
+    },
+    {
+      "id": "Rizia_ANSanctions",
+      "name": "The World Against Us"
+    },
+    {
+      "id": "Rizia_CollectionItem_IzaKey",
+      "name": "Collectible: Iza Gate Key"
+    },
+    {
+      "id": "Game_NoSordlandForOldMen",
+      "name": "No Sordland For Old Men"
+    },
+    {
+      "id": "Game_Doggo",
+      "name": "Alexius Maximus Reginald the Third"
+    },
+    {
+      "id": "Rizia_WeddingRing",
+      "name": "Ready To Love Again"
+    },
+    {
+      "id": "Rizia_Epilogue_Death",
+      "name": "The King Is Dead"
+    },
+    {
+      "id": "Game_SaveTheWorld",
+      "name": "Save the World"
+    },
+    {
+      "id": "Rizia_Epilogue_CivilWar",
+      "name": "Fragmentation"
+    },
+    {
+      "id": "Rizia_Arbitration",
+      "name": "A Little Help From My Friends"
+    },
+    {
+      "id": "Game_KissMyGas",
+      "name": "Kiss My Gas"
+    },
+    {
+      "id": "Game_ExecutiveHoarder",
+      "name": "Executive Hoarder"
+    },
+    {
+      "id": "Rizia_GoldenAge",
+      "name": "Golden Age of Rizia"
+    },
+    {
+      "id": "Rizia_NuristsUnited",
+      "name": "Nurists United"
+    },
+    {
+      "id": "Rizia_NoPowder",
+      "name": "The End of Powder and Blood"
+    },
+    {
+      "id": "Rizia_Epilogue_Exiled",
+      "name": "Away from My Land"
+    },
+    {
+      "id": "Game_CollectionItem_PhotoFrameTorn",
+      "name": "Collectible: Torn Family Photo"
+    },
+    {
+      "id": "Game_TheBludishDream",
+      "name": "The Bludish Dream"
+    },
+    {
+      "id": "Rizia_ArmsImporter",
+      "name": "Arms Importer"
+    },
+    {
+      "id": "Rizia_Nerve",
+      "name": "You've Got Nerve"
+    },
+    {
+      "id": "Rizia_PayDebts",
+      "name": "A Toras Pays His Debts"
+    },
+    {
+      "id": "Epilogue_ElectionWonVP",
+      "name": "Demoted"
+    },
+    {
+      "id": "Rizia_Blitzkrieg",
+      "name": "Blitzkrieg"
+    },
+    {
+      "id": "Rizia_Bells",
+      "name": "The Golden Bells Ring"
+    },
+    {
+      "id": "Rizia_MomDad",
+      "name": "Mom and Dad"
+    },
+    {
+      "id": "Rizia_CollectionItem_PoemScroll",
+      "name": "Collectible: Pabel's Poem"
+    },
+    {
+      "id": "Rizia_KillAdarfo",
+      "name": "Arcasia Did It"
+    },
+    {
+      "id": "Rizia_Khisha",
+      "name": "Smolak's Smokes"
+    },
+    {
+      "id": "Rizia_Rusty",
+      "name": "The Kingdom Incorporated"
+    },
+    {
+      "id": "Rizia_Theocracy",
+      "name": "Wruhec's Second Coming"
+    },
+    {
+      "id": "Rizia_FlipOff",
+      "name": "Two Birds For Beatrice"
+    },
+    {
+      "id": "Rizia_PorteDrazon",
+      "name": "Pearl of the Between-Seas"
+    },
+    {
+      "id": "Epilogue_ElectionLoseContinue",
+      "name": "A New Hope"
+    },
+    {
+      "id": "Rizia_OfficerSazon",
+      "name": "Lieutenant Commander Sazon"
+    },
+    {
+      "id": "Game_638Ways",
+      "name": "638 Ways to Kill Rayne"
+    },
+    {
+      "id": "Rizia_NoRomance",
+      "name": "It's Not You, It's Me"
+    },
+    {
+      "id": "Rizia_OutOfCloset",
+      "name": "Out And Proud"
+    },
+    {
+      "id": "Rizia_Halaita",
+      "name": "So It Is"
+    },
+    {
+      "id": "Rizia_CollectionItem_BullFigurine",
+      "name": "Collectible: Bull Figurine"
+    },
+    {
+      "id": "Rizia_UFO",
+      "name": "I Want to Believe"
+    },
+    {
+      "id": "Rizia_Epilogue_Prison",
+      "name": "The King Behind Bars"
+    },
+    {
+      "id": "Rizia_Sotelato",
+      "name": "Long Live the Revolution"
+    },
+    {
+      "id": "Rizia_EtTuTitus",
+      "name": "Et Tu Titus?"
+    },
+    {
+      "id": "Rizia_Collectibles",
+      "name": "Royal Hoarder"
+    },
+    {
+      "id": "Rizia_Glovurius",
+      "name": "Blaze of Glory"
+    },
+    {
+      "id": "Rizia_Nur",
+      "name": "Wruhecs Chosen"
+    },
+    {
+      "id": "Rizia_Funny",
+      "name": "Funny Man"
+    },
+    {
+      "id": "Rizia_FreeZille",
+      "name": "South Merkopa's Newest Member"
+    },
+    {
+      "id": "Rizia_Workers",
+      "name": "What's Mined Is Yours"
+    },
+    {
+      "id": "Rizia_AzarosDead",
+      "name": "Like Father, Like Daughter"
+    },
+    {
+      "id": "Rizia_RescuedVina",
+      "name": "Save the Princess"
+    },
+    {
+      "id": "Rizia_Sober",
+      "name": "No Alcohol for me Please"
+    },
+    {
+      "id": "Rizia_HouseCleaning",
+      "name": "House Cleaning"
+    },
+    {
+      "id": "Rizia_NurDecrees",
+      "name": "By Nur's Will, I Decree!"
+    },
+    {
+      "id": "Rizia_Tradition",
+      "name": "Tradition is Our Compass, the Past Our Strength."
+    },
+    {
+      "id": "Rizia_HugoIgo",
+      "name": "Hugo, I Go"
+    },
+    {
+      "id": "Rizia_PalesWarLost",
+      "name": "Father's Son"
+    },
+    {
+      "id": "Rizia_Executions",
+      "name": "Completely Justified"
+    },
+    {
+      "id": "Rizia_SordVictory",
+      "name": "Not So Fun Anymore"
+    },
+    {
+      "id": "Rizia_ReformOrDie",
+      "name": "Reform Or Die"
+    },
+    {
+      "id": "Rizia_DividedRizia",
+      "name": "Tattered Kingdom"
+    },
+    {
+      "id": "Rizia_RumVassal",
+      "name": "Long Arm of Tzarborough"
+    },
+    {
+      "id": "Rizia_GreenKingdom",
+      "name": "The Green Kingdom"
+    },
+    {
+      "id": "Rizia_ReturnOfTheKing",
+      "name": "Return of the King"
+    }
+  ],
+  "sordland": [
+    {
+      "id": "Prologue_Finish",
+      "name": "Prologue: Rise to Power"
+    },
+    {
+      "id": "Chapter1_Finish",
+      "name": "Chapter I: President Rayne"
+    },
+    {
+      "id": "Chapter2_Finish",
+      "name": "Chapter II: A New Sordland"
+    },
+    {
+      "id": "Game_MediaDeal",
+      "name": "An Offer You Cannot Refuse"
+    },
+    {
+      "id": "Chapter3_Finish",
+      "name": "Chapter III: Victim of Changes"
+    },
+    {
+      "id": "Chapter4_Finish",
+      "name": "Chapter IV: Checkmate"
+    },
+    {
+      "id": "Game_SuccessfulRitual",
+      "name": "First Step To Golconda"
+    },
+    {
+      "id": "Game_Bribe",
+      "name": "\\u201cDonations\\u201d"
+    },
+    {
+      "id": "Game_AgnoliaAlliance",
+      "name": "\\"
+    },
+    {
+      "id": "Game_PassedAssembly",
+      "name": "Grand National Assembly"
+    },
+    {
+      "id": "Game_NewConstitution",
+      "name": "The Constitution of '56"
+    },
+    {
+      "id": "Game_EconomicDepression",
+      "name": "Sordish Depression"
+    },
+    {
+      "id": "Game_ACP",
+      "name": "Drain the Swamp"
+    },
+    {
+      "id": "Game_Railway",
+      "name": "Grand L-1 Opening"
+    },
+    {
+      "id": "Game_Lawmaker",
+      "name": "Lawmaker"
+    },
+    {
+      "id": "Game_EconomicRecovery",
+      "name": "Sordish Economic Recovery"
+    },
+    {
+      "id": "Game_WelfareState",
+      "name": "Welfare State"
+    },
+    {
+      "id": "Game_JoinedATO",
+      "name": "United Against Communism"
+    },
+    {
+      "id": "Game_BludishRights",
+      "name": "We Are All Citizens Of Sordland"
+    },
+    {
+      "id": "Game_MonicaLove",
+      "name": "I Still Love You"
+    },
+    {
+      "id": "Game_Centrist",
+      "name": "Centrist"
+    },
+    {
+      "id": "Game_Highway",
+      "name": "Grand H-3 Opening"
+    },
+    {
+      "id": "Game_CollectionItem_PoemBook",
+      "name": "Collectible: Circas's Poem Book"
+    },
+    {
+      "id": "Epilogue_ElectionWon",
+      "name": "A Morgna her coren!"
+    },
+    {
+      "id": "Game_PFJPAlliance",
+      "name": "Freedom and Justice"
+    },
+    {
+      "id": "Game_GiraltRibery",
+      "name": "Giralt of Ribery"
+    },
+    {
+      "id": "Game_MilitaristState",
+      "name": "Militarist State"
+    },
+    {
+      "id": "Game_FCAnrica",
+      "name": "FC Anrica"
+    },
+    {
+      "id": "Game_CollectionItem_CeremonialScissors",
+      "name": "Collectible: Ceremonial Scissors"
+    },
+    {
+      "id": "Game_LespiaAlliance",
+      "name": "\\"
+    },
+    {
+      "id": "Game_CollectionItem_ArmadineRadio",
+      "name": "Collectible: Armadine Radio"
+    },
+    {
+      "id": "Epilogue_LostRumburgWar",
+      "name": "Hail the Queen"
+    },
+    {
+      "id": "Game_ViolentUnrest",
+      "name": "Down with Rayne!"
+    },
+    {
+      "id": "Game_MasterOfCrisis",
+      "name": "Master of Crisis"
+    },
+    {
+      "id": "Game_ManOfPeople",
+      "name": "Man of the People"
+    },
+    {
+      "id": "Game_DeclaredEmergency",
+      "name": "Article 100"
+    },
+    {
+      "id": "Game_BearTrap",
+      "name": "Operation Bear Trap"
+    },
+    {
+      "id": "Game_CollectionItem_WhiskeyBottle",
+      "name": "Collectible: Whiskey Bottle"
+    },
+    {
+      "id": "Game_SSP",
+      "name": "Sssh!"
+    },
+    {
+      "id": "Game_BFFUnrest",
+      "name": "Yollak Bluderat!"
+    },
+    {
+      "id": "Game_FamilyMan",
+      "name": "Family Man"
+    },
+    {
+      "id": "Game_CollectionItem_GoatStatue",
+      "name": "Collectible: Sordish Goat Statue"
+    },
+    {
+      "id": "Game_JoinedCSP",
+      "name": "United Against Capitalism"
+    },
+    {
+      "id": "Game_ValgslandAlliance",
+      "name": "\\"
+    },
+    {
+      "id": "Epilogue_Couped",
+      "name": "Coup d'\\u00e9tat"
+    },
+    {
+      "id": "Game_Isolated",
+      "name": "No Friends But Sords"
+    },
+    {
+      "id": "Game_Murder",
+      "name": "By Any Means Necessary"
+    },
+    {
+      "id": "Game_CollectionItem_CigarBox",
+      "name": "Collectible: Cigar Box"
+    },
+    {
+      "id": "Game_Obstructionist",
+      "name": "Obstructionist"
+    },
+    {
+      "id": "Game_Underhall",
+      "name": "Underhall Once Again #1"
+    },
+    {
+      "id": "Game_CollectionItem_Dagger",
+      "name": "Collectible: King Egmund's Dagger"
+    },
+    {
+      "id": "Game_Malenyevist",
+      "name": "Malenyevist"
+    },
+    {
+      "id": "Epilogue_WonRumburgWar",
+      "name": "Vectern sis da!"
+    },
+    {
+      "id": "Game_WealthSurplus",
+      "name": "Rags to Riches"
+    },
+    {
+      "id": "Game_Democrat",
+      "name": "Democrat"
+    },
+    {
+      "id": "Game_Vodka",
+      "name": "Valgslandian Vodka"
+    },
+    {
+      "id": "Game_DeclareWarRumburg",
+      "name": "Sordish War Machine"
+    },
+    {
+      "id": "Game_FCAnricaRises",
+      "name": "Goated"
+    },
+    {
+      "id": "Game_CollectionItem_Headphones",
+      "name": "Collectible: Headphones"
+    },
+    {
+      "id": "Game_NewRedYouth",
+      "name": "Revolutionary Generation"
+    },
+    {
+      "id": "Game_CollectionItem_CarKey",
+      "name": "Collectible: Car Key"
+    },
+    {
+      "id": "Game_CollectionItem_AnricaTrophy",
+      "name": "Collectible: FC Anrica Trophy"
+    },
+    {
+      "id": "Game_CollectionItem_USPBrooch",
+      "name": "Collectible: USP Brooch"
+    },
+    {
+      "id": "Game_Capitalist",
+      "name": "Capitalist"
+    },
+    {
+      "id": "Game_NewYoungSords",
+      "name": "New Generation of Sords"
+    },
+    {
+      "id": "Game_BudgetSurplus",
+      "name": "Frugal"
+    },
+    {
+      "id": "Game_CollectionItem_AschrafCandle",
+      "name": "Collectible: Aschraf Candle"
+    },
+    {
+      "id": "Epilogue_Retirement",
+      "name": "Early Retirement"
+    },
+    {
+      "id": "Game_PoliceState",
+      "name": "Police State"
+    },
+    {
+      "id": "Game_1Vote",
+      "name": "Every Vote Matters"
+    },
+    {
+      "id": "Game_NFPAlliance",
+      "name": "Purple Blood"
+    },
+    {
+      "id": "Game_CollectionItem_Gun",
+      "name": "Collectible: Gun"
+    },
+    {
+      "id": "Game_HawkerPlan",
+      "name": "Hawker's Plan"
+    },
+    {
+      "id": "Game_CollectionItem_WineBottle",
+      "name": "Collectible: Wine Bottle"
+    },
+    {
+      "id": "Epilogue_Impeached",
+      "name": "Impeached"
+    },
+    {
+      "id": "Epilogue_ElectionForcedOut",
+      "name": "Forced Out"
+    },
+    {
+      "id": "Game_IslandInvasion",
+      "name": "Rightful Claim"
+    },
+    {
+      "id": "Game_EndOfAnEra",
+      "name": "End of an Era"
+    },
+    {
+      "id": "Game_AnotherAlphonso",
+      "name": "Another Alphonso"
+    },
+    {
+      "id": "Game_CollectionItem_KesaroLighter",
+      "name": "Collectible: Kesaro's Lighter"
+    },
+    {
+      "id": "Game_CollectionItem_Pocketwatch",
+      "name": "Collectible: Serge's Pocket Watch"
+    },
+    {
+      "id": "Game_Pluralist",
+      "name": "Pluralist"
+    },
+    {
+      "id": "Game_Chessmaster",
+      "name": "Chessmaster"
+    },
+    {
+      "id": "Game_Divorced",
+      "name": "This Can't Go On Like This, Anton"
+    },
+    {
+      "id": "Game_CarbDiet",
+      "name": "Carb Diet"
+    },
+    {
+      "id": "Epilogue_ElectionRetirement",
+      "name": "Just Another Sordish President"
+    },
+    {
+      "id": "Game_3Funerals",
+      "name": "Just Another Funeral"
+    },
+    {
+      "id": "Game_SordlandForAll",
+      "name": "A Sordland For All"
+    },
+    {
+      "id": "Game_Sollist",
+      "name": "Sollist"
+    },
+    {
+      "id": "Game_RumburgPeace",
+      "name": "Reconciliation"
+    },
+    {
+      "id": "Epilogue_WorldWar",
+      "name": "World At War"
+    },
+    {
+      "id": "Epilogue_Exiled",
+      "name": "Path To Exile"
+    },
+    {
+      "id": "Riza_PeacefulUnification",
+      "name": "Glovurius axa Rizia axa Pales"
+    },
+    {
+      "id": "Game_Crocodile",
+      "name": "Crocodile Tears"
+    },
+    {
+      "id": "Game_LoudRayne",
+      "name": "Speaking Louder Makes You Right"
+    },
+    {
+      "id": "Game_Authoritarian",
+      "name": "Authoritarian"
+    },
+    {
+      "id": "Game_UnfairElection15",
+      "name": "Merkopa's Most Unfair Election System"
+    },
+    {
+      "id": "Game_MakeSordlandGreatAgain",
+      "name": "Make Sordland Great Again"
+    },
+    {
+      "id": "Game_CollectionItem_UnderhallTrophy",
+      "name": "Collectible: Underhall Trophy"
+    },
+    {
+      "id": "Game_ThanksSerge",
+      "name": "Thank You Serge"
+    },
+    {
+      "id": "Epilogue_Assassinated",
+      "name": "Assassinated"
+    },
+    {
+      "id": "Game_FeelMyEnergy",
+      "name": "Feel My Energy"
+    },
+    {
+      "id": "Game_Alone",
+      "name": "Yes I'm Alone But Then Again I Always Was"
+    },
+    {
+      "id": "Game_AMorgna",
+      "name": "Catchphrase"
+    },
+    {
+      "id": "Game_NeoSollist",
+      "name": "Soll's Legacy"
+    },
+    {
+      "id": "Game_BFFDam",
+      "name": "Revenge of Izzam"
+    },
+    {
+      "id": "Game_NoSordlandForOldMen",
+      "name": "No Sordland For Old Men"
+    },
+    {
+      "id": "Game_Doggo",
+      "name": "Alexius Maximus Reginald the Third"
+    },
+    {
+      "id": "Game_SaveTheWorld",
+      "name": "Save the World"
+    },
+    {
+      "id": "Game_KissMyGas",
+      "name": "Kiss My Gas"
+    },
+    {
+      "id": "Game_ExecutiveHoarder",
+      "name": "Executive Hoarder"
+    },
+    {
+      "id": "Game_CollectionItem_PhotoFrameTorn",
+      "name": "Collectible: Torn Family Photo"
+    },
+    {
+      "id": "Game_TheBludishDream",
+      "name": "The Bludish Dream"
+    },
+    {
+      "id": "Epilogue_ElectionWonVP",
+      "name": "Demoted"
+    },
+    {
+      "id": "Epilogue_ElectionLoseContinue",
+      "name": "A New Hope"
+    },
+    {
+      "id": "Game_638Ways",
+      "name": "638 Ways to Kill Rayne"
+    }
+  ],
+  "rizia": [
+    {
+      "id": "RiziaPrologue_Finish",
+      "name": "Rizia Prologue: Ascension to the Throne"
+    },
+    {
+      "id": "RiziaChapter1_Finish",
+      "name": "Chapter I: King Romus"
+    },
+    {
+      "id": "RiziaChapter2_Finish",
+      "name": "Chapter II: Between-Seas"
+    },
+    {
+      "id": "RiziaChapter3_Finish",
+      "name": "Chapter III: Leviathan"
+    },
+    {
+      "id": "RiziaChapter4_Finish",
+      "name": "Chapter IV: Sila Orica"
+    },
+    {
+      "id": "Rizia_CollectionItem_WeddingRing",
+      "name": "Collectible: Lena's Wedding Ring"
+    },
+    {
+      "id": "Rizia_Authority",
+      "name": "Domineering"
+    },
+    {
+      "id": "Rizia_Epilogue_ContinuedReign",
+      "name": "My Rule Continues"
+    },
+    {
+      "id": "Rizia_CaseClosed",
+      "name": "Case Closed"
+    },
+    {
+      "id": "Rizia_CollectionItem_DastScepter",
+      "name": "Collectible: St. Dast's Scepter"
+    },
+    {
+      "id": "Rizia_CollectionItem_KorontiReportPostcard",
+      "name": "Collectible: Valenqiris Postcard"
+    },
+    {
+      "id": "Rizia_HighTea",
+      "name": "Game of Spoons"
+    },
+    {
+      "id": "Rizia_CollectionItem_WruhecistMedallion",
+      "name": "Collectible: Wruhecist Medallion"
+    },
+    {
+      "id": "Rizia_LeaveGrace",
+      "name": "Fall from GRACE"
+    },
+    {
+      "id": "Rizia_Intermerkopum",
+      "name": "Intermerkopum Alliance"
+    },
+    {
+      "id": "Rizia_CollectionItem_MechanicalBird",
+      "name": "Collectible: Morellan Tin Bird"
+    },
+    {
+      "id": "Rizia_GreatUnification",
+      "name": "Great Unification"
+    },
+    {
+      "id": "Rizia_NoCrisis",
+      "name": "True Master of Crisis"
+    },
+    {
+      "id": "Rizia_Manpower",
+      "name": "People's Army"
+    },
+    {
+      "id": "Rizia_CollectionItem_ChessPiece",
+      "name": "Collectible: Azaro Chess Piece"
+    },
+    {
+      "id": "Rizia_CollectionItem_GasCorpPlaque",
+      "name": "Collectible: ROG Plaque"
+    },
+    {
+      "id": "Rizia_ZilleReturn",
+      "name": "Trustworthy Friends"
+    },
+    {
+      "id": "Rizia_NationalizedRRG",
+      "name": "Mine All Mine"
+    },
+    {
+      "id": "Rizia_CollectionItem_IntermerkopumPlaque",
+      "name": "Collectible: Intermerkopum Rings"
+    },
+    {
+      "id": "Rizia_CollectionItem_WehzekDoorstop",
+      "name": "Collectible: Wehzek Doorstop"
+    },
+    {
+      "id": "Rizia_PowerProjection",
+      "name": "The Force in South Merkopa"
+    },
+    {
+      "id": "Rizia_Reform",
+      "name": "Rizian Charter of Fundamental Law"
+    },
+    {
+      "id": "Rizia_CollectionItem_MandragoraExtract",
+      "name": "Collectible: Mandragora Extract"
+    },
+    {
+      "id": "Rizia_SayMyName",
+      "name": "Say My Name"
+    },
+    {
+      "id": "Rizia_ValeroSaved",
+      "name": "Not Losing You Again"
+    },
+    {
+      "id": "Rizia_Duel",
+      "name": "Romus the Generous"
+    },
+    {
+      "id": "Rizia_Sordland",
+      "name": "Sords, Our Friends"
+    },
+    {
+      "id": "Rizia_NewHeir",
+      "name": "The Prince"
+    },
+    {
+      "id": "Rizia_Great",
+      "name": "Make Yourself Great Again"
+    },
+    {
+      "id": "Rizia_DerdianMissiles",
+      "name": "Power of the Heavens"
+    },
+    {
+      "id": "Rizia_Conqueror",
+      "name": "Romus The Conqueror"
+    },
+    {
+      "id": "Rizia_Bruno",
+      "name": "A King's Best Friend"
+    },
+    {
+      "id": "Rizia_LetItRayne",
+      "name": "Let it Rayne"
+    },
+    {
+      "id": "Rizia_CollectionItem_FabergeEgg",
+      "name": "Collectible: Hattersley Egg"
+    },
+    {
+      "id": "Rizia_Revolt",
+      "name": "The Second Revolt"
+    },
+    {
+      "id": "Rizia_ArmsExporter",
+      "name": "Arms Exporter"
+    },
+    {
+      "id": "Rizia_CollectionItem_MiniYacht",
+      "name": "Collectible: RRN Rizania Model"
+    },
+    {
+      "id": "Rizia_HighProduction",
+      "name": "Through Machinery and Industry"
+    },
+    {
+      "id": "Rizia_CollectionItem_DogToy",
+      "name": "Collectible: Bruno's Dog Toy"
+    },
+    {
+      "id": "Rizia_Sanctuary",
+      "name": "Sanctuary! Sanctuary!"
+    },
+    {
+      "id": "Rizia_Growth",
+      "name": "Economic Wonder of South Merkopa"
+    },
+    {
+      "id": "Rizia_PalesAlliance",
+      "name": "Peace to the Duke"
+    },
+    {
+      "id": "Rizia_Lawgiver",
+      "name": "I hereby declare..."
+    },
+    {
+      "id": "Rizia_CollectionItem_LucitaDagger",
+      "name": "Collectible: Lucita's Dagger"
+    },
+    {
+      "id": "Rizia_CollectionItem_PalesCrown",
+      "name": "Collectible: Crown of Pales"
+    },
+    {
+      "id": "Rizia_PipelineSabotage",
+      "name": "Pipe Nightmares"
+    },
+    {
+      "id": "Rizia_ANSanctions",
+      "name": "The World Against Us"
+    },
+    {
+      "id": "Rizia_CollectionItem_IzaKey",
+      "name": "Collectible: Iza Gate Key"
+    },
+    {
+      "id": "Rizia_WeddingRing",
+      "name": "Ready To Love Again"
+    },
+    {
+      "id": "Rizia_Epilogue_Death",
+      "name": "The King Is Dead"
+    },
+    {
+      "id": "Rizia_Epilogue_CivilWar",
+      "name": "Fragmentation"
+    },
+    {
+      "id": "Rizia_Arbitration",
+      "name": "A Little Help From My Friends"
+    },
+    {
+      "id": "Rizia_GoldenAge",
+      "name": "Golden Age of Rizia"
+    },
+    {
+      "id": "Rizia_NuristsUnited",
+      "name": "Nurists United"
+    },
+    {
+      "id": "Rizia_NoPowder",
+      "name": "The End of Powder and Blood"
+    },
+    {
+      "id": "Rizia_Epilogue_Exiled",
+      "name": "Away from My Land"
+    },
+    {
+      "id": "Rizia_ArmsImporter",
+      "name": "Arms Importer"
+    },
+    {
+      "id": "Rizia_Nerve",
+      "name": "You've Got Nerve"
+    },
+    {
+      "id": "Rizia_PayDebts",
+      "name": "A Toras Pays His Debts"
+    },
+    {
+      "id": "Rizia_Blitzkrieg",
+      "name": "Blitzkrieg"
+    },
+    {
+      "id": "Rizia_Bells",
+      "name": "The Golden Bells Ring"
+    },
+    {
+      "id": "Rizia_MomDad",
+      "name": "Mom and Dad"
+    },
+    {
+      "id": "Rizia_CollectionItem_PoemScroll",
+      "name": "Collectible: Pabel's Poem"
+    },
+    {
+      "id": "Rizia_KillAdarfo",
+      "name": "Arcasia Did It"
+    },
+    {
+      "id": "Rizia_Khisha",
+      "name": "Smolak's Smokes"
+    },
+    {
+      "id": "Rizia_Rusty",
+      "name": "The Kingdom Incorporated"
+    },
+    {
+      "id": "Rizia_Theocracy",
+      "name": "Wruhec's Second Coming"
+    },
+    {
+      "id": "Rizia_FlipOff",
+      "name": "Two Birds For Beatrice"
+    },
+    {
+      "id": "Rizia_PorteDrazon",
+      "name": "Pearl of the Between-Seas"
+    },
+    {
+      "id": "Rizia_OfficerSazon",
+      "name": "Lieutenant Commander Sazon"
+    },
+    {
+      "id": "Rizia_NoRomance",
+      "name": "It's Not You, It's Me"
+    },
+    {
+      "id": "Rizia_OutOfCloset",
+      "name": "Out And Proud"
+    },
+    {
+      "id": "Rizia_Halaita",
+      "name": "So It Is"
+    },
+    {
+      "id": "Rizia_CollectionItem_BullFigurine",
+      "name": "Collectible: Bull Figurine"
+    },
+    {
+      "id": "Rizia_UFO",
+      "name": "I Want to Believe"
+    },
+    {
+      "id": "Rizia_Epilogue_Prison",
+      "name": "The King Behind Bars"
+    },
+    {
+      "id": "Rizia_Sotelato",
+      "name": "Long Live the Revolution"
+    },
+    {
+      "id": "Rizia_EtTuTitus",
+      "name": "Et Tu Titus?"
+    },
+    {
+      "id": "Rizia_Collectibles",
+      "name": "Royal Hoarder"
+    },
+    {
+      "id": "Rizia_Glovurius",
+      "name": "Blaze of Glory"
+    },
+    {
+      "id": "Rizia_Nur",
+      "name": "Wruhecs Chosen"
+    },
+    {
+      "id": "Rizia_Funny",
+      "name": "Funny Man"
+    },
+    {
+      "id": "Rizia_FreeZille",
+      "name": "South Merkopa's Newest Member"
+    },
+    {
+      "id": "Rizia_Workers",
+      "name": "What's Mined Is Yours"
+    },
+    {
+      "id": "Rizia_AzarosDead",
+      "name": "Like Father, Like Daughter"
+    },
+    {
+      "id": "Rizia_RescuedVina",
+      "name": "Save the Princess"
+    },
+    {
+      "id": "Rizia_Sober",
+      "name": "No Alcohol for me Please"
+    },
+    {
+      "id": "Rizia_HouseCleaning",
+      "name": "House Cleaning"
+    },
+    {
+      "id": "Rizia_NurDecrees",
+      "name": "By Nur's Will, I Decree!"
+    },
+    {
+      "id": "Rizia_Tradition",
+      "name": "Tradition is Our Compass, the Past Our Strength."
+    },
+    {
+      "id": "Rizia_HugoIgo",
+      "name": "Hugo, I Go"
+    },
+    {
+      "id": "Rizia_PalesWarLost",
+      "name": "Father's Son"
+    },
+    {
+      "id": "Rizia_Executions",
+      "name": "Completely Justified"
+    },
+    {
+      "id": "Rizia_SordVictory",
+      "name": "Not So Fun Anymore"
+    },
+    {
+      "id": "Rizia_ReformOrDie",
+      "name": "Reform Or Die"
+    },
+    {
+      "id": "Rizia_DividedRizia",
+      "name": "Tattered Kingdom"
+    },
+    {
+      "id": "Rizia_RumVassal",
+      "name": "Long Arm of Tzarborough"
+    },
+    {
+      "id": "Rizia_GreenKingdom",
+      "name": "The Green Kingdom"
+    },
+    {
+      "id": "Rizia_ReturnOfTheKing",
+      "name": "Return of the King"
+    }
+  ]
+}

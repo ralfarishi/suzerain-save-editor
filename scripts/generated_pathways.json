@@ -1,0 +1,2511 @@
+[
+  {
+    "id": "sordland-reformer",
+    "title": "The Great Reformer \u2014 Democratic & Open Republic",
+    "subtitle": "Democratic Constitution \u2022 Anti-Corruption Police \u2022 Free Market \u2022 Bludish Civil Rights",
+    "game": "Sordland",
+    "tags": [
+      "Sordland",
+      "Reformist",
+      "Economy"
+    ],
+    "archetype": "Democratic Reformer",
+    "description": "Restore faith in democracy by drafting a progressive reformist constitution, establishing the Anti-Corruption Police (ACP), resolving long-standing ethnic tensions with the Bludish population, and securing Sordland's economic recovery through trade with Agnolia and Lespia.",
+    "presetId": "sordland-radical-reformer",
+    "achievements": [
+      "Prologue: Rise to Power",
+      "Chapter I: President Rayne",
+      "Chapter II: A New Sordland",
+      "Chapter III: Victim of Changes",
+      "Chapter IV: Checkmate",
+      "Grand National Assembly",
+      "The Constitution of '56",
+      "Lawmaker",
+      "Drain the Swamp",
+      "Democrat",
+      "Pluralist",
+      "Man of the People",
+      "A Morgna her coren!",
+      "Grand L-1 Opening",
+      "Sordish Economic Recovery",
+      "Another Alphonso",
+      "Rags to Riches",
+      "Frugal",
+      "We Are All Citizens Of Sordland",
+      "The Bludish Dream",
+      "A Sordland For All",
+      "I Still Love You",
+      "Family Man",
+      "Welfare State",
+      "Freedom and Justice",
+      "\\",
+      "\\",
+      "Reconciliation",
+      "No Sordland For Old Men",
+      "An Offer You Cannot Refuse",
+      "Centrist",
+      "Capitalist",
+      "First Step To Golconda",
+      "Every Vote Matters",
+      "Feel My Energy",
+      "Kiss My Gas",
+      "Catchphrase",
+      "Underhall Once Again #1",
+      "Master of Crisis"
+    ],
+    "exclusivePairs": [
+      [
+        "Grand L-1 Opening",
+        "Grand H-3 Opening"
+      ],
+      [
+        "Family Man",
+        "This Can't Go On Like This, Anton"
+      ],
+      [
+        "True Master of Crisis",
+        "Master of Crisis"
+      ],
+      [
+        "Sordish Economic Recovery",
+        "Sordish Depression"
+      ],
+      [
+        "Democrat",
+        "Authoritarian"
+      ],
+      [
+        "Democrat",
+        "Sollist"
+      ],
+      [
+        "Democrat",
+        "Malenyevist"
+      ]
+    ],
+    "exclusiveGroups": [
+      [
+        "A Morgna her coren!",
+        "A New Hope",
+        "Just Another Sordish President"
+      ]
+    ],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Prologue",
+        "title": "Prologue Strategic Objectives: Youth, Military Service & Rise to the Presidency",
+        "context": "1953 Sordish Election Night Victory Speech",
+        "action": "Step onto the balcony of the USP Headquarters, thank the citizens of Sordland, and proclaim a new morning for the Republic.; Approve decree / bill supporting Lawmaker; Approve decree / bill supporting Rags to Riches",
+        "unlockedAchievements": [
+          "Prologue: Rise to Power",
+          "Lawmaker",
+          "Rags to Riches",
+          "Frugal",
+          "Catchphrase",
+          "Master of Crisis"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Youth, Military Service & Rise to the Presidency",
+          "sceneFile": "Prologue_Archive.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Prologue_Finished",
+            "BaseGame.SignedBillCount",
+            "BaseGame.Prologue_Birthplace_Lachaven_Rich",
+            "BaseGame.PersonalWealth"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Inauguration, Assassination Shock & The Reform Package Debate",
+        "context": "Turn 3: Concluding the ministerial budget meeting and constitutional roadmap",
+        "action": "Finalize your government's core policy stance (Reform or Emergency) and adjourn the cabinet.; Reflect on your four-year legacy as President and prepare for the national election results.; Reflect on your presidency as a dedicated democrat who safeguarded civil liberties and freedom.",
+        "unlockedAchievements": [
+          "Chapter I: President Rayne",
+          "Chapter IV: Checkmate",
+          "Democrat",
+          "Family Man",
+          "Reconciliation",
+          "Centrist",
+          "Capitalist"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Inauguration, Assassination Shock & The Reform Package Debate",
+          "sceneFile": "Sordland_Turn03_EnT_BusinessCouncil.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Chapter4_Finished",
+            "BaseGameSupport.CollectionItem_GoatStatue",
+            "RiziaDLCSupport.CollectionItem_IntermerkopumPlaque",
+            "RiziaDLC.Situation_Economy_RRG_StateOwns100"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 2",
+        "title": "Turn 2 Strategic Objectives: Private Meeting with Marcel Koronti at HOS Country Club",
+        "context": "When Marcel Koronti proposes biased media coverage in exchange for future government favors",
+        "action": "A deal is a deal. It will be upheld.",
+        "unlockedAchievements": [
+          "An Offer You Cannot Refuse"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Private Meeting with Marcel Koronti at HOS Country Club",
+          "sceneFile": "Sordland_Turn02_A_MediaDeal.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter4_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 3",
+        "title": "Turn 3 Strategic Objectives: Radical Deregulation, Full Privatization & Economic Turmoil",
+        "context": "Turn 7: Cabinet privatization debrief",
+        "action": "Sell maximum state shares of both SSC and Nedam to the open market and Walter Tusk.; Sign the co-investment pact with Gasom and mandate improved working conditions for energy laborers.; Invest 2 Government Budget with Gasom and agree to raise or repeal the EPA threshold.",
+        "unlockedAchievements": [
+          "Another Alphonso",
+          "Feel My Energy",
+          "Kiss My Gas"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Radical Deregulation, Full Privatization & Economic Turmoil",
+          "sceneFile": "Sordland_Turn07_NEDAM OR SSC PRIVATISED.md",
+          "saveVariables": [
+            "BaseGame.Alphonso_Legacy_Replicated",
+            "BaseGameSupport.CollectionItem_KesaroLighter",
+            "RiziaDLC.Sordland_ComprehensiveDeal",
+            "RiziaDLC.Adopted_Bruno",
+            "BaseGame.Gasom_HighEnergySynergy",
+            "BaseGame.EPA_Reverted10"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+        "context": "Turn 6: Concluding the mega-infrastructure grand opening and party consultations",
+        "action": "Celebrate the completion of the transit link and prepare the administration for the upcoming assembly vote.; Sign the Worker's Rights Act and listen respectfully to their grievances.",
+        "unlockedAchievements": [
+          "Chapter II: A New Sordland",
+          "Man of the People"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+          "sceneFile": "Sordland_Turn06_InT_RailwayOpening.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter2_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 5",
+        "title": "Turn 5 Strategic Objectives: Cabinet Deliberation on Law Enforcement and Anti-Corruption",
+        "context": "Turn 5 police reform summit",
+        "action": "Found the Anti-Corruption Police (ACP) under the Ministry of Justice.; Agree to pay 1 Budget for steel or recognize Heljiland as Agnolia, then propose a full military alliance.; Invest 1 Personal Wealth into Underhall Construction stock.",
+        "unlockedAchievements": [
+          "Drain the Swamp",
+          "\\",
+          "Underhall Once Again #1"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Cabinet Deliberation on Law Enforcement and Anti-Corruption",
+          "sceneFile": "Sordland_Turn05_SnO_FoundedPolice.md",
+          "saveVariables": [
+            "BaseGame.SignedBillCount",
+            "RiziaDLCSupport.CollectionItem_WeddingRing",
+            "BaseGameSupport.CollectionItem_Dagger"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 6",
+        "title": "Turn 6 Strategic Objectives: Turn 6 Inauguration of the L-1 High-Speed Railway",
+        "context": "Inaugural ribbon-cutting ceremony at Conriat station",
+        "action": "Cut the inaugural ribbon, board the express locomotive, and address the press on Sordish infrastructure progress.",
+        "unlockedAchievements": [
+          "Grand L-1 Opening"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Turn 6 Inauguration of the L-1 High-Speed Railway",
+          "sceneFile": "Sordland_Turn06_InT_RailwayOpening.md",
+          "saveVariables": [
+            "BaseGame.SignedBillCount"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+        "context": "Turn 8: Debriefing the international alliance summits and domestic unrest response",
+        "action": "Solidify foreign partnerships and review internal security measures ahead of late-game challenges.; Work the floor, lobby independent and wavering MPs, and cast your vote in favor.; Emphasize judicial independence, rule of law, and democratic balance without showing hostility to the court.",
+        "unlockedAchievements": [
+          "Chapter III: Victim of Changes",
+          "Grand National Assembly",
+          "The Constitution of '56",
+          "Pluralist",
+          "A Sordland For All",
+          "Freedom and Justice",
+          "First Step To Golconda",
+          "Every Vote Matters"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+          "sceneFile": "Sordland_Turn08_FPnT_LespiaVisit.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter4_Finished",
+            "BaseGameSupport.ChessMatch_Lost",
+            "BaseGame.Lucian_Betrayal",
+            "RiziaDLC.Zille_Peaceful_Handover",
+            "RiziaDLC.Prologue_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: Aschraf Commemoration & Sponsoring the Minority Rights Act",
+        "context": "Turn 9: Oval office meeting with independent MP Mansoun Leke",
+        "action": "Co-sponsor the Minority Rights Act, shepherd it through the Assembly, and sign it into law.; Approve comprehensive rural medical coverage and universal modern education standards.; Finalize the trade agreement and sign a formal military alliance with Lespia.",
+        "unlockedAchievements": [
+          "The Bludish Dream",
+          "Welfare State",
+          "\\"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Aschraf Commemoration & Sponsoring the Minority Rights Act",
+          "sceneFile": "Sordland_Turn08_A_AschrafAnniversary.md & Sordland_Turn09_MansounDemands.md",
+          "saveVariables": [
+            "BaseGame.Bill_Turn09_BludishCommission_Signed",
+            "BaseGame.Bludish_Reconciliation",
+            "RiziaDLC.War_Used_ExperimentalWeapons",
+            "BaseGameSupport.CollectionItem_ArmadineRadio",
+            "BaseGame.Investment_Armadine"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 9",
+        "title": "Turn 9 Strategic Objectives: Ministry of Economy Proclamation of Sordish Economic Recovery",
+        "context": "Turn 9 cabinet economic review",
+        "action": "Review the thriving national economic indicators and celebrate the complete recovery of Sordland.; Support Mansoun Leke's Minority Rights Act and sign the bill into law.; Hold her hand, tell her how much you love and admire her, and promise a bright future together.",
+        "unlockedAchievements": [
+          "Sordish Economic Recovery",
+          "We Are All Citizens Of Sordland",
+          "I Still Love You",
+          "No Sordland For Old Men"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Ministry of Economy Proclamation of Sordish Economic Recovery",
+          "sceneFile": "Sordland_Turn09_EnT_EconomicOverviewAndAction.md",
+          "saveVariables": [
+            "BaseGame.Bill_Turn09_BludishCommission_Signed",
+            "RiziaDLC.Remarried"
+          ]
+        }
+      },
+      {
+        "turn": "Epilogue",
+        "title": "Epilogue Strategic Objectives: Election Night Victory Address at the Maroon Palace",
+        "context": "Addressing the nation and celebrating supporters on election night 1957",
+        "action": "Step onto the balcony, deliver an inspiring victory address, and thank the people of Sordland.",
+        "unlockedAchievements": [
+          "A Morgna her coren!"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Election Night Victory Address at the Maroon Palace",
+          "sceneFile": "Sordland_Epilogue_ElectionWin.md",
+          "saveVariables": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "sordland-malenyevist",
+    "title": "Red Morning \u2014 Malenyevist Comrade & Worker's Republic",
+    "subtitle": "Socialist Planning \u2022 Full Nationalization \u2022 Valgsland & CSP Alliance \u2022 Workers' Rights",
+    "game": "Sordland",
+    "tags": [
+      "Sordland",
+      "Reformist",
+      "Diplomatic",
+      "Economy"
+    ],
+    "archetype": "Malenyevist Comrade",
+    "description": "Transform Sordland into a socialist worker state. Nationalize the oligarchic conglomerates (Bergia Steel & Heart of Sordland), align with Chancellor Hegel of Valgsland and Chairman Charchote of United Contana, pass the Workers' Rights Act, and defend the proletariat.",
+    "presetId": "sordland-radical-reformer",
+    "achievements": [
+      "Prologue: Rise to Power",
+      "Chapter I: President Rayne",
+      "Chapter II: A New Sordland",
+      "Chapter III: Victim of Changes",
+      "Chapter IV: Checkmate",
+      "Malenyevist",
+      "\\",
+      "United Against Capitalism",
+      "Valgslandian Vodka",
+      "Rightful Claim",
+      "Revolutionary Generation",
+      "Welfare State",
+      "A Morgna her coren!",
+      "Sordish Economic Recovery",
+      "Frugal",
+      "Grand National Assembly",
+      "The Constitution of '56",
+      "Lawmaker",
+      "Drain the Swamp",
+      "First Step To Golconda",
+      "Family Man",
+      "Every Vote Matters",
+      "Catchphrase",
+      "Feel My Energy",
+      "Kiss My Gas"
+    ],
+    "exclusivePairs": [
+      [
+        "Grand L-1 Opening",
+        "Grand H-3 Opening"
+      ],
+      [
+        "Family Man",
+        "This Can't Go On Like This, Anton"
+      ],
+      [
+        "True Master of Crisis",
+        "Master of Crisis"
+      ],
+      [
+        "United Against Capitalism",
+        "United Against Communism"
+      ],
+      [
+        "Malenyevist",
+        "Capitalist"
+      ]
+    ],
+    "exclusiveGroups": [
+      [
+        "A Morgna her coren!",
+        "A New Hope",
+        "Just Another Sordish President"
+      ]
+    ],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Prologue",
+        "title": "Prologue Strategic Objectives: Youth, Military Service & Rise to the Presidency",
+        "context": "1953 Sordish Election Night Victory Speech",
+        "action": "Step onto the balcony of the USP Headquarters, thank the citizens of Sordland, and proclaim a new morning for the Republic.; Approve decree / bill supporting Frugal; Approve decree / bill supporting Lawmaker",
+        "unlockedAchievements": [
+          "Prologue: Rise to Power",
+          "Frugal",
+          "Lawmaker",
+          "Catchphrase"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Youth, Military Service & Rise to the Presidency",
+          "sceneFile": "Prologue_Archive.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Prologue_Finished",
+            "BaseGameSupport.CollectionItem_AschrafCandle",
+            "BaseGame.GovernmentBudget",
+            "BaseGame.Aschraf_CandleLit"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Inauguration, Assassination Shock & The Reform Package Debate",
+        "context": "Turn 3: Concluding the ministerial budget meeting and constitutional roadmap",
+        "action": "Finalize your government's core policy stance (Reform or Emergency) and adjourn the cabinet.; Reflect on your four-year legacy as President and prepare for the national election results.; Declare your unwavering commitment to socialist revolution and the working class.",
+        "unlockedAchievements": [
+          "Chapter I: President Rayne",
+          "Chapter IV: Checkmate",
+          "Malenyevist",
+          "Family Man"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Inauguration, Assassination Shock & The Reform Package Debate",
+          "sceneFile": "Sordland_Turn03_EnT_BusinessCouncil.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Chapter4_Finished",
+            "RiziaDLC.Resources_Authority",
+            "BaseGameSupport.CollectionItem_GoatStatue"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 3",
+        "title": "Turn 3 Strategic Objectives: Gasom Investment and Energy Protection Act Summit",
+        "context": "Turn 3: Energy summit in Lachaven",
+        "action": "Sign the co-investment pact with Gasom and mandate improved working conditions for energy laborers.; Invest 2 Government Budget with Gasom and agree to raise or repeal the EPA threshold.",
+        "unlockedAchievements": [
+          "Feel My Energy",
+          "Kiss My Gas"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Gasom Investment and Energy Protection Act Summit",
+          "sceneFile": "Sordland_Turn03_EnT_BusinessCouncil.md",
+          "saveVariables": [
+            "RiziaDLC.Sordland_ComprehensiveDeal",
+            "RiziaDLC.Adopted_Bruno",
+            "BaseGame.Gasom_HighEnergySynergy",
+            "BaseGame.EPA_Reverted10",
+            "BaseGame.Gasom_Investment"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+        "context": "Turn 6: Concluding the mega-infrastructure grand opening and party consultations",
+        "action": "Celebrate the completion of the transit link and prepare the administration for the upcoming assembly vote.",
+        "unlockedAchievements": [
+          "Chapter II: A New Sordland"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+          "sceneFile": "Sordland_Turn06_InT_RailwayOpening.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter2_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 5",
+        "title": "Turn 5 Strategic Objectives: Cabinet Deliberation on Law Enforcement and Anti-Corruption",
+        "context": "Turn 5 police reform summit",
+        "action": "Found the Anti-Corruption Police (ACP) under the Ministry of Justice.",
+        "unlockedAchievements": [
+          "Drain the Swamp"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Cabinet Deliberation on Law Enforcement and Anti-Corruption",
+          "sceneFile": "Sordland_Turn05_SnO_FoundedPolice.md",
+          "saveVariables": [
+            "BaseGame.SignedBillCount"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+        "context": "Turn 8: Debriefing the international alliance summits and domestic unrest response",
+        "action": "Solidify foreign partnerships and review internal security measures ahead of late-game challenges.; Work the floor, lobby independent and wavering MPs, and cast your vote in favor.; Emphasize judicial independence, rule of law, and democratic balance without showing hostility to the court.",
+        "unlockedAchievements": [
+          "Chapter III: Victim of Changes",
+          "Grand National Assembly",
+          "The Constitution of '56",
+          "First Step To Golconda",
+          "Every Vote Matters"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+          "sceneFile": "Sordland_Turn08_FPnT_LespiaVisit.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter4_Finished",
+            "RiziaDLCSupport.CollectionItem_DastScepter"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: State Visit to Valgsland and Summit with Emmerich Hegel",
+        "context": "Summit with Chancellor Hegel on his flagship",
+        "action": "Recognize Valgsland's claim over Heljiland, sign the trade pact, and formalize a military alliance.; Down the Valgslandian vodka shots with Chancellor Hegel and toast to workers' solidarity.; Approve comprehensive rural medical coverage and universal modern education standards.",
+        "unlockedAchievements": [
+          "\\",
+          "Valgslandian Vodka",
+          "Welfare State"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "State Visit to Valgsland and Summit with Emmerich Hegel",
+          "sceneFile": "Sordland_Turn08_FPnT_ValgslandVisit.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter2_Finished",
+            "BaseGame.FCAnrica_LeagueChampion",
+            "BaseGame.Bill_Turn09_BludishCommission_Signed"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 9",
+        "title": "Turn 9 Strategic Objectives: State Visit to United Contana and Summit with Leon Malenyev",
+        "context": "State dinner with Premier Malenyev in Turn 9",
+        "action": "Sign the Comrade Contanan Security Pact (CSP) treaty alongside Premier Malenyev.; Take an assertive stance on the Heljiland conflict, addressing the international community.; Publicly endorse and align your administration with the Red Youth.",
+        "unlockedAchievements": [
+          "United Against Capitalism",
+          "Rightful Claim",
+          "Revolutionary Generation",
+          "Sordish Economic Recovery"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "State Visit to United Contana and Summit with Leon Malenyev",
+          "sceneFile": "Sordland_Turn09_FPnT_UnitedContanaVisit.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter2_Finished",
+            "RiziaDLC.Left_GRACE",
+            "BaseGameSupport.CollectionItem_AnricaTrophy",
+            "BaseGame.Investment_FCAnrica",
+            "BaseGameSupport.CollectionItem_CarKey"
+          ]
+        }
+      },
+      {
+        "turn": "Epilogue",
+        "title": "Epilogue Strategic Objectives: Election Night Victory Address at the Maroon Palace",
+        "context": "Addressing the nation and celebrating supporters on election night 1957",
+        "action": "Step onto the balcony, deliver an inspiring victory address, and thank the people of Sordland.",
+        "unlockedAchievements": [
+          "A Morgna her coren!"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Election Night Victory Address at the Maroon Palace",
+          "sceneFile": "Sordland_Epilogue_ElectionWin.md",
+          "saveVariables": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "sordland-autocrat-sollist",
+    "title": "Iron Fist \u2014 Sollist Dictator & Hawker's Emergency",
+    "subtitle": "Emergency Decree \u2022 Secret State Police \u2022 Elimination of Political Enemies \u2022 Soll's Legacy",
+    "game": "Sordland",
+    "tags": [
+      "Sordland",
+      "Authoritarian"
+    ],
+    "archetype": "Sollist Dictator",
+    "description": "Rule with an iron fist by declaring a national State of Emergency alongside Chief Justice Orso Hawker. Form the Secret State Police (SSP) under Lileas Graf, neutralize opposition leaders, eliminate corrupt oligarchs, and enshrine Tarquin Soll's legacy forever.",
+    "presetId": "sordland-run-a-emergency",
+    "achievements": [
+      "Prologue: Rise to Power",
+      "Chapter I: President Rayne",
+      "Chapter II: A New Sordland",
+      "Chapter III: Victim of Changes",
+      "Chapter IV: Checkmate",
+      "Article 100",
+      "Hawker's Plan",
+      "Sssh!",
+      "By Any Means Necessary",
+      "Obstructionist",
+      "Sollist",
+      "Soll's Legacy",
+      "Authoritarian",
+      "Police State",
+      "New Generation of Sords",
+      "Purple Blood",
+      "United Against Communism",
+      "Merkopa's Most Unfair Election System",
+      "\\u201cDonations\\u201d",
+      "Just Another Funeral",
+      "An Offer You Cannot Refuse",
+      "Alexius Maximus Reginald the Third",
+      "Crocodile Tears",
+      "Chessmaster",
+      "End of an Era",
+      "Grand National Assembly",
+      "The Constitution of '56",
+      "Lawmaker",
+      "Catchphrase",
+      "A Morgna her coren!"
+    ],
+    "exclusivePairs": [
+      [
+        "Grand L-1 Opening",
+        "Grand H-3 Opening"
+      ],
+      [
+        "Family Man",
+        "This Can't Go On Like This, Anton"
+      ],
+      [
+        "True Master of Crisis",
+        "Master of Crisis"
+      ],
+      [
+        "Authoritarian",
+        "Democrat"
+      ],
+      [
+        "Police State",
+        "Freedom and Justice"
+      ]
+    ],
+    "exclusiveGroups": [
+      [
+        "A Morgna her coren!",
+        "A New Hope",
+        "Just Another Sordish President"
+      ]
+    ],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Prologue",
+        "title": "Prologue Strategic Objectives: Youth, Military Service & Rise to the Presidency",
+        "context": "1953 Sordish Election Night Victory Speech",
+        "action": "Step onto the balcony of the USP Headquarters, thank the citizens of Sordland, and proclaim a new morning for the Republic.; Approve decree / bill supporting Hawker's Plan; Approve decree / bill supporting Obstructionist",
+        "unlockedAchievements": [
+          "Prologue: Rise to Power",
+          "Hawker's Plan",
+          "Obstructionist",
+          "Lawmaker",
+          "Catchphrase"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Youth, Military Service & Rise to the Presidency",
+          "sceneFile": "Prologue_Archive.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Prologue_Finished",
+            "BaseGame.Decision_Turn05_AutocratEmergency_Extend",
+            "BaseGame.Decision_Turn08_ExtendEmergency_Extend",
+            "RiziaDLC.HighTea_Hosted"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Inauguration, Assassination Shock & The Reform Package Debate",
+        "context": "Turn 3: Concluding the ministerial budget meeting and constitutional roadmap",
+        "action": "Finalize your government's core policy stance (Reform or Emergency) and adjourn the cabinet.; Reflect on your four-year legacy as President and prepare for the national election results.; Reiterate your unshakeable devotion to Sollism, the USP traditions, and state sovereignty.",
+        "unlockedAchievements": [
+          "Chapter I: President Rayne",
+          "Chapter IV: Checkmate",
+          "Sollist",
+          "Authoritarian",
+          "Just Another Funeral",
+          "Chessmaster"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Inauguration, Assassination Shock & The Reform Package Debate",
+          "sceneFile": "Sordland_Turn03_EnT_BusinessCouncil.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Chapter4_Finished",
+            "RiziaDLC.Situation_Economy_RRG_StateOwns100",
+            "RiziaDLC.Zille_Peaceful_Handover",
+            "BaseGameSupport.ChessMatch_Lost"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 2",
+        "title": "Turn 2 Strategic Objectives: Private Tender Meeting with Walter Tusk or Corporate Privatization",
+        "context": "When Walter Tusk offers a thick envelope of cash to guarantee the infrastructure contract to Underhall Construction",
+        "action": "Take the envelope and accept the donation.; A deal is a deal. It will be upheld.",
+        "unlockedAchievements": [
+          "\\u201cDonations\\u201d",
+          "An Offer You Cannot Refuse"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Private Tender Meeting with Walter Tusk or Corporate Privatization",
+          "sceneFile": "Sordland_Turn02_A_ContractBribe.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter4_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 3",
+        "title": "Turn 3 Strategic Objectives: National Address Declaring a State of Emergency",
+        "context": "National radio address to the nation in Turn 3",
+        "action": "Formally proclaim a State of Emergency across Sordland in cooperation with the Supreme Court.",
+        "unlockedAchievements": [
+          "Article 100"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "National Address Declaring a State of Emergency",
+          "sceneFile": "Sordland_Turn03_A_AutocratSpeech.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_WhiskeyBottle"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+        "context": "Turn 6: Concluding the mega-infrastructure grand opening and party consultations",
+        "action": "Celebrate the completion of the transit link and prepare the administration for the upcoming assembly vote.",
+        "unlockedAchievements": [
+          "Chapter II: A New Sordland"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+          "sceneFile": "Sordland_Turn06_InT_RailwayOpening.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter2_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 5",
+        "title": "Turn 5 Strategic Objectives: Cabinet Deliberation on Founding the Secret State Police",
+        "context": "Turn 5 police reform summit",
+        "action": "Found the Secret State Police (SSP) under Karl Greiser.",
+        "unlockedAchievements": [
+          "Sssh!"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Cabinet Deliberation on Founding the Secret State Police",
+          "sceneFile": "Sordland_Turn05_SnO_FoundedPolice.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter1_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+        "context": "Turn 8: Debriefing the international alliance summits and domestic unrest response",
+        "action": "Solidify foreign partnerships and review internal security measures ahead of late-game challenges.; Give the order to make the target quietly disappear.; Proclaim the dawn of a Neo-Sollist era of state nationalism with absolute executive dominance.",
+        "unlockedAchievements": [
+          "Chapter III: Victim of Changes",
+          "By Any Means Necessary",
+          "Soll's Legacy",
+          "Purple Blood",
+          "Merkopa's Most Unfair Election System",
+          "Grand National Assembly",
+          "The Constitution of '56"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+          "sceneFile": "Sordland_Turn08_FPnT_LespiaVisit.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter4_Finished",
+            "BaseGameSupport.CollectionItem_CigarBox",
+            "BaseGame.VetoedBillCount",
+            "RiziaDLC.AN_Sanctioned",
+            "BaseGameSupport.CollectionItem_Gun"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: Authoritarian Security Decrees Establishing a Police State",
+        "context": "Turn 8 security council summit",
+        "action": "Impose total police crackdowns, curfews, and mass arrests across all major cities.; Adopt a loyal dog to join the first family at the residence.",
+        "unlockedAchievements": [
+          "Police State",
+          "Alexius Maximus Reginald the Third"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Authoritarian Security Decrees Establishing a Police State",
+          "sceneFile": "Sordland_Turn08_A_UnrestMeeting.md",
+          "saveVariables": [
+            "RiziaDLCSupport.CollectionItem_DastScepter",
+            "RiziaDLC.Ending_Death",
+            "RiziaDLC.Remarried"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 9",
+        "title": "Turn 9 Strategic Objectives: Public Alliance with Remus Holstron and the Young Sords",
+        "context": "Security meeting regarding nationalist youth groups",
+        "action": "Formally endorse and legitimize the Young Sords paramilitary movement.; Formally accept President Walker's offer and sign the Arcasia Treaty Organization (ATO) charter.; Express dramatic sorrow and weep openly for your closest friend, concealing your own responsibility.",
+        "unlockedAchievements": [
+          "New Generation of Sords",
+          "United Against Communism",
+          "Crocodile Tears",
+          "End of an Era"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Public Alliance with Remus Holstron and the Young Sords",
+          "sceneFile": "Sordland_Turn09_SnO_RumburgIncident.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_AschrafCandle",
+            "BaseGame.GovernmentBudget",
+            "BaseGame.Aschraf_CandleLit",
+            "BaseGame.Bill_Turn09_BludishCommission_Signed",
+            "RiziaDLC.Situation_Diplomacy_PowerProjection_Overwhelming",
+            "RiziaDLC.Left_GRACE"
+          ]
+        }
+      },
+      {
+        "turn": "Epilogue",
+        "title": "Epilogue Strategic Objectives: Election Night Victory Address at the Maroon Palace",
+        "context": "Addressing the nation and celebrating supporters on election night 1957",
+        "action": "Step onto the balcony, deliver an inspiring victory address, and thank the people of Sordland.",
+        "unlockedAchievements": [
+          "A Morgna her coren!"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Election Night Victory Address at the Maroon Palace",
+          "sceneFile": "Sordland_Epilogue_ElectionWin.md",
+          "saveVariables": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "sordland-war-machine",
+    "title": "Sordish War Machine \u2014 Total Victory Over Rumburg",
+    "subtitle": "Military Modernization \u2022 Operation Fall Valkyrie \u2022 Capture of Queen Beatrice \u2022 Sordish Hegemony",
+    "game": "Sordland",
+    "tags": [
+      "Sordland",
+      "Military"
+    ],
+    "archetype": "War Hero Commander",
+    "description": "Prepare Sordland for the inevitable clash of civilizations against Queen Beatrice Livingston of Rumburg. Modernize the armed forces, expose Rumburgian spies and nuclear ambitions, execute a decisive strategic offensive, and capture the royal capital of Thornbourn.",
+    "presetId": "sordland-run-a-emergency",
+    "achievements": [
+      "Prologue: Rise to Power",
+      "Chapter I: President Rayne",
+      "Chapter II: A New Sordland",
+      "Chapter III: Victim of Changes",
+      "Chapter IV: Checkmate",
+      "Sordish War Machine",
+      "Vectern sis da!",
+      "Hail the Queen",
+      "Militarist State",
+      "Make Sordland Great Again",
+      "No Friends But Sords",
+      "Operation Bear Trap",
+      "Sordish Economic Recovery",
+      "Grand H-3 Opening",
+      "First Step To Golconda",
+      "Family Man",
+      "Catchphrase",
+      "A Morgna her coren!"
+    ],
+    "exclusivePairs": [
+      [
+        "Grand L-1 Opening",
+        "Grand H-3 Opening"
+      ],
+      [
+        "Vectern sis da!",
+        "Hail the Queen"
+      ],
+      [
+        "True Master of Crisis",
+        "Master of Crisis"
+      ],
+      [
+        "No Friends But Sords",
+        "Operation Bear Trap"
+      ]
+    ],
+    "exclusiveGroups": [
+      [
+        "Vectern sis da!",
+        "Hail the Queen",
+        "A Morgna her coren!"
+      ]
+    ],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Prologue",
+        "title": "Prologue Strategic Objectives: Youth, Military Service & Rise to the Presidency",
+        "context": "1953 Sordish Election Night Victory Speech",
+        "action": "Step onto the balcony of the USP Headquarters, thank the citizens of Sordland, and proclaim a new morning for the Republic.; Approve decree / bill supporting Catchphrase",
+        "unlockedAchievements": [
+          "Prologue: Rise to Power",
+          "Catchphrase"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Youth, Military Service & Rise to the Presidency",
+          "sceneFile": "Prologue_Archive.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Prologue_Finished",
+            "RiziaDLC.Pales_Alliance_Signed",
+            "BaseGame.AMorgnaWesCore",
+            "RiziaDLCSupport.CollectionItem_LucitaDagger"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Inauguration, Assassination Shock & The Reform Package Debate",
+        "context": "Turn 3: Concluding the ministerial budget meeting and constitutional roadmap",
+        "action": "Finalize your government's core policy stance (Reform or Emergency) and adjourn the cabinet.; Reflect on your four-year legacy as President and prepare for the national election results.; Sign the historic peace treaty, annexing Dome and Tzarsborough and dictating terms to Queen Beatrice.",
+        "unlockedAchievements": [
+          "Chapter I: President Rayne",
+          "Chapter IV: Checkmate",
+          "Vectern sis da!",
+          "Family Man"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Inauguration, Assassination Shock & The Reform Package Debate",
+          "sceneFile": "Sordland_Turn03_EnT_BusinessCouncil.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Chapter4_Finished",
+            "BaseGame.Prologue_Birthplace_Lachaven_Rich",
+            "BaseGame.PersonalWealth",
+            "BaseGameSupport.CollectionItem_GoatStatue"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+        "context": "Turn 6: Concluding the mega-infrastructure grand opening and party consultations",
+        "action": "Celebrate the completion of the transit link and prepare the administration for the upcoming assembly vote.",
+        "unlockedAchievements": [
+          "Chapter II: A New Sordland"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+          "sceneFile": "Sordland_Turn06_InT_RailwayOpening.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter2_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 5",
+        "title": "Turn 5 Strategic Objectives: Emergency Crisis Summit at the Presidential Palace",
+        "context": "When Smolak demands military cooperation in Operation Bear Trap",
+        "action": "Agree to assist Operation Bear Trap by sealing Sordish borders against Wehzek rebels.",
+        "unlockedAchievements": [
+          "Operation Bear Trap"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Emergency Crisis Summit at the Presidential Palace",
+          "sceneFile": "Sordland_Turn05_FPnT_WehlenTradeVisit.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_WhiskeyBottle"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 6",
+        "title": "Turn 6 Strategic Objectives: Turn 6 Inauguration of the H-3 Highway in Agnland",
+        "context": "Ceremony in Agnland with Governor Ewald Alphonso",
+        "action": "Cut the ribbon, drive the ceremonial vehicle onto the highway, and celebrate regional development.",
+        "unlockedAchievements": [
+          "Grand H-3 Opening"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Turn 6 Inauguration of the H-3 Highway in Agnland",
+          "sceneFile": "Sordland_Turn06_InT_HighwayOpening.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_PoemBook"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+        "context": "Turn 8: Debriefing the international alliance summits and domestic unrest response",
+        "action": "Solidify foreign partnerships and review internal security measures ahead of late-game challenges.; Grab the sceptre with your left hand, then touch the altar with your right.",
+        "unlockedAchievements": [
+          "Chapter III: Victim of Changes",
+          "First Step To Golconda"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+          "sceneFile": "Sordland_Turn08_FPnT_LespiaVisit.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter4_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: National Defense Council and Armed Forces Expansion",
+        "context": "Turn 8/9 national security council meeting",
+        "action": "Endorse full military readiness, expand youth defense drills, and establish a militarist state posture.; Centralize the administration of Bergia directly under the Ministry of the Interior.",
+        "unlockedAchievements": [
+          "Militarist State",
+          "Make Sordland Great Again"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "National Defense Council and Armed Forces Expansion",
+          "sceneFile": "Sordland_Turn08_A_UnrestMeeting.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_CeremonialScissors",
+            "BaseGameSupport.CollectionItem_UnderhallTrophy",
+            "RiziaDLCSupport.CollectionItem_MandragoraExtract"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 9",
+        "title": "Turn 9 Strategic Objectives: Emergency Security Council Following the Rumburg Plane Incident",
+        "context": "Turn 9 high command meeting",
+        "action": "Start the war machine: mobilize the armed forces and declare war on Rumburg.; Reiterate Sordland's strict non-aligned isolationism: standing entirely alone on the world stage.; Review the thriving national economic indicators and celebrate the complete recovery of Sordland.",
+        "unlockedAchievements": [
+          "Sordish War Machine",
+          "No Friends But Sords",
+          "Sordish Economic Recovery"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Emergency Security Council Following the Rumburg Plane Incident",
+          "sceneFile": "Sordland_Turn09_SnO_RumburgIncident.md",
+          "saveVariables": [
+            "BaseGame.FCAnrica_LeagueChampion",
+            "BaseGameSupport.CollectionItem_Headphones",
+            "BaseGameSupport.CollectionItem_CigarBox"
+          ]
+        }
+      },
+      {
+        "turn": "Epilogue",
+        "title": "Epilogue Strategic Objectives: The Fall of Holsord and Sordish Military Defeat",
+        "context": "Underground bunker surrender in Holsord",
+        "action": "Face Queen Beatrice and the Rumburgian conquerors as Sordland is occupied.; Step onto the balcony, deliver an inspiring victory address, and thank the people of Sordland.",
+        "unlockedAchievements": [
+          "Hail the Queen",
+          "A Morgna her coren!"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "The Fall of Holsord and Sordish Military Defeat",
+          "sceneFile": "Sordland_Epilogue_RumburgWarLost.md",
+          "saveVariables": [
+            "BaseGame.LateGameCrisis"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "sordland-calamity",
+    "title": "The Great Calamity \u2014 Downfall, Deposed, Coup & Exile",
+    "subtitle": "Economic Collapse \u2022 Military Coup \u2022 Impeachment Trial \u2022 Tragic Deposition & Exile",
+    "game": "Sordland",
+    "tags": [
+      "Sordland",
+      "Special"
+    ],
+    "archetype": "Tragic Downfall",
+    "description": "Experience the dark and tragic collapses of presidential power. Navigate severe debt crises, widespread unrest, military intervention by Generals Lancea or Kruger, Supreme Court impeachment trials, assassination attempts, and bittersweet retirement or foreign exile.",
+    "presetId": null,
+    "achievements": [
+      "Prologue: Rise to Power",
+      "Chapter I: President Rayne",
+      "Chapter II: A New Sordland",
+      "Chapter III: Victim of Changes",
+      "Chapter IV: Checkmate",
+      "Coup d'\\u00e9tat",
+      "Impeached",
+      "Forced Out",
+      "A New Hope",
+      "Demoted",
+      "Just Another Sordish President",
+      "Early Retirement",
+      "Path To Exile",
+      "Assassinated",
+      "World At War",
+      "Sordish Depression",
+      "Yes I'm Alone But Then Again I Always Was",
+      "This Can't Go On Like This, Anton",
+      "Speaking Louder Makes You Right",
+      "Revenge of Izzam",
+      "Yollak Bluderat!",
+      "Carb Diet",
+      "Down with Rayne!"
+    ],
+    "exclusivePairs": [
+      [
+        "Sordish Economic Recovery",
+        "Sordish Depression"
+      ]
+    ],
+    "exclusiveGroups": [
+      [
+        "Coup d'\u00e9tat",
+        "Impeached",
+        "Forced Out",
+        "Demoted",
+        "Path To Exile",
+        "Early Retirement",
+        "Assassinated",
+        "World At War"
+      ]
+    ],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Prologue",
+        "title": "Prologue Strategic Objectives: Youth, Military Service & Rise to the Presidency",
+        "context": "1953 Sordish Election Night Victory Speech",
+        "action": "Step onto the balcony of the USP Headquarters, thank the citizens of Sordland, and proclaim a new morning for the Republic.",
+        "unlockedAchievements": [
+          "Prologue: Rise to Power"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Youth, Military Service & Rise to the Presidency",
+          "sceneFile": "Prologue_Archive.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Prologue_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Inauguration, Assassination Shock & The Reform Package Debate",
+        "context": "Turn 3: Concluding the ministerial budget meeting and constitutional roadmap",
+        "action": "Finalize your government's core policy stance (Reform or Emergency) and adjourn the cabinet.; Reflect on your four-year legacy as President and prepare for the national election results.; Enjoy a tranquil life at your family home in Anrica, reminiscing on your time in power.",
+        "unlockedAchievements": [
+          "Chapter I: President Rayne",
+          "Chapter IV: Checkmate",
+          "Early Retirement",
+          "Yes I'm Alone But Then Again I Always Was"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Inauguration, Assassination Shock & The Reform Package Debate",
+          "sceneFile": "Sordland_Turn03_EnT_BusinessCouncil.md",
+          "saveVariables": [
+            "BaseGame.Chapter1_Finished",
+            "BaseGame.Chapter2_Finished",
+            "BaseGame.Chapter4_Finished",
+            "RiziaDLCSupport.CollectionItem_MiniYacht"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 3",
+        "title": "Turn 3 Strategic Objectives: Business Council Banquet with Walter Tusk and Marcel Koronti",
+        "context": "When served rich pastas and gourmet breads at the banquet table",
+        "action": "Help yourself to generous servings of pasta and carb-heavy delicacies.",
+        "unlockedAchievements": [
+          "Carb Diet"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Business Council Banquet with Walter Tusk and Marcel Koronti",
+          "sceneFile": "Sordland_Turn03_EnT_BusinessCouncil.md",
+          "saveVariables": [
+            "RiziaDLCSupport.CollectionItem_ChessPiece",
+            "RiziaDLC.Situation_Military_Manpower_Massive"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+        "context": "Turn 6: Concluding the mega-infrastructure grand opening and party consultations",
+        "action": "Celebrate the completion of the transit link and prepare the administration for the upcoming assembly vote.",
+        "unlockedAchievements": [
+          "Chapter II: A New Sordland"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Regional Crises, Bilateral Diplomacy & Law Enforcement Reforms",
+          "sceneFile": "Sordland_Turn06_InT_RailwayOpening.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter2_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+        "context": "Turn 8: Debriefing the international alliance summits and domestic unrest response",
+        "action": "Solidify foreign partnerships and review internal security measures ahead of late-game challenges.; Slam your hands violently against the podium, shout back, and fiercely demand order in the chamber.",
+        "unlockedAchievements": [
+          "Chapter III: Victim of Changes",
+          "Speaking Louder Makes You Right"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Grand National Assembly Vote, Supreme Court Trial & Foreign Alliances",
+          "sceneFile": "Sordland_Turn08_FPnT_LespiaVisit.md",
+          "saveVariables": [
+            "BaseGame.Chapter3_Finished",
+            "BaseGame.Chapter4_Finished",
+            "RiziaDLC.Situation_Diplomacy_PowerProjection_Overwhelming"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: Cabinet Emergency Briefing on Bludish Uprising",
+        "context": "Turn 8 security assessment",
+        "action": "Review reports of armed Bludish Freedom Front mobilizations and militant uprising across Bergia.; Acknowledge the uncontrollable outbreak of violent rioting and nationwide urban chaos.",
+        "unlockedAchievements": [
+          "Yollak Bluderat!",
+          "Down with Rayne!"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Cabinet Emergency Briefing on Bludish Uprising",
+          "sceneFile": "Sordland_Turn08_A_UnrestMeeting.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter1_Finished",
+            "BaseGame.LateGameCrisis"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 9",
+        "title": "Turn 9 Strategic Objectives: Ministry of Economy Briefing on Sordish Economic Collapse",
+        "context": "Cabinet economic debrief in Turn 9",
+        "action": "Acknowledge the catastrophic collapse of the Sordish economy and bankruptcy of the treasury.; Refuse to apologize, dismiss her demands, and allow the marriage to end in legal divorce.; Authorize special forces tactical breach or negotiate hostage release to retake the dam without breach.",
+        "unlockedAchievements": [
+          "Sordish Depression",
+          "This Can't Go On Like This, Anton",
+          "Revenge of Izzam"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Ministry of Economy Briefing on Sordish Economic Collapse",
+          "sceneFile": "Sordland_Turn09_EnT_EconomicOverviewAndAction.md",
+          "saveVariables": [
+            "RiziaDLC.Territory_Zille_Reunited",
+            "RiziaDLCSupport.CollectionItem_MechanicalBird",
+            "RiziaDLC.Territory_Pales_Reunited",
+            "RiziaDLCSupport.CollectionItem_IzaKey",
+            "RiziaDLC.AN_Sanctioned"
+          ]
+        }
+      },
+      {
+        "turn": "Epilogue",
+        "title": "Epilogue Strategic Objectives: Sordland Epilogue Couptrial",
+        "context": "Meeting in scene: Sordland Epilogue Couptrial",
+        "action": "Face the military tribunal during the coup trial; Stand trial before the Supreme Court as Chief Justice Hawker hands down your conviction.; Concede defeat to Lileas Graf and step aside from the presidential ticket.",
+        "unlockedAchievements": [
+          "Coup d'\\u00e9tat",
+          "Impeached",
+          "Forced Out",
+          "A New Hope",
+          "Demoted",
+          "Just Another Sordish President",
+          "Path To Exile",
+          "Assassinated",
+          "World At War"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Sordland Epilogue Couptrial",
+          "sceneFile": "Sordland_Epilogue_CoupTrial.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter4_Finished",
+            "RiziaDLC.Chapter3_Finished",
+            "RiziaDLC.Manus_Commissioned",
+            "RiziaDLC.War_Pales_Blitzkrieg_Won",
+            "RiziaDLC.GoldenBells_Rung",
+            "RiziaDLCSupport.CollectionItem_GasCorpPlaque"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "rizia-constitutional-reformer",
+    "title": "The Golden Reformer \u2014 Constitutional Monarchy & Modernization",
+    "subtitle": "Royal Constitution \u2022 House Manus Alliance \u2022 Civil Liberties \u2022 Industrial Prosperity",
+    "game": "Rizia",
+    "tags": [
+      "Rizia",
+      "Reformist",
+      "Economy"
+    ],
+    "archetype": "Constitutional Monarch",
+    "description": "Guide the Kingdom of Rizia out of feudal stagnation into modern constitutional monarchy. Collaborate with House Manus, abolish provincial levies, expand civil liberties, decriminalize social freedoms, and drive an era of unprecedented industrial growth.",
+    "presetId": "rizia-golden-kingdom",
+    "achievements": [
+      "Rizia Prologue: Ascension to the Throne",
+      "Chapter I: King Romus",
+      "Chapter II: Between-Seas",
+      "Chapter III: Leviathan",
+      "Chapter IV: Sila Orica",
+      "Rizian Charter of Fundamental Law",
+      "Reform Or Die",
+      "My Rule Continues",
+      "Not So Fun Anymore",
+      "Out And Proud",
+      "Ready To Love Again",
+      "Pearl of the Between-Seas",
+      "What's Mined Is Yours",
+      "The Green Kingdom",
+      "Economic Wonder of South Merkopa",
+      "Golden Age of Rizia",
+      "Through Machinery and Industry",
+      "Arms Exporter",
+      "Arms Importer",
+      "People's Army",
+      "The Prince",
+      "A Toras Pays His Debts",
+      "A Little Help From My Friends",
+      "Mom and Dad",
+      "Lieutenant Commander Sazon",
+      "True Master of Crisis",
+      "Case Closed"
+    ],
+    "exclusivePairs": [
+      [
+        "True Master of Crisis",
+        "Father's Son"
+      ],
+      [
+        "My Rule Continues",
+        "Away from My Land"
+      ]
+    ],
+    "exclusiveGroups": [
+      [
+        "My Rule Continues",
+        "Fragmentation",
+        "Return of the King",
+        "Away from My Land"
+      ]
+    ],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Prologue",
+        "title": "Prologue Strategic Objectives: Prince Romus's Youth, Marriage to Queen Lena & Royal Coronation",
+        "context": "Coronation ceremony in the Grand Basilica of Porte Drazon",
+        "action": "Accept the Golden Crown of Rizia upon your head, take the royal oath, and address the assembled noble houses.",
+        "unlockedAchievements": [
+          "Rizia Prologue: Ascension to the Throne"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Prince Romus's Youth, Marriage to Queen Lena & Royal Coronation",
+          "sceneFile": "Prologue_Archive.md",
+          "saveVariables": [
+            "RiziaDLC.Prologue_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Royal Council Organization, Zille Bombing Crisis & Beatrice Visit",
+        "context": "Turn 3: Concluding the imperial summit with Queen Beatrice",
+        "action": "Establish your foreign policy stance within GRACE and instruct the Royal Council to proceed with development.; Deliver your historic decennial address celebrating Rizia's sovereign triumphs.; Sign the constitutional reform proclamation, establishing a modern constitutional monarchy.",
+        "unlockedAchievements": [
+          "Chapter I: King Romus",
+          "Chapter IV: Sila Orica",
+          "Rizian Charter of Fundamental Law",
+          "Reform Or Die",
+          "My Rule Continues",
+          "Not So Fun Anymore",
+          "Out And Proud",
+          "Pearl of the Between-Seas",
+          "The Green Kingdom",
+          "Economic Wonder of South Merkopa",
+          "Golden Age of Rizia",
+          "Through Machinery and Industry",
+          "People's Army",
+          "The Prince",
+          "A Toras Pays His Debts",
+          "Mom and Dad",
+          "True Master of Crisis"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Royal Council Organization, Zille Bombing Crisis & Beatrice Visit",
+          "sceneFile": "Rizia_Turn 3_FPnT_QueenBeatriceVisit.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_GoatStatue",
+            "RiziaDLC.Chapter1_Finished",
+            "RiziaDLC.Chapter4_Finished",
+            "RiziaDLC.Rumburg_Vassal",
+            "RiziaDLC.Divided_Kingdom",
+            "RiziaDLC.Reform_Or_Die_Signed"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Aureus Gas Field Crisis, MITZ Negotiations & Derdia Outreach",
+        "context": "Turn 6: Concluding regional trade accords and naval reviews",
+        "action": "Adjourn the diplomatic council and instruct the navy and industry to maintain high readiness.; Sign the Royal Miner and Laborer Protection Act, guaranteeing that the fruits of the mines belong to the workers.; Approve the military commission and appoint Manus Sazon as Lieutenant Commander in the armed forces.",
+        "unlockedAchievements": [
+          "Chapter II: Between-Seas",
+          "What's Mined Is Yours",
+          "Lieutenant Commander Sazon"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Aureus Gas Field Crisis, MITZ Negotiations & Derdia Outreach",
+          "sceneFile": "Rizia_Turn 5_FPnT_MorellaNegotiations.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter3_Finished",
+            "RiziaDLC.Chapter2_Finished",
+            "RiziaDLC.Vina_Rescued",
+            "RiziaDLC.Azaros_Executed",
+            "RiziaDLC.Worker_Rights_Passed",
+            "RiziaDLC.Manus_Commissioned"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: Zille Handover Ultimatum, Wehlen Summit & Derdian Duel",
+        "context": "Turn 8: Palace garden consultations on dynastic alliances and military preparations",
+        "action": "Finalize your strategy regarding Pales and Zille as the regional crisis approaches boiling point.; Exchange vows with your new bride before the assembled kingdom and proclaim a new chapter of love.; Present your legal arguments, call on allied nations to back Rizia, and celebrate the unanimous ruling in Rizia's favor.",
+        "unlockedAchievements": [
+          "Chapter III: Leviathan",
+          "Ready To Love Again",
+          "A Little Help From My Friends"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Zille Handover Ultimatum, Wehlen Summit & Derdian Duel",
+          "sceneFile": "Rizia_Turn 8_Garden_Vina Non Marriage.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter4_Finished",
+            "RiziaDLC.Chapter3_Finished",
+            "RiziaDLC.Ending_Death",
+            "BaseGame.AN_Rumburg_Sanctioned",
+            "BaseGame.NuclearWar_Averted",
+            "RiziaDLC.Remarried"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: Royal Security Council Investigation of the Zille Bombing",
+        "context": "Turn 9: Presenting the final intelligence dossier on the Zille bombing",
+        "action": "Review the conclusive forensic evidence, sign the official findings, and formally close the Zille investigation.",
+        "unlockedAchievements": [
+          "Case Closed"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Royal Security Council Investigation of the Zille Bombing",
+          "sceneFile": "Rizia_Turn 10_Security_LucitaOrTitus.md",
+          "saveVariables": [
+            "BaseGame.WonUSPLeadership",
+            "RiziaDLC.Zille_Bombing_Solved",
+            "BaseGameSupport.CollectionItem_USPBrooch"
+          ]
+        }
+      },
+      {
+        "turn": "Campaign Dashboard",
+        "title": "Special Milestone: Royal Military Procurement & Arms Trade",
+        "context": "Military procurement council",
+        "action": "Authorize 7 foreign arms sales to international buyers, boosting royal revenue.; Authorize your 7th foreign arms shipment to bolster the Royal Armed Forces.",
+        "unlockedAchievements": [
+          "Arms Exporter",
+          "Arms Importer"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Royal Military Procurement & Arms Trade",
+          "sceneFile": null,
+          "saveVariables": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "rizia-absolutist-theocrat",
+    "title": "Iron Crown of Toras \u2014 Absolutist Hegemony & Holy Reconquest",
+    "subtitle": "House Toras Hegemony \u2022 Golden Guard \u2022 Derdian Golcondist Alliance \u2022 Pales Conquest by Force",
+    "game": "Rizia",
+    "tags": [
+      "Rizia",
+      "Authoritarian",
+      "Military"
+    ],
+    "archetype": "Absolutist Conqueror",
+    "description": "Reassert absolute royal supremacy under House Toras. Expand the elite Golden Guard under Titus, embrace the mystical Golcondist faith through alliance with Derdia, crush foreign insolence, and reclaim the Duchy of Pales through overwhelming military force.",
+    "presetId": "rizia-golden-kingdom",
+    "achievements": [
+      "Rizia Prologue: Ascension to the Throne",
+      "Chapter I: King Romus",
+      "Chapter II: Between-Seas",
+      "Chapter III: Leviathan",
+      "Chapter IV: Sila Orica",
+      "Domineering",
+      "The King Is Dead",
+      "Romus The Conqueror",
+      "Wruhec's Second Coming",
+      "Wruhecs Chosen",
+      "Power of the Heavens",
+      "Blitzkrieg",
+      "The Force in South Merkopa",
+      "Mine All Mine",
+      "Completely Justified",
+      "Make Yourself Great Again",
+      "Tradition is Our Compass, the Past Our Strength.",
+      "By Nur's Will, I Decree!",
+      "Nurists United",
+      "I hereby declare...",
+      "Two Birds For Beatrice",
+      "Like Father, Like Daughter",
+      "Not Losing You Again",
+      "The Golden Bells Ring",
+      "Say My Name",
+      "Smolak's Smokes",
+      "The Kingdom Incorporated",
+      "My Rule Continues",
+      "True Master of Crisis"
+    ],
+    "exclusivePairs": [
+      [
+        "Romus The Conqueror",
+        "Peace to the Duke"
+      ],
+      [
+        "Blitzkrieg",
+        "A Little Help From My Friends"
+      ]
+    ],
+    "exclusiveGroups": [
+      [
+        "My Rule Continues",
+        "The King Is Dead",
+        "The King Behind Bars"
+      ]
+    ],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Prologue",
+        "title": "Prologue Strategic Objectives: Prince Romus's Youth, Marriage to Queen Lena & Royal Coronation",
+        "context": "Coronation ceremony in the Grand Basilica of Porte Drazon",
+        "action": "Accept the Golden Crown of Rizia upon your head, take the royal oath, and address the assembled noble houses.",
+        "unlockedAchievements": [
+          "Rizia Prologue: Ascension to the Throne"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Prince Romus's Youth, Marriage to Queen Lena & Royal Coronation",
+          "sceneFile": "Prologue_Archive.md",
+          "saveVariables": [
+            "RiziaDLC.Prologue_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Royal Council Organization, Zille Bombing Crisis & Beatrice Visit",
+        "context": "Turn 3: Concluding the imperial summit with Queen Beatrice",
+        "action": "Establish your foreign policy stance within GRACE and instruct the Royal Council to proceed with development.; Deliver your historic decennial address celebrating Rizia's sovereign triumphs.; Approve decree / bill supporting Domineering",
+        "unlockedAchievements": [
+          "Chapter I: King Romus",
+          "Chapter IV: Sila Orica",
+          "Domineering",
+          "The King Is Dead",
+          "Romus The Conqueror",
+          "Wruhec's Second Coming",
+          "Wruhecs Chosen",
+          "Blitzkrieg",
+          "The Force in South Merkopa",
+          "Mine All Mine",
+          "Completely Justified",
+          "Make Yourself Great Again",
+          "Tradition is Our Compass, the Past Our Strength.",
+          "Like Father, Like Daughter",
+          "Not Losing You Again",
+          "The Golden Bells Ring",
+          "Say My Name",
+          "My Rule Continues",
+          "True Master of Crisis"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Royal Council Organization, Zille Bombing Crisis & Beatrice Visit",
+          "sceneFile": "Rizia_Turn 3_FPnT_QueenBeatriceVisit.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_GoatStatue",
+            "RiziaDLC.Chapter1_Finished",
+            "RiziaDLC.Chapter4_Finished",
+            "RiziaDLC.Resources_Authority",
+            "BaseGame.PersonalWealth",
+            "BaseGame.Prologue_Birthplace_Lachaven_Rich"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Aureus Gas Field Crisis, MITZ Negotiations & Derdia Outreach",
+        "context": "Turn 6: Concluding regional trade accords and naval reviews",
+        "action": "Adjourn the diplomatic council and instruct the navy and industry to maintain high readiness.",
+        "unlockedAchievements": [
+          "Chapter II: Between-Seas"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Aureus Gas Field Crisis, MITZ Negotiations & Derdia Outreach",
+          "sceneFile": "Rizia_Turn 5_FPnT_MorellaNegotiations.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter3_Finished",
+            "RiziaDLC.Chapter2_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 5",
+        "title": "Turn 5 Strategic Objectives: Bilateral Negotiations with President Wiktor Smolak in Wehlen",
+        "context": "Turn 5: Smolak offers his personal stash of pungent Wehzek cigars",
+        "action": "Take the cigar from Smolak, light it up, and sign the tobacco importation protocol.",
+        "unlockedAchievements": [
+          "Smolak's Smokes"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Bilateral Negotiations with President Wiktor Smolak in Wehlen",
+          "sceneFile": "Rizia_Turn 5_FPnT_WehlenNegotiations.md",
+          "saveVariables": [
+            "RiziaDLC.Smolak_Tobacco_Imported",
+            "RiziaDLC.Rusty_Arrested",
+            "RiziaDLC.Situation_Economy_RRG_StateOwns100",
+            "RiziaDLC.Theocracy_Declared"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: Zille Handover Ultimatum, Wehlen Summit & Derdian Duel",
+        "context": "Turn 8: Palace garden consultations on dynastic alliances and military preparations",
+        "action": "Finalize your strategy regarding Pales and Zille as the regional crisis approaches boiling point.; Purchase the Derdian ballistic missile batteries to arm Rizia's coastal and strategic defenses.; Unite the sacred scripture interpretations, affirm brotherhood under Saint Nur, and sign the concord of unity.",
+        "unlockedAchievements": [
+          "Chapter III: Leviathan",
+          "Power of the Heavens",
+          "Nurists United"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Zille Handover Ultimatum, Wehlen Summit & Derdian Duel",
+          "sceneFile": "Rizia_Turn 8_Garden_Vina Non Marriage.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter4_Finished",
+            "RiziaDLC.Chapter3_Finished",
+            "RiziaDLC.Missiles_Acquired",
+            "RiziaDLC.Ending_Exile",
+            "RiziaDLC.Levies_Abolished",
+            "RiziaDLC.Nurists_United"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: Royal Economic Intelligence Briefing & Arrest of Rusty",
+        "context": "Turn 9: Executive decree session regarding corporate malfeasance",
+        "action": "Sign the warrant to arrest Rusty for high treason and seize 100% of RRG for the Rizian Crown.",
+        "unlockedAchievements": [
+          "The Kingdom Incorporated"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Royal Economic Intelligence Briefing & Arrest of Rusty",
+          "sceneFile": "Rizia_Turn 10_COUNCILOR RESIGNATION CHECKS.md",
+          "saveVariables": [
+            "RiziaDLC.Beatrice_Insulted",
+            "RiziaDLC.Rusty_Arrested",
+            "RiziaDLC.Situation_Economy_RRG_StateOwns100",
+            "RiziaDLC.Theocracy_Declared"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 9",
+        "title": "Turn 9 Strategic Objectives: GRACE Imperial Summit Defiance Against Queen Beatrice",
+        "context": "Turn 9: When Queen Beatrice scolds you and demands full obedience",
+        "action": "Stand up, deliver a scathing insult to Queen Beatrice, and storm out of the imperial chamber.",
+        "unlockedAchievements": [
+          "Two Birds For Beatrice"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "GRACE Imperial Summit Defiance Against Queen Beatrice",
+          "sceneFile": "Rizia_Turn 9_FPnT_GRACERumburgMeeting.md",
+          "saveVariables": [
+            "RiziaDLC.PorteDrazon_Pearl_Achieved",
+            "RiziaDLC.Beatrice_Insulted"
+          ]
+        }
+      },
+      {
+        "turn": "Campaign Dashboard",
+        "title": "Special Milestone: Enactment of Traditional Religious Decrees",
+        "context": "Royal decree management",
+        "action": "Promulgate the full codex of religious harmony and holy observances: 'By Nur's Will, I Decree!'.; Sign your 10th executive royal decree into law, shaping the legal landscape of the kingdom.",
+        "unlockedAchievements": [
+          "By Nur's Will, I Decree!",
+          "I hereby declare..."
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Enactment of Traditional Religious Decrees",
+          "sceneFile": "Rizia_Turn 1_Houses Briefing Section.md",
+          "saveVariables": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "rizia-grand-diplomat",
+    "title": "The Grand Diplomat \u2014 Intermerkopum & Dynasty Reunification",
+    "subtitle": "Intermerkopum Regional Pact \u2022 Dynastic Marriage \u2022 Peaceful Pales & Zille Integration",
+    "game": "Rizia",
+    "tags": [
+      "Rizia",
+      "Diplomatic"
+    ],
+    "archetype": "Grand Diplomat",
+    "description": "Achieve total national reunification through statesmanship and regional solidarity. Unify the South Merkopan powers into the Intermerkopum alliance, unite Rizia and Pales via royal matrimony between Princess Vina and Duke Axel, and reclaim Zille through negotiation.",
+    "presetId": "rizia-golden-kingdom",
+    "achievements": [
+      "Rizia Prologue: Ascension to the Throne",
+      "Chapter I: King Romus",
+      "Chapter II: Between-Seas",
+      "Chapter III: Leviathan",
+      "Chapter IV: Sila Orica",
+      "Intermerkopum Alliance",
+      "Great Unification",
+      "Glovurius axa Rizia axa Pales",
+      "Trustworthy Friends",
+      "Peace to the Duke",
+      "A Little Help From My Friends",
+      "Sords, Our Friends",
+      "Fall from GRACE",
+      "The End of Powder and Blood",
+      "Blaze of Glory",
+      "Game of Spoons",
+      "Romus the Generous",
+      "So It Is",
+      "Funny Man",
+      "No Alcohol for me Please",
+      "A King's Best Friend",
+      "Save the Princess",
+      "House Cleaning",
+      "My Rule Continues",
+      "True Master of Crisis",
+      "Case Closed",
+      "Let it Rayne"
+    ],
+    "exclusivePairs": [
+      [
+        "Glovurius axa Rizia axa Pales",
+        "Romus The Conqueror"
+      ],
+      [
+        "Peace to the Duke",
+        "Blitzkrieg"
+      ]
+    ],
+    "exclusiveGroups": [
+      [
+        "My Rule Continues",
+        "Fragmentation",
+        "Away from My Land"
+      ]
+    ],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Prologue",
+        "title": "Prologue Strategic Objectives: Prince Romus's Youth, Marriage to Queen Lena & Royal Coronation",
+        "context": "Coronation ceremony in the Grand Basilica of Porte Drazon",
+        "action": "Accept the Golden Crown of Rizia upon your head, take the royal oath, and address the assembled noble houses.; Approve decree / bill supporting Sords, Our Friends",
+        "unlockedAchievements": [
+          "Rizia Prologue: Ascension to the Throne",
+          "Sords, Our Friends"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Prince Romus's Youth, Marriage to Queen Lena & Royal Coronation",
+          "sceneFile": "Prologue_Archive.md",
+          "saveVariables": [
+            "RiziaDLC.Prologue_Finished",
+            "RiziaDLC.Situation_Diplomacy_Sordland_WineWhiskeyDeal",
+            "RiziaDLC.New_Prince_Born",
+            "RiziaDLC.Situation_Diplomacy_Sordland_GasomHighOutput",
+            "RiziaDLC.Situation_Economy_Sordland_ResortDeal",
+            "RiziaDLC.Situation_Diplomacy_Sordland_GasomLowOutput"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Royal Council Organization, Zille Bombing Crisis & Beatrice Visit",
+        "context": "Turn 3: Concluding the imperial summit with Queen Beatrice",
+        "action": "Establish your foreign policy stance within GRACE and instruct the Royal Council to proceed with development.; Deliver your historic decennial address celebrating Rizia's sovereign triumphs.; Proclaim the Great Unification of Rizia, uniting Zille, Pales, and the realm under one eternal crown.",
+        "unlockedAchievements": [
+          "Chapter I: King Romus",
+          "Chapter IV: Sila Orica",
+          "Great Unification",
+          "Glovurius axa Rizia axa Pales",
+          "Blaze of Glory",
+          "So It Is",
+          "Save the Princess",
+          "My Rule Continues",
+          "True Master of Crisis"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Royal Council Organization, Zille Bombing Crisis & Beatrice Visit",
+          "sceneFile": "Rizia_Turn 3_FPnT_QueenBeatriceVisit.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_GoatStatue",
+            "RiziaDLC.Chapter1_Finished",
+            "RiziaDLC.Chapter4_Finished",
+            "RiziaDLC.Territory_Zille_Reunited",
+            "RiziaDLC.Territory_Pales_Reunited",
+            "RiziaDLC.NoCrisis_Achieved"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 2",
+        "title": "Turn 2 Strategic Objectives: Royal Kennels Adoption Session",
+        "context": "Turn 2: When kennel masters present the new litter of royal dogs",
+        "action": "Choose the spirited pup, name him Bruno, and welcome him as the royal companion.; Sign the comprehensive Sordish-Rizian trade and energy pact with President Anton Rayne's administration.",
+        "unlockedAchievements": [
+          "A King's Best Friend",
+          "Let it Rayne"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Royal Kennels Adoption Session",
+          "sceneFile": "Rizia_Turn 2_FPnT_SordlandTradeVisit.md",
+          "saveVariables": [
+            "RiziaDLC.Sordland_ComprehensiveDeal",
+            "RiziaDLC.Adopted_Bruno",
+            "RiziaDLCSupport.CollectionItem_FabergeEgg",
+            "RiziaDLC.Second_Revolt_Triggered"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 3",
+        "title": "Turn 3 Strategic Objectives: Aristocratic Royal High Tea at Palas Rezna",
+        "context": "Turn 3/8: Serving rare teas and pastries in the palace garden conservatory",
+        "action": "Pour the imperial tea with refined court grace, engage in witty diplomatic discussion, and compliment your guests.",
+        "unlockedAchievements": [
+          "Game of Spoons"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Aristocratic Royal High Tea at Palas Rezna",
+          "sceneFile": "Rizia_Turn 3_FPnT_QueenBeatriceVisit.md",
+          "saveVariables": [
+            "BaseGame.Investment_Vineyard",
+            "RiziaDLC.HighTea_Hosted",
+            "BaseGameSupport.CollectionItem_WineBottle",
+            "RiziaDLCSupport.CollectionItem_WruhecistMedallion"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Aureus Gas Field Crisis, MITZ Negotiations & Derdia Outreach",
+        "context": "Turn 6: Concluding regional trade accords and naval reviews",
+        "action": "Adjourn the diplomatic council and instruct the navy and industry to maintain high readiness.",
+        "unlockedAchievements": [
+          "Chapter II: Between-Seas"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Aureus Gas Field Crisis, MITZ Negotiations & Derdia Outreach",
+          "sceneFile": "Rizia_Turn 5_FPnT_MorellaNegotiations.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter3_Finished",
+            "RiziaDLC.Chapter2_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 5",
+        "title": "Turn 5 Strategic Objectives: Abolition of Feudal Peasant Levies and Armed Retinues",
+        "context": "Turn 5: Royal military reform decree session",
+        "action": "Sign the decree abolishing provincial feudal levies and demilitarizing private noble retinues.; Match Smolak's dark jokes with your own witty quips, bursting into shared laughter at the absurdities of politics.",
+        "unlockedAchievements": [
+          "The End of Powder and Blood",
+          "Funny Man"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Abolition of Feudal Peasant Levies and Armed Retinues",
+          "sceneFile": "Rizia_ABOLISHLEVIES_ABOLISHLEVIES Conversation.md",
+          "saveVariables": [
+            "BaseGame.Divorced",
+            "BaseGameSupport.CollectionItem_PhotoFrameTorn",
+            "RiziaDLC.Ending_Exile",
+            "RiziaDLC.Levies_Abolished",
+            "RiziaDLC.Zille_Reintegrated",
+            "RiziaDLC.Smolak_Humor_Engaged"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 6",
+        "title": "Turn 6 Strategic Objectives: Withdrawal from the Grand Regional Alliance of Commerce and Energy",
+        "context": "Turn 8: Royal decree session regarding international alliances",
+        "action": "Sign the proclamation withdrawing Rizia from GRACE and severing economic subservience to Rumburg.",
+        "unlockedAchievements": [
+          "Fall from GRACE"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Withdrawal from the Grand Regional Alliance of Commerce and Energy",
+          "sceneFile": "Rizia_Turn 9_FPnT_GRACERumburgMeeting.md",
+          "saveVariables": [
+            "RiziaDLC.Left_GRACE",
+            "BaseGame.Alphonso_Legacy_Replicated",
+            "BaseGameSupport.CollectionItem_KesaroLighter"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: Zille Handover Ultimatum, Wehlen Summit & Derdian Duel",
+        "context": "Turn 8: Palace garden consultations on dynastic alliances and military preparations",
+        "action": "Finalize your strategy regarding Pales and Zille as the regional crisis approaches boiling point.; Sign the mutual non-aggression and bilateral defense treaty with the Grand Duchy of Pales.; Present your legal arguments, call on allied nations to back Rizia, and celebrate the unanimous ruling in Rizia's favor.",
+        "unlockedAchievements": [
+          "Chapter III: Leviathan",
+          "Peace to the Duke",
+          "A Little Help From My Friends",
+          "Romus the Generous"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Zille Handover Ultimatum, Wehlen Summit & Derdian Duel",
+          "sceneFile": "Rizia_Turn 8_Garden_Vina Non Marriage.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter4_Finished",
+            "RiziaDLC.Chapter3_Finished",
+            "RiziaDLC.Pales_Alliance_Signed",
+            "RiziaDLCSupport.CollectionItem_LucitaDagger",
+            "RiziaDLC.AN_Arbitration_Won",
+            "BaseGame.EPA_Reverted10"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: Peaceful Reintegration and Handover of Zille from Wehlen",
+        "context": "Turn 8/9: Formal ceremony of territorial retrocession",
+        "action": "Receive the instruments of transfer from President Smolak and hoist the Rizian flag over Zille.; Sign royal dismissal orders and purge the corrupt aristocrats from government service.; Review the conclusive forensic evidence, sign the official findings, and formally close the Zille investigation.",
+        "unlockedAchievements": [
+          "Trustworthy Friends",
+          "House Cleaning",
+          "Case Closed"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Peaceful Reintegration and Handover of Zille from Wehlen",
+          "sceneFile": "Rizia_Turn 5_FPnT_WehlenNegotiations.md & Rizia_Turn 7_Zille Treaty Discussion.md",
+          "saveVariables": [
+            "RiziaDLC.Zille_Peaceful_Handover",
+            "RiziaDLC.Tradition_Preserved",
+            "RiziaDLC.Court_Purged",
+            "RiziaDLC.Nur_Decrees_Passed",
+            "BaseGame.WonUSPLeadership",
+            "RiziaDLC.Zille_Bombing_Solved"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 9",
+        "title": "Turn 9 Strategic Objectives: Founding Summit of the Intermerkopum Alliance in Porte Drazon",
+        "context": "Turn 9: Standing alongside President Smolak, President Salva, and Patriarch Azmal",
+        "action": "Sign the historic Treaty of Porte Drazon, establishing the Intermerkopum alliance as a non-aligned regional bloc.",
+        "unlockedAchievements": [
+          "Intermerkopum Alliance"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Founding Summit of the Intermerkopum Alliance in Porte Drazon",
+          "sceneFile": "Rizia_Turn 9_Morella Derdia Mediation.md",
+          "saveVariables": [
+            "BaseGameSupport.ChessMatch_Lost",
+            "RiziaDLC.Intermerkopum_Founded"
+          ]
+        }
+      },
+      {
+        "turn": "Full Campaign (Turns 1 - 10)",
+        "title": "Special Milestone: Strictly Teetotal Sovereign Governance",
+        "context": "During state banquets and toasts",
+        "action": "Politely decline wine or whiskey, requesting water or herbal tea instead: 'No alcohol for me, please'.",
+        "unlockedAchievements": [
+          "No Alcohol for me Please"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Strictly Teetotal Sovereign Governance",
+          "sceneFile": "Rizia_Turn 1_Houses Briefing Section.md",
+          "saveVariables": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "rizia-fallen-monarch",
+    "title": "The Fallen Monarch \u2014 Royal Bankruptcy & Revolution",
+    "subtitle": "Treasury Depletion \u2022 Noble Rebellions \u2022 The Second Revolt \u2022 Royal Imprisonment & Exile",
+    "game": "Rizia",
+    "tags": [
+      "Rizia",
+      "Special"
+    ],
+    "archetype": "Fallen Monarch",
+    "description": "Walk the tragic trajectory of a deposed king. Bankrupt the royal exchequer, provoke noble uprisings from House Azaro or Sazon, witness popular revolutions, and face deposition, imprisonment, or exile from the shores of Rizia.",
+    "presetId": null,
+    "achievements": [
+      "Rizia Prologue: Ascension to the Throne",
+      "Chapter I: King Romus",
+      "Chapter II: Between-Seas",
+      "Chapter III: Leviathan",
+      "Chapter IV: Sila Orica",
+      "The Second Revolt",
+      "Long Live the Revolution",
+      "Et Tu Titus?",
+      "The King Behind Bars",
+      "Away from My Land",
+      "Fragmentation",
+      "Father's Son",
+      "Tattered Kingdom",
+      "Long Arm of Tzarborough",
+      "The World Against Us",
+      "Pipe Nightmares",
+      "Hugo, I Go",
+      "South Merkopa's Newest Member",
+      "Arcasia Did It",
+      "Return of the King",
+      "It's Not You, It's Me"
+    ],
+    "exclusivePairs": [],
+    "exclusiveGroups": [
+      [
+        "The Second Revolt",
+        "Long Live the Revolution",
+        "Et Tu Titus?",
+        "The King Behind Bars",
+        "Away from My Land",
+        "Fragmentation"
+      ]
+    ],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Prologue",
+        "title": "Prologue Strategic Objectives: Prince Romus's Youth, Marriage to Queen Lena & Royal Coronation",
+        "context": "Coronation ceremony in the Grand Basilica of Porte Drazon",
+        "action": "Accept the Golden Crown of Rizia upon your head, take the royal oath, and address the assembled noble houses.",
+        "unlockedAchievements": [
+          "Rizia Prologue: Ascension to the Throne"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Prince Romus's Youth, Marriage to Queen Lena & Royal Coronation",
+          "sceneFile": "Prologue_Archive.md",
+          "saveVariables": [
+            "RiziaDLC.Prologue_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Royal Council Organization, Zille Bombing Crisis & Beatrice Visit",
+        "context": "Turn 3: Concluding the imperial summit with Queen Beatrice",
+        "action": "Establish your foreign policy stance within GRACE and instruct the Royal Council to proceed with development.; Deliver your historic decennial address celebrating Rizia's sovereign triumphs.; Watch from palace ramparts as hundreds of thousands of workers demand the abolition of the monarchy.",
+        "unlockedAchievements": [
+          "Chapter I: King Romus",
+          "Chapter IV: Sila Orica",
+          "The Second Revolt",
+          "Long Live the Revolution",
+          "Et Tu Titus?",
+          "The King Behind Bars",
+          "Away from My Land",
+          "Fragmentation",
+          "Father's Son",
+          "Tattered Kingdom",
+          "Long Arm of Tzarborough",
+          "Return of the King"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Royal Council Organization, Zille Bombing Crisis & Beatrice Visit",
+          "sceneFile": "Rizia_Turn 3_FPnT_QueenBeatriceVisit.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_GoatStatue",
+            "RiziaDLC.Chapter1_Finished",
+            "RiziaDLC.Chapter4_Finished",
+            "RiziaDLC.Second_Revolt_Triggered",
+            "RiziaDLC.Sotelato_Revolution_Victorious",
+            "RiziaDLC.Titus_Betrayal"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Aureus Gas Field Crisis, MITZ Negotiations & Derdia Outreach",
+        "context": "Turn 6: Concluding regional trade accords and naval reviews",
+        "action": "Adjourn the diplomatic council and instruct the navy and industry to maintain high readiness.",
+        "unlockedAchievements": [
+          "Chapter II: Between-Seas"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Aureus Gas Field Crisis, MITZ Negotiations & Derdia Outreach",
+          "sceneFile": "Rizia_Turn 5_FPnT_MorellaNegotiations.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter3_Finished",
+            "RiziaDLC.Chapter2_Finished"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 6",
+        "title": "Turn 6 Strategic Objectives: Rejecting All Romantic Advances from Lucita and Pabel",
+        "context": "Turn 6/8: When intimate romantic moments arise",
+        "action": "Keep a respectful, professional distance, stating: 'It's not you, it's me' and remaining focused on the Crown.",
+        "unlockedAchievements": [
+          "It's Not You, It's Me"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Rejecting All Romantic Advances from Lucita and Pabel",
+          "sceneFile": "Rizia_Turn 10_RelationshipAnnouncement.md",
+          "saveVariables": [
+            "RiziaDLC.Said_Halaita",
+            "RiziaDLC.Pabel_Public_Romance",
+            "RiziaDLC.Romance_Declined"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: Zille Handover Ultimatum, Wehlen Summit & Derdian Duel",
+        "context": "Turn 8: Palace garden consultations on dynastic alliances and military preparations",
+        "action": "Finalize your strategy regarding Pales and Zille as the regional crisis approaches boiling point.; Authorize covert agents to detonate explosives and sever the pipeline under cover of darkness.; Authorize the covert operation to neutralize Adarfo and leak documents linking Arcasia to the attack.",
+        "unlockedAchievements": [
+          "Chapter III: Leviathan",
+          "Pipe Nightmares",
+          "Arcasia Did It"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Zille Handover Ultimatum, Wehlen Summit & Derdian Duel",
+          "sceneFile": "Rizia_Turn 8_Garden_Vina Non Marriage.md",
+          "saveVariables": [
+            "RiziaDLC.Chapter4_Finished",
+            "RiziaDLC.Chapter3_Finished",
+            "RiziaDLC.Pipeline_Sabotaged",
+            "RiziaDLC.Smolak_Tobacco_Imported",
+            "RiziaDLC.Arcasia_Framed",
+            "RiziaDLC.Rusty_Arrested"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: Alliance of Nations Sanctions Plenary",
+        "context": "Turn 8/9: AN General Assembly vote in Kyrene",
+        "action": "Defy the international resolution as the AN overwhelmingly votes to impose total economic sanctions on Rizia.; Support Princess Vina's autonomy and decline the dynastic marriage arrangement.; Celebrate the reintegration of Zille alongside cheering crowds and welcome the province home.",
+        "unlockedAchievements": [
+          "The World Against Us",
+          "Hugo, I Go",
+          "South Merkopa's Newest Member"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Alliance of Nations Sanctions Plenary",
+          "sceneFile": "Rizia_Turn 4_A_CouncilTalkAboutPales.md",
+          "saveVariables": [
+            "RiziaDLCSupport.CollectionItem_IzaKey",
+            "RiziaDLC.AN_Sanctioned",
+            "RiziaDLC.Executions_Authorized",
+            "RiziaDLC.War_Pales_Defeat",
+            "RiziaDLC.Azaros_Executed",
+            "RiziaDLC.Zille_Reintegrated"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "master-archivist-quirks",
+    "title": "The Master Archivist \u2014 36 Collectibles & Hidden Easter Eggs",
+    "subtitle": "All 36 Relics & Curios \u2022 Serge's Lucky Charm \u2022 Lucian's Chess Match \u2022 Royal Hoarder",
+    "game": "Both",
+    "tags": [
+      "Both",
+      "Special"
+    ],
+    "archetype": "Master Archivist",
+    "description": "The definitive dossier for completionists seeking all 36 collectible relics across Sordland and Rizia, unique dialogue quirks, loyal driver Serge Wolkner's secrets, royal hoarder milestones, and hidden historical trivia.",
+    "presetId": null,
+    "achievements": [
+      "Collectible: Circas's Poem Book",
+      "Collectible: Ceremonial Scissors",
+      "Collectible: Armadine Radio",
+      "Collectible: Whiskey Bottle",
+      "Collectible: Sordish Goat Statue",
+      "Collectible: Aschraf Candle",
+      "Collectible: USP Brooch",
+      "Collectible: Serge's Pocket Watch",
+      "Collectible: Underhall Trophy",
+      "Collectible: Car Key",
+      "Collectible: Headphones",
+      "Collectible: Gun",
+      "Collectible: Cigar Box",
+      "Collectible: King Egmund's Dagger",
+      "Collectible: Kesaro's Lighter",
+      "Collectible: Wine Bottle",
+      "Collectible: Torn Family Photo",
+      "Collectible: FC Anrica Trophy",
+      "Executive Hoarder",
+      "Thank You Serge",
+      "Save the World",
+      "638 Ways to Kill Rayne",
+      "Goated",
+      "FC Anrica",
+      "Giralt of Ribery",
+      "Collectible: Lena's Wedding Ring",
+      "Collectible: St. Dast's Scepter",
+      "Collectible: Valenqiris Postcard",
+      "Collectible: Wruhecist Medallion",
+      "Collectible: Morellan Tin Bird",
+      "Collectible: Azaro Chess Piece",
+      "Collectible: ROG Plaque",
+      "Collectible: Intermerkopum Rings",
+      "Collectible: Wehzek Doorstop",
+      "Collectible: Mandragora Extract",
+      "Collectible: Hattersley Egg",
+      "Collectible: RRN Rizania Model",
+      "Collectible: Bruno's Dog Toy",
+      "Collectible: Lucita's Dagger",
+      "Collectible: Crown of Pales",
+      "Collectible: Iza Gate Key",
+      "Collectible: Pabel's Poem",
+      "Collectible: Bull Figurine",
+      "Royal Hoarder",
+      "Sanctuary! Sanctuary!",
+      "I Want to Believe",
+      "You've Got Nerve"
+    ],
+    "exclusivePairs": [],
+    "exclusiveGroups": [],
+    "crossRunExclusivePairs": [],
+    "steps": [
+      {
+        "turn": "Turn 1",
+        "title": "Turn 1 Strategic Objectives: Late Evening Drinks with Petr Vectern",
+        "context": "Turn 1/5: Petr uncorks a bottle of 30-year-old aged Erlory maroon whiskey",
+        "action": "Accept a glass of the vintage whiskey and keep the decorative bottle in your private cabinet.; Rally the delegates around your achievements and win the vote against Lileas Graf.; Put on the heavy military communication headset to receive live frontline telemetry from your generals.",
+        "unlockedAchievements": [
+          "Collectible: Whiskey Bottle",
+          "Collectible: USP Brooch",
+          "Collectible: Headphones",
+          "Collectible: Torn Family Photo",
+          "Collectible: FC Anrica Trophy",
+          "Thank You Serge",
+          "Save the World",
+          "638 Ways to Kill Rayne",
+          "Goated",
+          "Collectible: Lena's Wedding Ring",
+          "Collectible: St. Dast's Scepter",
+          "Collectible: Crown of Pales",
+          "You've Got Nerve"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Late Evening Drinks with Petr Vectern",
+          "sceneFile": "Sordland_Turn05_Personal_PetrParty.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_WhiskeyBottle",
+            "BaseGame.WonUSPLeadership",
+            "BaseGameSupport.CollectionItem_USPBrooch",
+            "BaseGameSupport.CollectionItem_CarKey",
+            "BaseGameSupport.CollectionItem_Headphones",
+            "BaseGame.Divorced"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 2",
+        "title": "Turn 2 Strategic Objectives: State Memorial Funeral for Bernard Circas",
+        "context": "Turn 2: Paying respects at the casket of Bernard Circas",
+        "action": "Deliver a solemn speech honoring the fallen poet and accept the memorial edition of his poetry book from mourners.; Award the contract to Underhall Construction Company [-2 Budget].; Accept a cigar from Walter Tusk and take the antique cigar box as a personal gift.",
+        "unlockedAchievements": [
+          "Collectible: Circas's Poem Book",
+          "Collectible: Underhall Trophy",
+          "Collectible: Cigar Box",
+          "Collectible: Valenqiris Postcard",
+          "Collectible: Bruno's Dog Toy"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "State Memorial Funeral for Bernard Circas",
+          "sceneFile": "Sordland_Turn02_Personal_Funeral.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_PoemBook",
+            "BaseGameSupport.CollectionItem_UnderhallTrophy",
+            "RiziaDLC.Policy_RD_Welfare_RomusTorasUniversity_Completed",
+            "RiziaDLC.Policy_RD_Order_RomusTorasAcademy_Completed",
+            "RiziaDLC.Policy_RD_Welfare_RomusTorasHospital_Completed",
+            "RiziaDLC.Valero_Legacy_Vindicated"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 3",
+        "title": "Turn 3 Strategic Objectives: Morning Commute with Serge Wolkner & Outside the National Assembly",
+        "context": "Turn 3: When Serge opens up about being unable to afford his children's schooling",
+        "action": "My driver's family shouldn't want for anything in this world. I'll cover your children's education and any other extra expenses you need. [-2 Personal Wealth]; Admire the bronze craftsmanship of Montaklar and accept the carved Bull Figurine.",
+        "unlockedAchievements": [
+          "Collectible: Serge's Pocket Watch",
+          "Collectible: Bull Figurine"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Morning Commute with Serge Wolkner & Outside the National Assembly",
+          "sceneFile": "Sordland_Turn03_Personal_DriverTalk.md & Sordland_Turn07_A_AssemblyVote.md",
+          "saveVariables": [
+            "BaseGame.Relations_Serge_Friend",
+            "BaseGameSupport.CollectionItem_Pocketwatch",
+            "RiziaDLC.Intermerkopum_Founded",
+            "BaseGameSupport.Journal_Turn03_DriverTalk_PaidForEducation",
+            "RiziaDLCSupport.CollectionItem_BullFigurine",
+            "RiziaDLC.Ending_Prison"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 4",
+        "title": "Turn 4 Strategic Objectives: Private Stock Investment Opportunity with Gus Manger",
+        "context": "Turn 4: Gus Manger offers insider allocation in Arcasian-partnered Armadine Industries stock",
+        "action": "Invest 1 or 2 Personal Wealth into Armadine Industries shares.; Praise the craftsmanship of the local highland herders and accept the hand-carved Sordish mountain goat figurine.; Inspect the ancient religious relics and keep the solid gold Wruhecist Medallion.",
+        "unlockedAchievements": [
+          "Collectible: Armadine Radio",
+          "Collectible: Sordish Goat Statue",
+          "Collectible: Wruhecist Medallion",
+          "Collectible: Azaro Chess Piece",
+          "Sanctuary! Sanctuary!"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Private Stock Investment Opportunity with Gus Manger",
+          "sceneFile": "Sordland_Turn05_Personal_ReturnOfInvestment.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_ArmadineRadio",
+            "BaseGame.Investment_Armadine",
+            "BaseGameSupport.CollectionItem_GoatStatue",
+            "RiziaDLCSupport.CollectionItem_WruhecistMedallion",
+            "BaseGameSupport.CollectionItem_WineBottle",
+            "BaseGame.Investment_Vineyard"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 5",
+        "title": "Turn 5 Strategic Objectives: Petr's Party Vineyard Investment & First Harvest Vintage Delivery",
+        "context": "Turn 5: Gus Manger discusses investing in private Sordish wine production",
+        "action": "Invest 1 Personal Wealth into Gus Manger's vineyard venture.; Invest 1 Personal Wealth to acquire shares in Football Club Anrica.; Invest 1 Personal Wealth into Gus Manger's vineyard venture in Anrica.",
+        "unlockedAchievements": [
+          "Collectible: Wine Bottle",
+          "FC Anrica",
+          "Giralt of Ribery",
+          "Collectible: Wehzek Doorstop",
+          "Collectible: RRN Rizania Model",
+          "I Want to Believe"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Petr's Party Vineyard Investment & First Harvest Vintage Delivery",
+          "sceneFile": "Sordland_Turn05_Personal_PetrParty.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_WineBottle",
+            "BaseGame.Investment_Vineyard",
+            "BaseGameSupport.CollectionItem_CeremonialScissors",
+            "RiziaDLC.Prologue_Finished",
+            "RiziaDLCSupport.CollectionItem_WehzekDoorstop",
+            "RiziaDLCSupport.CollectionItem_MiniYacht"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 6",
+        "title": "Turn 6 Strategic Objectives: Inauguration Ceremony of the Mega-Infrastructure Project",
+        "context": "Turn 6: Standing before the inaugural ribbon at Conriat station or Agnland highway",
+        "action": "Take the ceremonial gold scissors, cut the ribbon, and declare the transit corridor open.; Praise the martial prowess of the ancient Kingdom of Sordland and receive King Egmund's ceremonial dagger.; Accept Keshar Kibener's lucky engraved lighter as a token of mutual understanding.",
+        "unlockedAchievements": [
+          "Collectible: Ceremonial Scissors",
+          "Collectible: King Egmund's Dagger",
+          "Collectible: Kesaro's Lighter",
+          "Collectible: Morellan Tin Bird",
+          "Collectible: ROG Plaque",
+          "Collectible: Lucita's Dagger"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Inauguration Ceremony of the Mega-Infrastructure Project",
+          "sceneFile": "Sordland_Turn06_InT_RailwayOpening.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_ArmadineRadio",
+            "BaseGame.Investment_Armadine",
+            "BaseGameSupport.CollectionItem_CeremonialScissors",
+            "RiziaDLCSupport.CollectionItem_WeddingRing",
+            "BaseGameSupport.CollectionItem_Dagger",
+            "BaseGame.Relations_Serge_Friend"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 7",
+        "title": "Turn 7 Strategic Objectives: State Corporation Privatization and Executive Purchasing",
+        "context": "Turn 7: Deciding personal luxury allocations during market privatization",
+        "action": "Acquire the imported luxury executive sedan or accept the vehicle gift from Walter Tusk.; Accept the flask of concentrated mandragora extract with reverent respect.",
+        "unlockedAchievements": [
+          "Collectible: Car Key",
+          "Collectible: Mandragora Extract"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "State Corporation Privatization and Executive Purchasing",
+          "sceneFile": "Sordland_Turn07_NEDAM OR SSC PRIVATISED.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_AnricaTrophy",
+            "BaseGame.Investment_FCAnrica",
+            "BaseGameSupport.CollectionItem_CarKey",
+            "BaseGameSupport.CollectionItem_UnderhallTrophy",
+            "RiziaDLC.Policy_RD_Welfare_RomusTorasUniversity_Completed",
+            "RiziaDLC.Policy_RD_Order_RomusTorasAcademy_Completed"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 8",
+        "title": "Turn 8 Strategic Objectives: Aschraf Anniversary Commemoration in Bergia",
+        "context": "Turn 8: Arriving at the memorial gathering in Bergia",
+        "action": "Walk into the crowd without excessive armed escort, approach Mansoun Leke respectfully, take the memorial candle, and hold it up in silence.; Accept the ornamental gold key to Iza's historical Mousser Gate as a symbol of royal harmony.; Take the handwritten poem scroll, read it with warm affection, and thank Pabel sincerely.",
+        "unlockedAchievements": [
+          "Collectible: Aschraf Candle",
+          "Collectible: Iza Gate Key",
+          "Collectible: Pabel's Poem"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Aschraf Anniversary Commemoration in Bergia",
+          "sceneFile": "Sordland_Turn08_A_AschrafAnniversary.md",
+          "saveVariables": [
+            "BaseGameSupport.CollectionItem_AschrafCandle",
+            "BaseGame.Aschraf_CandleLit",
+            "RiziaDLCSupport.CollectionItem_IzaKey",
+            "RiziaDLC.Smolak_Tobacco_Imported",
+            "RiziaDLC.Arcasia_Framed",
+            "RiziaDLCSupport.CollectionItem_PoemScroll"
+          ]
+        }
+      },
+      {
+        "turn": "Turn 9",
+        "title": "Turn 9 Strategic Objectives: Personal Defense Measures & War Preparation Briefing",
+        "context": "Turn 9: Reviewing personal security protocols amidst threats from Rumburg or assassins",
+        "action": "Acquire the custom revolver and place it in the top drawer of the presidential desk.; Sign the Intermerkopum charter and unveil the interlocking gold rings emblem representing Merkopa's unity.; Accept Queen Beatrice's royal gift of the gem-encrusted imperial Hattersley Egg with polite court etiquette.",
+        "unlockedAchievements": [
+          "Collectible: Gun",
+          "Collectible: Intermerkopum Rings",
+          "Collectible: Hattersley Egg"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Personal Defense Measures & War Preparation Briefing",
+          "sceneFile": "Sordland_Turn09_SnO_MilitaryParade.md",
+          "saveVariables": [
+            "BaseGame.Decision_Turn05_AutocratEmergency_Extend",
+            "BaseGameSupport.CollectionItem_Gun",
+            "BaseGame.Decision_Turn08_ExtendEmergency_Extend",
+            "RiziaDLC.HighTea_Hosted",
+            "RiziaDLCSupport.CollectionItem_IntermerkopumPlaque",
+            "RiziaDLCSupport.CollectionItem_FabergeEgg"
+          ]
+        }
+      },
+      {
+        "turn": "Full Campaign (Turns 1 - 10)",
+        "title": "Special Milestone: Presidential Study Collection Desk",
+        "context": "Turn 10: Reviewing your presidential desk and study",
+        "action": "Inspect your sprawling collection of mementos, historical relics, and personal keepsakes.; Admire your sprawling museum-grade royal collection gathered across South Merkopa.",
+        "unlockedAchievements": [
+          "Executive Hoarder",
+          "Royal Hoarder"
+        ],
+        "technicalDetails": {
+          "sceneTitle": "Presidential Study Collection Desk",
+          "sceneFile": "Sordland_Turn10_A_DeividFinalTalk.md",
+          "saveVariables": []
+        }
+      }
+    ]
+  }
+]
