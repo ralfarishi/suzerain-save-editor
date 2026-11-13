@@ -17,9 +17,28 @@ export default defineConfig({
 		minify: "esbuild",
 		rollupOptions: {
 			output: {
-				manualChunks: {
-					vendor: ["react", "react-dom"],
-					router: ["@tanstack/react-router"],
+				manualChunks(id) {
+					if (id.includes("node_modules")) {
+						if (id.includes("react-dom") || id.includes("\\react\\") || id.includes("/react/") || id.includes("scheduler")) {
+							return "react-vendor";
+						}
+						if (id.includes("@tanstack/react-router")) {
+							return "router";
+						}
+						if (id.includes("@phosphor-icons")) {
+							return "icons";
+						}
+						return;
+					}
+					if (id.includes("src/data/achievement_walkthroughs") || id.includes("src\\data\\achievement_walkthroughs")) {
+						return "data-walkthroughs";
+					}
+					if (id.includes("src/data/pathways") || id.includes("src\\data\\pathways")) {
+						return "data-pathways";
+					}
+					if (id.includes("src/data/steam_achievements") || id.includes("src\\data\\steam_achievements")) {
+						return "data-achievements";
+					}
 				},
 			},
 		},

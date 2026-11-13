@@ -28,7 +28,7 @@ export function RadioField({
 	return (
 		<div className={`${cardBaseClass} col-span-full`}>
 			<div className="flex items-center justify-between mb-3">
-				<span className={`${isCompact ? "text-[11px]" : "text-xs"} font-black uppercase tracking-wider text-slate-400 dark:text-slate-500`}>
+				<span className={`${isCompact ? "text-[11px]" : "text-xs"} font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300`}>
 					{field.label}
 				</span>
 				<UndoButton isModified={isModified} onUndo={handleUndo} />

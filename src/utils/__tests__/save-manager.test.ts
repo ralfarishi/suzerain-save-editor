@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { parseSaveFile, generateSaveFile, getFieldById } from "../save-manager";
+import { parseSaveFile, generateSaveFile, getFieldById, findFieldLocation, upsertLuaVariable } from "../save-manager";
+import { parseAllSaveVariables } from "../lua-variables";
 import { SaveData } from "../save-manager";
 
 describe("save-manager", () => {
@@ -56,6 +57,31 @@ describe("save-manager", () => {
 			const parsed = parseSaveFile(JSON.stringify(sampleSaveData));
 			expect(parsed.originalData.customKey).toBe("customValue");
 		});
+
+		it("rejects malformed JSON and non-string currentStoryPack or invalid turnNo", () => {
+			expect(() => parseSaveFile("{bad json")).toThrow();
+			expect(() =>
+				parseSaveFile(
+					JSON.stringify({ saveFileType: 1, variables: "Variable={}", currentStoryPack: 123 })
+				)
+			).toThrow(/currentStoryPack/);
+			expect(() =>
+				parseSaveFile(
+					JSON.stringify({ saveFileType: 1, variables: "Variable={}", turnNo: "invalid" })
+				)
+			).toThrow(/turnNo/);
+		});
+	});
+
+	describe("upsertLuaVariable safety", () => {
+		it("preserves $&, $$, quotes, and backslashes without corruption", () => {
+			const initial = 'Variable={["BaseGame.Title"]="Old", ["BaseGame.Other"]=1}';
+			const specialValue = 'Price $& $$ and "quotes" + C:\\path\\to\\file';
+			const updated = upsertLuaVariable(initial, "BaseGame.Title", specialValue);
+			const parsedMap = parseAllSaveVariables(updated);
+			expect(parsedMap.get("BaseGame.Title")).toBe(specialValue);
+			expect(parsedMap.get("BaseGame.Other")).toBe(1);
+		});
 	});
 
 	describe("generateSaveFile", () => {
@@ -78,6 +104,31 @@ describe("save-manager", () => {
 			expect(newVariables).toContain('["BaseGame.Relations_Deana_Loved"]=false');
 			expect(newVariables).toContain('["BaseGame.Turn01_InT_Investment_Railway"]=false');
 			expect(newVariables).toContain('["BaseGame.Turn01_InT_Investment_Highway"]=true');
+		});
+	});
+
+	describe("findFieldLocation", () => {
+		it("locates a field by its field id", () => {
+			const loc = findFieldLocation("gov-budget");
+			expect(loc).toBeDefined();
+			expect(loc?.fieldId).toBe("gov-budget");
+			expect(loc?.tabId).toBe("money-opinion");
+		});
+
+		it("locates a field by its Lua variable key", () => {
+			const loc = findFieldLocation("BaseGame.GovernmentBudget");
+			expect(loc).toBeDefined();
+			expect(loc?.fieldId).toBe("gov-budget");
+		});
+
+		it("locates a radio field by one of its option Lua keys", () => {
+			const loc = findFieldLocation("BaseGame.Turn01_InT_Investment_Highway");
+			expect(loc).toBeDefined();
+			expect(loc?.fieldId).toBe("infrastructure-project");
+		});
+
+		it("returns null for unmapped keys", () => {
+			expect(findFieldLocation("BaseGame.NonExistent_Unmapped_Key")).toBeNull();
 		});
 	});
 });

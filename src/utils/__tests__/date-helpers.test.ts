@@ -9,6 +9,11 @@ describe("date-helpers", () => {
 			expect(convertToDatetimeLocal(input)).toBe(expected);
 		});
 
+		it("converts a date string without a space before AM/PM", () => {
+			expect(convertToDatetimeLocal("15/04/1954 08:30AM")).toBe("1954-04-15T08:30");
+			expect(convertToDatetimeLocal("15/04/1954 08:30PM")).toBe("1954-04-15T20:30");
+		});
+
 		it("converts a standard PM date string to datetime-local format", () => {
 			const input = "15/04/1954 08:30 PM";
 			const expected = "1954-04-15T20:30";

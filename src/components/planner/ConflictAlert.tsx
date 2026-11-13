@@ -40,8 +40,8 @@ export function ConflictAlert({ conflicts, variant = "inter" }: ConflictAlertPro
             }`}
           >
             {isInter
-              ? `${conflicts.length} Incompatible Pair${conflicts.length !== 1 ? "s" : ""} — Separate Playthroughs Required`
-              : `${conflicts.length} Intra-Run Conflict${conflicts.length !== 1 ? "s" : ""} — Choose One Per Playthrough`}
+              ? `${conflicts.length} Pair${conflicts.length !== 1 ? "s" : ""} Cannot Be Earned Together — Requires Separate Playthroughs`
+              : `${conflicts.length} Conflicting Goal${conflicts.length !== 1 ? "s" : ""} — Pick One for This Playthrough`}
           </p>
           <div className="space-y-2">
             {conflicts.map((conflict, idx) => (

@@ -1,28 +1,44 @@
 import { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { appData } from "../data/data";
 import {
-	parseSaveFile,
 	generateSaveFile,
 	FieldValues,
-	SaveData,
 	getFieldById,
 	parseLastModified,
 	getCurrentDatetimeLocal,
 } from "../utils/save-manager";
+import { useSave, validateFieldValue } from "../context/SaveContext";
+import { getDefaultExportFilename, triggerJsonDownload } from "../utils/save-formatters";
 
 export function useSaveEditor() {
-	const [fileLoaded, setFileLoaded] = useState(false);
-	const [originalData, setOriginalData] = useState<SaveData | null>(null);
-	const [values, setValues] = useState<FieldValues>({});
-	const [initialValues, setInitialValues] = useState<FieldValues>({});
-	const [errors, setErrors] = useState<Record<string, string>>({});
+	const saveCtx = useSave();
+	const {
+		fileLoaded,
+		originalData,
+		parsedValues: values,
+		initialParsedValues: initialValues,
+		errors,
+		hasValidationErrors: hasErrors,
+		filename,
+		extraVariables,
+		loadSaveContent,
+		bulkUpdateVariables,
+		revertAllChanges,
+	} = saveCtx;
+
 	const [activeTabId, setActiveTabId] = useState(appData[0].id);
-	const [filename, setFilename] = useState("");
 	const [toast, setToast] = useState<{ type: "success" | "error"; message: string } | null>(null);
 	const [showHelp, setShowHelp] = useState(false);
 	const [stamped, setStamped] = useState(false);
 
 	const toastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const stampTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const valuesRef = useRef(values);
+	valuesRef.current = values;
+	const originalDataRef = useRef(originalData);
+	originalDataRef.current = originalData;
+	const stampedRef = useRef(stamped);
+	stampedRef.current = stamped;
 
 	const handleCloseToast = useCallback(() => {
 		if (toastTimeoutRef.current) {
@@ -32,207 +48,144 @@ export function useSaveEditor() {
 		setToast(null);
 	}, []);
 
-	const handleShowToast = useCallback((type: "success" | "error", message: string, duration = 4000) => {
-		if (toastTimeoutRef.current) {
-			clearTimeout(toastTimeoutRef.current);
-		}
-		setToast({ type, message });
-		toastTimeoutRef.current = setTimeout(() => {
-			setToast(null);
-			toastTimeoutRef.current = null;
-		}, duration);
-	}, []);
+	const handleShowToast = useCallback(
+		(type: "success" | "error", message: string, duration = 4000) => {
+			if (toastTimeoutRef.current) {
+				clearTimeout(toastTimeoutRef.current);
+			}
+			setToast({ type, message });
+			toastTimeoutRef.current = setTimeout(() => {
+				setToast(null);
+				toastTimeoutRef.current = null;
+			}, duration);
+		},
+		[]
+	);
 
 	useEffect(() => {
 		return () => {
 			if (toastTimeoutRef.current) {
 				clearTimeout(toastTimeoutRef.current);
 			}
+			if (stampTimeoutRef.current) {
+				clearTimeout(stampTimeoutRef.current);
+			}
 		};
 	}, []);
 
 	const validateField = useCallback(
-		(id: string, value: string | number | boolean | null | undefined) => {
-			const field = getFieldById(id);
-			if (!field) return null;
-
-			if (field.type === "number") {
-				if (value === null || value === undefined) return "Invalid number";
-				const numVal =
-					typeof value === "string" ? parseFloat(value) : typeof value === "number" ? value : NaN;
-				if (isNaN(numVal)) return "Invalid number";
-				if (field.min !== undefined && field.max !== undefined) {
-					if (numVal < field.min || numVal > field.max) {
-						return `Value must be between ${field.min} and ${field.max}`;
-					}
-				}
-			}
-			return null;
-		},
-		[],
+		(id: string, value: string | number | boolean | null | undefined) =>
+			validateFieldValue(id, value),
+		[]
 	);
 
 	const handleFileLoaded = useCallback(
 		(content: string, name: string) => {
 			try {
-				const { values: parsedValues, originalData: data } = parseSaveFile(content);
-
-				const newErrors: Record<string, string> = {};
-				Object.keys(parsedValues).forEach((id) => {
-					const error = validateField(id, parsedValues[id]);
-					if (error) {
-						newErrors[id] = error;
-					}
-				});
-
-				setValues(parsedValues);
-				setInitialValues(parsedValues);
-				setOriginalData(data);
-				setFilename(name);
-				setFileLoaded(true);
+				const { errorCount } = loadSaveContent(content, name);
 				setActiveTabId(appData[0].id);
-				setErrors(newErrors);
 
-				if (Object.keys(newErrors).length > 0) {
-					handleShowToast("error", `Loaded with ${Object.keys(newErrors).length} validation errors.`);
+				if (errorCount > 0) {
+					handleShowToast("error", `Loaded with ${errorCount} invalid values.`);
 				} else {
-					handleShowToast("success", "Save file loaded successfully");
+					handleShowToast("success", "Save file loaded successfully.");
 				}
 			} catch (error) {
 				handleShowToast(
 					"error",
 					error instanceof Error
 						? error.message
-						: "Failed to parse save file. Please ensure it is a valid Suzerain save.",
+						: "Could not load save file. Please select a valid Suzerain save."
 				);
 			}
 		},
-		[validateField, handleShowToast],
+		[loadSaveContent, handleShowToast]
 	);
 
 	const handleValueChange = useCallback(
 		(id: string, value: string | number | boolean) => {
-			setValues((prev) => {
-				const next = { ...prev, [id]: value };
-				const field = getFieldById(id);
-				if (field && field.type === "boolean-date" && value === true) {
-					if (!prev[field.dateId]) {
-						const lastMod = originalData?.lastModified;
-						const fallback = parseLastModified(lastMod) || getCurrentDatetimeLocal();
-						next[field.dateId] = fallback;
-					}
-				}
-				return next;
-			});
+			const patch: Record<string, string | number | boolean> = { [id]: value };
+			const field = getFieldById(id);
+			if (
+				field &&
+				field.type === "boolean-date" &&
+				value === true &&
+				!valuesRef.current[field.dateId]
+			) {
+				const lastMod = originalDataRef.current?.lastModified;
+				patch[field.dateId] = parseLastModified(lastMod) || getCurrentDatetimeLocal();
+			}
 
-			const error = validateField(id, value);
-			setErrors((prev) => {
-				const newErrors = { ...prev };
-				if (error) {
-					newErrors[id] = error;
-				} else {
-					delete newErrors[id];
-				}
-				return newErrors;
-			});
+			bulkUpdateVariables(patch);
 		},
-		[validateField, originalData],
+		[bulkUpdateVariables]
 	);
 
 	const handleBulkUpdate = useCallback(
 		(newValues: Partial<FieldValues>) => {
-			setValues((prev) => {
-				const merged = { ...prev };
-				Object.entries(newValues).forEach(([keyOrId, val]) => {
-					if (val === undefined) return;
-					const field = getFieldById(keyOrId);
-					if (field) {
-						merged[field.id] = val;
-					} else {
-						merged[keyOrId] = val;
-					}
-				});
-
-				setErrors((prevErrors) => {
-					const newErrors = { ...prevErrors };
-					Object.entries(newValues).forEach(([keyOrId, val]) => {
-						const field = getFieldById(keyOrId);
-						const targetId = field ? field.id : keyOrId;
-						const error = validateField(targetId, val);
-						if (error) {
-							newErrors[targetId] = error;
-						} else {
-							delete newErrors[targetId];
-						}
-					});
-					return newErrors;
-				});
-
-				return merged;
-			});
+			const normalizedPatch: Record<string, string | number | boolean> = {};
+			for (const [keyOrId, val] of Object.entries(newValues)) {
+				if (val === undefined) continue;
+				const field = getFieldById(keyOrId);
+				normalizedPatch[field ? field.id : keyOrId] = val;
+			}
+			bulkUpdateVariables(normalizedPatch);
 		},
-		[validateField],
+		[bulkUpdateVariables]
 	);
 
 	const handleResetTab = useCallback(() => {
 		const activeTab = appData.find((t) => t.id === activeTabId);
 		if (!activeTab) return;
 
-		const newValues = { ...values };
+		const patch: Record<string, string | number | boolean> = {};
 		activeTab.sections.forEach((section) => {
 			section.fields.forEach((field) => {
 				if (initialValues[field.id] !== undefined) {
-					newValues[field.id] = initialValues[field.id];
+					patch[field.id] = initialValues[field.id];
+				}
+				if (field.type === "boolean-date" && initialValues[field.dateId] !== undefined) {
+					patch[field.dateId] = initialValues[field.dateId];
 				}
 			});
 		});
-		handleBulkUpdate(newValues);
-		handleShowToast("success", "Tab values reset to original.");
-	}, [activeTabId, values, initialValues, handleBulkUpdate, handleShowToast]);
+		handleBulkUpdate(patch);
+		handleShowToast("success", "Tab restored to original save values.");
+	}, [activeTabId, initialValues, handleBulkUpdate, handleShowToast]);
 
 	const handleDownload = useCallback(() => {
-		if (!originalData) return;
+		if (!originalData || stampedRef.current) return;
 
-		if (Object.keys(errors).length > 0) {
-			handleShowToast("error", "Please fix validation errors before downloading.");
+		if (hasErrors) {
+			handleShowToast("error", "Please fix the highlighted values before exporting.");
 			return;
 		}
 
-		setStamped(true);
+		try {
+			const newContent = generateSaveFile(originalData, values, extraVariables);
+			triggerJsonDownload(newContent, getDefaultExportFilename(filename));
 
-		setTimeout(() => {
-			try {
-				const newContent = generateSaveFile(originalData, values);
-				const blob = new Blob([newContent], { type: "application/json" });
-				const url = URL.createObjectURL(blob);
-				const a = document.createElement("a");
-				a.href = url;
-				a.download = "new-save.json";
-				document.body.appendChild(a);
-				a.click();
-				document.body.removeChild(a);
-				URL.revokeObjectURL(url);
-
-				handleShowToast("success", "Save file generated successfully.");
-				setTimeout(() => setStamped(false), 500);
-			} catch (error) {
-				handleShowToast("error", "Failed to generate save file.");
-				setStamped(false);
+			setStamped(true);
+			handleShowToast("success", "Save file exported successfully.");
+			if (stampTimeoutRef.current) {
+				clearTimeout(stampTimeoutRef.current);
 			}
-		}, 800);
-	}, [originalData, values, errors, handleShowToast]);
+			stampTimeoutRef.current = setTimeout(() => {
+				setStamped(false);
+				stampTimeoutRef.current = null;
+			}, 900);
+		} catch {
+			handleShowToast("error", "Failed to generate save file.");
+			setStamped(false);
+		}
+	}, [originalData, values, extraVariables, hasErrors, filename, handleShowToast]);
 
 	const handleReset = useCallback(() => {
-		setFileLoaded(false);
-		setOriginalData(null);
-		setValues({});
-		setInitialValues({});
-		setFilename("");
-		setErrors({});
-	}, []);
+		revertAllChanges();
+		handleShowToast("success", "All changes reverted to original save values.");
+	}, [revertAllChanges, handleShowToast]);
 
 	const activeTab = useMemo(() => appData.find((t) => t.id === activeTabId), [activeTabId]);
-	const hasErrors = Object.keys(errors).length > 0;
 
 	const errorCounts = useMemo(() => {
 		const counts: Record<string, number> = {};
@@ -263,6 +216,7 @@ export function useSaveEditor() {
 		showHelp,
 		setShowHelp,
 		stamped,
+		validateField,
 		handleShowToast,
 		handleCloseToast,
 		handleFileLoaded,

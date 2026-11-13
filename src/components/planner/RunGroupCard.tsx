@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { RunGroup } from "../../utils/recommendation";
-import { steamAchievements } from "../../data/steam_achievements";
+import { steamAchievements, type SteamAchievement } from "../../data/steam_achievements";
+import { AchievementWalkthroughModal } from "../achievements/AchievementWalkthroughModal";
 import { ConflictAlert } from "./ConflictAlert";
 import {
   TrophyIcon,
@@ -67,6 +68,7 @@ export function RunGroupCard({
 }: RunGroupCardProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [showBonus, setShowBonus] = useState(false);
+  const [selectedWalkthroughAch, setSelectedWalkthroughAch] = useState<SteamAchievement | null>(null);
   const { run, targetAchievements, bonusAchievements, intraRunConflicts } = group;
 
   const achievementMap = useMemo(() => {
@@ -74,7 +76,7 @@ export function RunGroupCard({
   }, []);
 
   return (
-    <div className="border-2 border-slate-300 dark:border-white/15 bg-amber-50/50 dark:bg-black/20 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden bg-noise transition-all duration-300">
+    <div className="border-2 border-slate-300 dark:border-white/15 bg-amber-50/50 dark:bg-black/20 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden transition-colors duration-300">
       {/* Run number watermark */}
       <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-[0.03] dark:opacity-[0.06] pointer-events-none font-serif font-black text-[120px] leading-none select-none">
         {runIndex + 1}
@@ -196,10 +198,19 @@ export function RunGroupCard({
                           <TrophyIcon className="w-4 h-4 text-brass" />
                         )}
                       </div>
-                      <div className="min-w-0">
+                      <div className="flex-1 min-w-0">
                         <p className="text-xs font-bold text-slate-900 dark:text-white leading-snug line-clamp-2">
                           {name}
                         </p>
+                        {ach && (
+                          <button
+                            type="button"
+                            onClick={() => setSelectedWalkthroughAch(ach)}
+                            className="mt-1 text-[9px] font-mono font-bold uppercase tracking-wider text-brass hover:underline cursor-pointer"
+                          >
+                            Walkthrough →
+                          </button>
+                        )}
                       </div>
                     </div>
                   );
@@ -222,7 +233,7 @@ export function RunGroupCard({
                   />
                 </button>
                 {showBonus && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 animate-in fade-in duration-200">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 animate-fade-in">
                     {bonusAchievements.map((name) => {
                       const ach = achievementMap.get(name);
                       return (
@@ -254,6 +265,12 @@ export function RunGroupCard({
           </div>
         )}
       </div>
+
+      <AchievementWalkthroughModal
+        achievement={selectedWalkthroughAch}
+        isOpen={Boolean(selectedWalkthroughAch)}
+        onClose={() => setSelectedWalkthroughAch(null)}
+      />
     </div>
   );
 }

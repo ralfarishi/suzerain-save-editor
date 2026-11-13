@@ -1,4 +1,4 @@
-import { memo, useState, useCallback, useMemo } from "react";
+import { memo, useState, useCallback, useMemo, useEffect } from "react";
 import { GameField, Section } from "../data/data";
 import { FieldValues } from "../utils/save-manager";
 import { FormToolbar, ViewDensity } from "./FormToolbar";
@@ -12,6 +12,9 @@ interface EditorFormProps {
 	onChange: (id: string, value: string | number | boolean) => void;
 	onUpdateValues: (newValues: FieldValues) => void;
 	onResetTab?: () => void;
+	forcedOpenSection?: { section: string; nonce: number } | null;
+	highlightedFieldId?: string | null;
+	onOpenRawInspector?: () => void;
 }
 
 export const EditorForm = memo(function EditorForm({
@@ -22,12 +25,24 @@ export const EditorForm = memo(function EditorForm({
 	onChange,
 	onUpdateValues,
 	onResetTab,
+	forcedOpenSection,
+	highlightedFieldId,
+	onOpenRawInspector,
 }: EditorFormProps) {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [showModifiedOnly, setShowModifiedOnly] = useState(false);
 	const [density, setDensity] = useState<ViewDensity>("comfortable");
 	const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({});
 	const [allCollapsed, setAllCollapsed] = useState(false);
+
+	useEffect(() => {
+		if (forcedOpenSection?.section) {
+			setCollapsedSections((prev) => ({
+				...prev,
+				[forcedOpenSection.section]: false,
+			}));
+		}
+	}, [forcedOpenSection]);
 
 	const handleToggleCollapse = useCallback((title: string) => {
 		setCollapsedSections((prev) => ({
@@ -81,6 +96,7 @@ export const EditorForm = memo(function EditorForm({
 				values={values}
 				onUpdateValues={onUpdateValues}
 				onResetTab={onResetTab}
+				onOpenRawInspector={onOpenRawInspector}
 			/>
 
 			<div className="space-y-4">
@@ -94,9 +110,10 @@ export const EditorForm = memo(function EditorForm({
 						onChange={onChange}
 						density={density}
 						isCollapsed={Boolean(collapsedSections[section.title])}
-						onToggleCollapse={() => handleToggleCollapse(section.title)}
+						onToggleCollapse={handleToggleCollapse}
 						searchQuery={searchQuery}
 						showModifiedOnly={showModifiedOnly}
+						highlightedFieldId={highlightedFieldId}
 					/>
 				))}
 			</div>

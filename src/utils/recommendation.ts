@@ -15,7 +15,7 @@ export interface ConflictPair {
  * Both can still be obtained — but they require separate playthroughs
  * of the same campaign segment.
  */
-export interface CrossRunConflict {
+interface CrossRunConflict {
   runAId: string;
   runBId: string;
   runATitle: string;
@@ -57,11 +57,6 @@ function buildCoverageMap(
     }
   }
   return map;
-}
-
-function runCoversAll(run: Run, achievements: string[]): boolean {
-  const set = new Set(run.achievements);
-  return achievements.every((a) => set.has(a));
 }
 
 /**
@@ -233,6 +228,7 @@ export function computeRecommendation(
       groups: [],
       uncoverable: [],
       totalRuns: 0,
+      crossRunConflicts: [],
     };
   }
 

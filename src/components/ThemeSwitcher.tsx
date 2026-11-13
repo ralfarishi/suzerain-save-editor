@@ -1,20 +1,47 @@
 import { MoonIcon, SunDimIcon } from "@phosphor-icons/react";
-import { useState, memo } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
+
+type ThemeMode = "light" | "dark";
+
+const themeListeners = new Set<(next: ThemeMode) => void>();
+
+function readCurrentTheme(): ThemeMode {
+	if (typeof document !== "undefined") {
+		return document.documentElement.classList.contains("dark") ? "dark" : "light";
+	}
+	return "dark";
+}
+
+function applyTheme(next: ThemeMode): void {
+	try {
+		if (typeof window !== "undefined" && window.localStorage) {
+			window.localStorage.setItem("theme", next);
+		}
+	} catch {
+		// Ignore storage access errors (private browsing / quota exceeded)
+	}
+	if (typeof document !== "undefined") {
+		document.documentElement.classList.toggle("dark", next === "dark");
+	}
+	for (const listener of themeListeners) {
+		listener(next);
+	}
+}
 
 export function useTheme() {
-	const [theme, setTheme] = useState<"light" | "dark">(() => {
-		if (typeof document !== "undefined") {
-			return document.documentElement.classList.contains("dark") ? "dark" : "light";
-		}
-		return "dark";
-	});
+	const [theme, setTheme] = useState<ThemeMode>(readCurrentTheme);
 
-	const toggleTheme = () => {
-		const newTheme = theme === "light" ? "dark" : "light";
-		setTheme(newTheme);
-		localStorage.setItem("theme", newTheme);
-		document.documentElement.classList.toggle("dark", newTheme === "dark");
-	};
+	useEffect(() => {
+		themeListeners.add(setTheme);
+		return () => {
+			themeListeners.delete(setTheme);
+		};
+	}, []);
+
+	const toggleTheme = useCallback(() => {
+		const next: ThemeMode = readCurrentTheme() === "light" ? "dark" : "light";
+		applyTheme(next);
+	}, []);
 
 	return { theme, toggleTheme };
 }
@@ -27,13 +54,13 @@ export const ThemeSwitcher = memo(function ThemeSwitcher() {
 			type="button"
 			onClick={toggleTheme}
 			aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-			className="relative flex items-center h-8 w-16 rounded-full border-2 border-slate-400 dark:border-white/20 bg-slate-300 dark:bg-slate-800 transition-none focus:outline-none cursor-pointer hover-tactile shadow-inner"
+			className="relative flex items-center h-8 w-16 rounded-full border-2 border-slate-400 dark:border-white/20 bg-slate-300 dark:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass cursor-pointer hover-tactile shadow-inner"
 			title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
 		>
 			<span
 				className={`
-				absolute w-6 h-6 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center font-mono text-[9px] font-bold text-white dark:text-zinc-950 shadow-sm
-				${theme === "dark" ? "right-1 bg-brass dark:bg-brass-light" : "left-1 bg-slate-500 dark:bg-slate-400"}
+				absolute left-1 w-6 h-6 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center font-mono text-[9px] font-bold text-white dark:text-zinc-950 shadow-sm transition-transform duration-150 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+				${theme === "dark" ? "translate-x-7 bg-brass dark:bg-brass-light" : "translate-x-0 bg-slate-500 dark:bg-slate-400"}
 			`}
 			>
 				{theme === "light" ? (
@@ -41,29 +68,6 @@ export const ThemeSwitcher = memo(function ThemeSwitcher() {
 				) : (
 					<MoonIcon weight="bold" className="w-3.5 h-3.5" />
 				)}
-			</span>
-		</button>
-	);
-});
-
-export const ThemeNavButton = memo(function ThemeNavButton() {
-	const { theme, toggleTheme } = useTheme();
-
-	return (
-		<button
-			type="button"
-			onClick={toggleTheme}
-			aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-			className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-200 transition-all cursor-pointer group"
-			title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-		>
-			{theme === "light" ? (
-				<SunDimIcon weight="bold" className="w-5 h-5 text-amber-400 mb-0.5 group-active:scale-90" />
-			) : (
-				<MoonIcon weight="bold" className="w-5 h-5 text-brass mb-0.5 group-active:scale-90" />
-			)}
-			<span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
-				Theme
 			</span>
 		</button>
 	);

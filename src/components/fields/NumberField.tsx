@@ -65,7 +65,7 @@ export function NumberField({
 					<div className="flex items-center justify-between gap-2 mb-1">
 						<label
 							htmlFor={field.id}
-							className={`block ${isCompact ? "text-[11px]" : "text-xs"} font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 cursor-pointer select-none truncate`}
+							className={`block ${isCompact ? "text-[11px]" : "text-xs"} font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 cursor-pointer select-none truncate`}
 						>
 							{field.label}
 						</label>
@@ -113,7 +113,7 @@ export function NumberField({
 			</div>
 
 			{error && (
-				<div className="mt-2 flex items-center gap-1.5 text-warm-error text-xs font-bold animate-in slide-in-from-top-1">
+				<div className="mt-2 flex items-center gap-1.5 text-warm-error text-xs font-bold animate-fade-in">
 					<WarningCircleIcon weight="fill" className="w-3.5 h-3.5" />
 					<span>{error}</span>
 				</div>

@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { steamAchievements } from "../../data/steam_achievements";
 import { runs } from "../../data/runs";
+import { useSave } from "../../context/SaveContext";
 import {
   MagnifyingGlassIcon,
   XIcon,
@@ -56,9 +57,11 @@ interface AchievementPickerProps {
 }
 
 export function AchievementPicker({ selected, onChange }: AchievementPickerProps) {
+  const { fileLoaded, auditResults, showTechnicalKeys } = useSave();
   const [query, setQuery] = useState("");
   const [gameFilter, setGameFilter] = useState<GameFilter>("All");
   const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>("All");
+  const [hideCompleted, setHideCompleted] = useState(false);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const sentinelRef = useRef<HTMLDivElement>(null);
 
@@ -67,7 +70,17 @@ export function AchievementPicker({ selected, onChange }: AchievementPickerProps
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
     return steamAchievements.filter((ach) => {
-      if (q && !ach.name.toLowerCase().includes(q)) return false;
+      if (hideCompleted && fileLoaded && auditResults.get(ach.id)?.status === "completed") {
+        return false;
+      }
+      if (
+        q &&
+        !ach.name.toLowerCase().includes(q) &&
+        !(showTechnicalKeys && ach.id.toLowerCase().includes(q)) &&
+        !ach.description.toLowerCase().includes(q)
+      ) {
+        return false;
+      }
       if (gameFilter === "Sordland" && !SORDLAND_NAMES.has(ach.name))
         return false;
       if (gameFilter === "Rizia" && !RIZIA_NAMES.has(ach.name))
@@ -88,7 +101,7 @@ export function AchievementPicker({ selected, onChange }: AchievementPickerProps
 
       return true;
     });
-  }, [query, gameFilter, categoryFilter]);
+  }, [query, gameFilter, categoryFilter, hideCompleted, fileLoaded, auditResults, showTechnicalKeys]);
 
   const visible = useMemo(
     () => filtered.slice(0, visibleCount),
@@ -227,6 +240,17 @@ export function AchievementPicker({ selected, onChange }: AchievementPickerProps
               {cat}
             </button>
           ))}
+          {fileLoaded && (
+            <label className="ml-auto inline-flex items-center gap-1.5 text-[11px] font-mono text-slate-600 dark:text-slate-300 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={hideCompleted}
+                onChange={(e) => setHideCompleted(e.target.checked)}
+                className="accent-brass"
+              />
+              Hide Completed in Save
+            </label>
+          )}
         </div>
       </div>
 
@@ -268,7 +292,27 @@ export function AchievementPicker({ selected, onChange }: AchievementPickerProps
               </div>
 
               {/* Text */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 pr-1">
+                <div className="flex items-center gap-1.5 mb-1 flex-wrap">
+                  {showTechnicalKeys && (
+                    <span className="font-mono text-[8px] uppercase tracking-wider text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-white/10 px-1.5 py-0.5 rounded truncate max-w-[130px]">
+                      {ach.id}
+                    </span>
+                  )}
+                  {ach.triggerType && (
+                    <span className="font-mono text-[8px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-slate-200/60 dark:bg-white/10 text-slate-600 dark:text-slate-300">
+                      {ach.triggerType === "conditional"
+                        ? "Policy"
+                        : ach.triggerType === "in_scene"
+                        ? "Dialogue"
+                        : ach.triggerType === "story"
+                        ? "Story"
+                        : ach.triggerType === "collectible"
+                        ? "Item"
+                        : "Tactical"}
+                    </span>
+                  )}
+                </div>
                 <p
                   className={`text-xs font-bold leading-snug line-clamp-2 transition-colors ${
                     isSelected

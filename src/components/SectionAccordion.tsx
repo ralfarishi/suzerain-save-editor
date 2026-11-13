@@ -13,9 +13,10 @@ interface SectionAccordionProps {
 	onChange: (id: string, value: string | number | boolean) => void;
 	density: ViewDensity;
 	isCollapsed: boolean;
-	onToggleCollapse: () => void;
+	onToggleCollapse: (title: string) => void;
 	searchQuery: string;
 	showModifiedOnly: boolean;
+	highlightedFieldId?: string | null;
 }
 
 export const SectionAccordion = memo(function SectionAccordion({
@@ -29,6 +30,7 @@ export const SectionAccordion = memo(function SectionAccordion({
 	onToggleCollapse,
 	searchQuery,
 	showModifiedOnly,
+	highlightedFieldId,
 }: SectionAccordionProps) {
 	// Filter fields based on search query and modified filter
 	const filteredFields = section.fields.filter((field: GameField) => {
@@ -44,7 +46,7 @@ export const SectionAccordion = memo(function SectionAccordion({
 			const query = searchQuery.toLowerCase().trim();
 			const matchLabel = field.label.toLowerCase().includes(query);
 			const matchId = field.id.toLowerCase().includes(query);
-			const matchKey = field.key.toLowerCase().includes(query);
+			const matchKey = "key" in field && typeof field.key === "string" ? field.key.toLowerCase().includes(query) : false;
 			if (!matchLabel && !matchId && !matchKey) return false;
 		}
 
@@ -78,7 +80,7 @@ export const SectionAccordion = memo(function SectionAccordion({
 			{/* Accordion Header */}
 			<button
 				type="button"
-				onClick={onToggleCollapse}
+				onClick={() => onToggleCollapse(section.title)}
 				className="w-full px-5 py-4 flex items-center justify-between gap-4 bg-slate-50 dark:bg-black/20 hover:bg-slate-100 dark:hover:bg-black/40 transition-colors cursor-pointer select-none"
 			>
 				<div className="flex items-center gap-3">
@@ -86,8 +88,8 @@ export const SectionAccordion = memo(function SectionAccordion({
 					<h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight text-left">
 						{section.title}
 					</h3>
-					<span className="text-xs font-mono font-bold text-slate-400 dark:text-slate-500">
-						({filteredFields.length} {filteredFields.length === 1 ? "field" : "fields"})
+					<span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400">
+						({filteredFields.length} {filteredFields.length === 1 ? "setting" : "settings"})
 					</span>
 				</div>
 
@@ -137,6 +139,7 @@ export const SectionAccordion = memo(function SectionAccordion({
 									field.type === "boolean-date" ? (initialValues[field.dateId] as string) : undefined
 								}
 								density={density}
+								isHighlighted={highlightedFieldId === field.id}
 							/>
 						))}
 					</div>

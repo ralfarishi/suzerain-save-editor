@@ -1,15 +1,15 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState, useCallback, useEffect, useRef } from "react";
 import {
-  ArrowLeftIcon,
   MagicWandIcon,
   TrashIcon,
   ShareNetworkIcon,
-  ShieldCheckIcon,
 } from "@phosphor-icons/react";
-import { ThemeSwitcher, ThemeNavButton } from "../components/ThemeSwitcher";
 import { AchievementPicker } from "../components/planner/AchievementPicker";
 import { PlannerResult } from "../components/planner/PlannerResult";
+import { MobileHeader } from "../components/layout/MobileHeader";
+import { FloatingMobileDock } from "../components/layout/FloatingMobileDock";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import {
   computeRecommendation,
   loadSelectionFromStorage,
@@ -19,14 +19,24 @@ import {
   RecommendationResult,
 } from "../utils/recommendation";
 
+interface PlannerSearch {
+  a?: string;
+}
+
 export const Route = createFileRoute("/planner")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: PlannerSearch = {}): PlannerSearch => ({
     a: typeof search.a === "string" ? search.a : undefined,
   }),
   component: PlannerPage,
 });
 
 function PlannerPage() {
+  useDocumentMeta({
+    title: "Suzerain Achievement Run Planner | Suzerain Save Editor",
+    description:
+      "Plan optimal multi-achievement Suzerain runs for Sordland and Rizia with automatic conflict detection and pathway recommendations.",
+    canonicalPath: "/planner",
+  });
   const { a } = Route.useSearch();
 
   // URL param takes priority over localStorage (share links)
@@ -49,15 +59,29 @@ function PlannerPage() {
 
   const [copied, setCopied] = useState(false);
   const resultRef = useRef<HTMLDivElement>(null);
+  const scrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const copiedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Persist selections to localStorage on every change
   useEffect(() => {
-    saveSelectionToStorage(selected);
-  }, [selected]);
+    return () => {
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      if (copiedTimerRef.current) clearTimeout(copiedTimerRef.current);
+    };
+  }, []);
+
+  // Sync incoming ?a= share param reactively without clobbering localStorage until user edits
+  useEffect(() => {
+    if (!a) return;
+    const decoded = decodeSelectionFromUrl(a);
+    if (decoded.length > 0) {
+      setSelected(decoded);
+      setResult(computeRecommendation(decoded));
+    }
+  }, [a]);
 
   const handleChange = useCallback((next: string[]) => {
     setSelected(next);
-    // Clear result when selection changes
+    saveSelectionToStorage(next);
     setResult(null);
   }, []);
 
@@ -68,14 +92,17 @@ function PlannerPage() {
 
     // On mobile (< xl), smoothly bring the computed result into view
     if (window.innerWidth < 1280) {
-      setTimeout(() => {
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      scrollTimerRef.current = setTimeout(() => {
         resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollTimerRef.current = null;
       }, 80);
     }
   }, [selected]);
 
   const handleClear = useCallback(() => {
     setSelected([]);
+    saveSelectionToStorage([]);
     setResult(null);
   }, []);
 
@@ -85,7 +112,11 @@ function PlannerPage() {
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      if (copiedTimerRef.current) clearTimeout(copiedTimerRef.current);
+      copiedTimerRef.current = setTimeout(() => {
+        setCopied(false);
+        copiedTimerRef.current = null;
+      }, 2000);
     } catch {
       // Clipboard unavailable — silently ignore
     }
@@ -95,84 +126,18 @@ function PlannerPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Desktop Header */}
-      <header className="hidden md:block bg-slate-50 dark:bg-warm-surface-dark border-b-4 border-slate-300 dark:border-white/10 sticky top-0 z-50 bg-noise shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <h1 className="text-xl font-serif font-black uppercase tracking-widest text-slate-900 dark:text-white">
-              Sordland <span className="text-brass">Planner</span>
-            </h1>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link
-              to="/achievements"
-              className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-warm-accent transition-colors"
-            >
-              <ShieldCheckIcon className="w-4 h-4" />
-              Walkthroughs
-            </Link>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-warm-accent transition-colors"
-            >
-              <ArrowLeftIcon className="w-4 h-4" />
-              Back to Editor
-            </Link>
-            <ThemeSwitcher />
-          </div>
-        </div>
-      </header>
+      {/* Mobile Top Header Banner */}
+      <MobileHeader title="Achievement" subtitle="Planner" />
 
-      {/* Mobile Bottom Nav */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-60 bg-slate-900 dark:bg-black border-t-4 border-brass shadow-[0_-10px_30px_rgba(0,0,0,0.5)] bg-noise">
-        <div className="h-1 bg-brass w-full" />
-        <div className="max-w-lg mx-auto grid grid-cols-4 gap-1.5 p-2">
-          {/* Back */}
-          <Link
-            to="/"
-            className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-200 transition-all group"
-            title="Back to Editor"
-          >
-            <ArrowLeftIcon weight="bold" className="w-5 h-5 text-slate-300 mb-0.5" />
-            <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
-              Editor
-            </span>
-          </Link>
-
-          {/* Theme */}
-          <ThemeNavButton />
-
-          {/* Walkthroughs */}
-          <Link
-            to="/achievements"
-            className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-slate-800/80 border border-white/10 hover:border-brass/40 active:scale-95 text-slate-200 transition-all"
-            title="Walkthroughs"
-          >
-            <ShieldCheckIcon className="w-5 h-5 text-slate-300 mb-0.5" />
-            <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-300">
-              Guides
-            </span>
-          </Link>
-
-          {/* Compute */}
-          <button
-            type="button"
-            onClick={handleCompute}
-            disabled={!canCompute}
-            className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl border transition-all cursor-pointer ${
-              canCompute
-                ? "bg-brass text-slate-900 border-brass-light shadow-[0_3px_0_0_#684b06]"
-                : "bg-slate-800/80 text-slate-500 border-white/10 opacity-50 cursor-not-allowed"
-            }`}
-          >
-            <MagicWandIcon weight="fill" className="w-5 h-5 mb-0.5" />
-            <span className="text-[9px] font-mono font-bold uppercase tracking-wider">
-              Plan
-            </span>
-          </button>
-        </div>
-        <div className="h-2 bg-transparent" />
-      </nav>
+      {/* Option A: Floating Island Dock */}
+      <FloatingMobileDock
+        canCompute={canCompute}
+        selectedCount={selected.length}
+        onCompute={handleCompute}
+        onClearPlanner={handleClear}
+        onSharePlanner={handleShare}
+        isPlannerCopied={copied}
+      />
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 pb-32">

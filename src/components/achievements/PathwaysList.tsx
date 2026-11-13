@@ -3,7 +3,7 @@ import { communityPathways } from "../../data/pathways";
 import { PathwayCard } from "./PathwayCard";
 
 const FILTER_CONFIG: Record<"All" | "Sordland" | "Rizia" | "Special", { label: string; iconSymbol?: string }> = {
-	All: { label: "All Operations", iconSymbol: "🗂" },
+	All: { label: "All Guides", iconSymbol: "◈" },
 	Sordland: { label: "Republic of Sordland", iconSymbol: "§" },
 	Rizia: { label: "Kingdom of Rizia", iconSymbol: "✦" },
 	Special: { label: "Special & Hidden", iconSymbol: "★" },
@@ -18,6 +18,15 @@ export function PathwaysList({ highlightId }: PathwaysListProps = {}) {
 	const [activeFilter, setActiveFilter] = useState<"All" | "Sordland" | "Rizia" | "Special">("All");
 	const [highlightedId, setHighlightedId] = useState<string | undefined>(highlightId);
 
+	const counts = useMemo(() => {
+		return {
+			All: communityPathways.length,
+			Sordland: communityPathways.filter((p) => p.tags.includes("Sordland")).length,
+			Rizia: communityPathways.filter((p) => p.tags.includes("Rizia")).length,
+			Special: communityPathways.filter((p) => p.tags.includes("Special")).length,
+		};
+	}, []);
+
 	const filteredPathways = useMemo(() => {
 		if (activeFilter === "All") return communityPathways;
 		return communityPathways.filter((pathway) => pathway.tags.includes(activeFilter));
@@ -25,28 +34,31 @@ export function PathwaysList({ highlightId }: PathwaysListProps = {}) {
 
 	// Scroll to and briefly highlight the target pathway when a highlightId is provided.
 	useEffect(() => {
+		setHighlightedId(highlightId);
 		if (!highlightId) return;
 
-		// Give the DOM time to render all cards
-		const id = setTimeout(() => {
+		let clearId: ReturnType<typeof setTimeout> | null = null;
+		const scrollId = setTimeout(() => {
 			const el = document.getElementById(highlightId);
 			if (el) {
 				el.scrollIntoView({ behavior: "smooth", block: "start" });
 			}
-			// Remove highlight ring after 2.5 s so it doesn't linger
-			const clearId = setTimeout(() => setHighlightedId(undefined), 2500);
-			return () => clearTimeout(clearId);
+			clearId = setTimeout(() => setHighlightedId(undefined), 2500);
 		}, 150);
 
-		return () => clearTimeout(id);
+		return () => {
+			clearTimeout(scrollId);
+			if (clearId) clearTimeout(clearId);
+		};
 	}, [highlightId]);
 
 	return (
 		<div className="space-y-6">
 			{/* Filter Controls - Official State Dossier Tabs */}
-			<div className="flex flex-wrap gap-2.5 mb-8 pb-6 border-b-2 border-slate-200 dark:border-white/10">
+			<div className="flex flex-nowrap sm:flex-wrap overflow-x-auto sm:overflow-visible no-scrollbar gap-2 sm:gap-2.5 mb-6 sm:mb-8 pb-3 sm:pb-6 border-b-2 border-slate-200 dark:border-white/10">
 				{(["All", "Sordland", "Rizia", "Special"] as const).map((filter) => {
 					const config = FILTER_CONFIG[filter];
+					const count = counts[filter];
 
 					return (
 						<button
@@ -54,7 +66,7 @@ export function PathwaysList({ highlightId }: PathwaysListProps = {}) {
 							key={filter}
 							onClick={() => setActiveFilter(filter)}
 							className={`
-								flex items-center gap-2 px-5 py-2.5 rounded-lg font-serif font-bold uppercase tracking-widest text-xs transition-all border-2 cursor-pointer
+								flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg font-serif font-bold uppercase tracking-wider sm:tracking-widest text-[11px] sm:text-xs transition-all border-2 cursor-pointer whitespace-nowrap shrink-0
 								${
 									activeFilter === filter
 										? "bg-brass text-slate-900 border-brass-light shadow-[0_3px_0_0_#684b06] -translate-y-0.5"
@@ -64,6 +76,15 @@ export function PathwaysList({ highlightId }: PathwaysListProps = {}) {
 						>
 							{config.iconSymbol && <span className="text-sm leading-none">{config.iconSymbol}</span>}
 							<span>{config.label}</span>
+							<span
+								className={`ml-1 text-[10px] font-mono font-bold px-1.5 py-0.2 rounded ${
+									activeFilter === filter
+										? "bg-slate-950/20 text-slate-950"
+										: "bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-slate-400"
+								}`}
+							>
+								{count}
+							</span>
 						</button>
 					);
 				})}
@@ -78,7 +99,7 @@ export function PathwaysList({ highlightId }: PathwaysListProps = {}) {
 						highlighted={highlightedId === pathway.id}
 					/>
 				))}
-				
+
 				{filteredPathways.length === 0 && (
 					<div className="py-12 text-center text-slate-500 dark:text-slate-400 font-serif italic">
 						No operational briefings found for this category.

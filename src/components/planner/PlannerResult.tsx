@@ -60,7 +60,7 @@ export function PlannerResult({ result, totalSelected }: PlannerResultProps) {
                 {coverableCount}
               </p>
               <p className="text-[10px] uppercase font-bold tracking-widest text-slate-500">
-                Mapped
+                Planned
               </p>
             </div>
             {uncoverable.length > 0 && (
@@ -69,7 +69,7 @@ export function PlannerResult({ result, totalSelected }: PlannerResultProps) {
                   {uncoverable.length}
                 </p>
                 <p className="text-[10px] uppercase font-bold tracking-widest text-slate-500">
-                  Need Attention
+                  Special Conditions
                 </p>
               </div>
             )}
@@ -99,7 +99,7 @@ export function PlannerResult({ result, totalSelected }: PlannerResultProps) {
             />
             <div>
               <p className="text-xs font-black uppercase tracking-widest text-red-700 dark:text-red-400 mb-1">
-                Cross-Run Conflict{crossRunConflicts.length !== 1 ? "s" : ""} Detected ({crossRunConflicts.length})
+                Requires Separate Playthroughs ({crossRunConflicts.length})
               </p>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 These achievement pairs cannot be obtained in the same playthrough.
@@ -232,10 +232,10 @@ export function PlannerResult({ result, totalSelected }: PlannerResultProps) {
             />
             <div>
               <p className="text-xs font-black uppercase tracking-widest text-amber-700 dark:text-amber-400 mb-1">
-                No Matching Run Found ({uncoverable.length})
+                Requires Specific Conditions ({uncoverable.length})
               </p>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                These are RNG-based or have very specific conditions. Check the{" "}
+                These rely on random events or very specific conditions. Check the{" "}
                 <a
                   href="https://steamcommunity.com/sharedfiles/filedetails/?id=3670692943"
                   target="_blank"
