@@ -6,7 +6,7 @@ dist-ssr
 .env
 .output
 
-# .agents
+.agents/
 .vscode
 .vercel
 
